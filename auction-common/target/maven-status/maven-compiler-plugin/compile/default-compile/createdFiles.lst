@@ -1,0 +1,7 @@
+model/Item.class
+model/AbstractEntity.class
+model/Auction.class
+model/AbstractSoftDeletedEntity.class
+model/User.class
+model/ItemCategory.class
+model/Bidding.class

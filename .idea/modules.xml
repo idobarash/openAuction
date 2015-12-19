@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/auction-app/auction-app.iml" filepath="$PROJECT_DIR$/auction-app/auction-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auction-common/auction-common.iml" filepath="$PROJECT_DIR$/auction-common/auction-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auction-server/auction-server.iml" filepath="$PROJECT_DIR$/auction-server/auction-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autcion-parent.iml" filepath="$PROJECT_DIR$/autcion-parent.iml" />
+    </modules>
+  </component>
+</project>

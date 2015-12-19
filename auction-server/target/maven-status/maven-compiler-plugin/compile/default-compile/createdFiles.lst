@@ -1,0 +1,12 @@
+dao/UserDaoJpaImpl.class
+rest/UsersRestServiceImpl.class
+services/UsersBusinessService.class
+rest/AuthRestServicesImpl.class
+rest/AuthRestServices.class
+dao/base/AbstractJpaDao.class
+dao/base/GenericDao.class
+services/AuthBusinessService.class
+exception/AuctionException.class
+dao/base/AbstractSoftDeletedJpaDao.class
+dao/UserDao.class
+rest/UsersRestService.class
