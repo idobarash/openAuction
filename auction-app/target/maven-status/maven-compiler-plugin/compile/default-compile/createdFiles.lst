@@ -1,0 +1,5 @@
+services/AuthServices.class
+model/Login.class
+services/RestUtil.class
+services/ItemServices.class
+model/CategoriesBar.class

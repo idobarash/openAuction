@@ -1,16 +1,17 @@
 package dao;
 
 
-import dao.UserDao;
-import dao.base.AbstractJpaDao;
-import model.User;
+import dao.base.AbstractSoftDeletedJpaDao;
+import entity.User;
 
 import javax.inject.Named;
 import javax.persistence.Query;
 
+/**
+ * A JPA implementation of User DAO.
+ */
 @Named
-public class UserDaoJpaImpl extends AbstractJpaDao<User> implements UserDao {
-
+public class UserDaoJpaImpl extends AbstractSoftDeletedJpaDao<User> implements UserDao {
 
     @Override
     public User readUserByUsernameAndPassword(String username, String password) {

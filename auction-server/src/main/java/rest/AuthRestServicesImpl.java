@@ -2,11 +2,10 @@ package rest;
 
 
 import exception.AuctionException;
-import model.User;
+import entity.User;
 import services.AuthBusinessService;
 
 import javax.inject.Inject;
-import javax.ws.rs.core.Response;
 
 public class AuthRestServicesImpl implements AuthRestServices {
 
@@ -22,5 +21,10 @@ public class AuthRestServicesImpl implements AuthRestServices {
         }
 
         return user;
+    }
+
+    @Override
+    public User logout(String username, String password) {
+        return null;
     }
 }

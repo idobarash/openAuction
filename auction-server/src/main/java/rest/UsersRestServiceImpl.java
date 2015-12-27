@@ -1,11 +1,10 @@
 package rest;
 
 
-import model.User;
+import entity.User;
 import services.UsersBusinessService;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 
 public class UsersRestServiceImpl implements UsersRestService {

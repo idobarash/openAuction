@@ -1,11 +1,10 @@
 package rest;
 
-import model.User;
+import entity.User;
 
-import javax.swing.text.StringContent;
 import javax.ws.rs.*;
 
-@Path("/user")
+@Path("/users")
 public interface UsersRestService {
 
     @GET

@@ -1,7 +1,7 @@
-model/Item.class
-model/AbstractEntity.class
-model/Auction.class
-model/AbstractSoftDeletedEntity.class
-model/User.class
-model/ItemCategory.class
-model/Bidding.class
+entity/AbstractSoftDeletedEntity.class
+entity/AbstractEntity.class
+entity/ItemCategory.class
+entity/Item.class
+entity/User.class
+entity/Bidding.class
+entity/Auction.class

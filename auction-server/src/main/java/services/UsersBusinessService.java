@@ -1,7 +1,7 @@
 package services;
 
 import dao.UserDao;
-import model.User;
+import entity.User;
 
 import javax.inject.Inject;
 import javax.inject.Named;

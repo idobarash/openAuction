@@ -10,11 +10,11 @@
 
         <jta-data-source>auctionDS</jta-data-source>
 
-        <class>model.User</class>
-        <class>model.Item</class>
-        <class>model.ItemCategory</class>
-        <class>model.Bidding</class>
-        <class>model.Auction</class>
+        <class>entity.User</class>
+        <class>entity.Item</class>
+        <class>entity.ItemCategory</class>
+        <class>entity.Bidding</class>
+        <class>entity.Auction</class>
 
         <properties>
             <property name="hibernate.show_sql" value="true" />

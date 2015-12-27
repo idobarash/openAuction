@@ -1,12 +1,17 @@
 package dao.base;
 
-import model.AbstractEntity;
+import entity.AbstractEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * Created by ido on 19/12/2015.
+ * Basic implementation of the Basic DAO with simple
+ * CRUD.
+ *
+ * Notice: Delete method performs true delete.
+ *
+ * @param <T> entity
  */
 public class AbstractJpaDao<T extends AbstractEntity> implements GenericDao<T> {
 
@@ -32,6 +37,4 @@ public class AbstractJpaDao<T extends AbstractEntity> implements GenericDao<T> {
     public void delete(T entity) {
         entityManager.remove(entity);
     }
-
-
 }
