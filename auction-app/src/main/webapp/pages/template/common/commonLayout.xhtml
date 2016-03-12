@@ -14,6 +14,7 @@
 
 			<h:outputStylesheet name="bootstrap.css" library="css" />
 			<h:outputStylesheet name="shop-homepage.css" library="css" />
+
 			<h:outputScript name="js/jquery.js" />
 			<h:outputScript name="js/bootstrap.js" />
 	</h:head>
@@ -27,13 +28,23 @@
 	    	</div>
 
 			<div class="container">
-				<div id="content">
-					<ui:insert name="content" >
-						<ui:include src="commonContent.xhtml" />
-					</ui:insert>
-	    		</div>
+				<div class="row">
+
+					<div class="col-md-3" id="leftBar">
+						<ui:insert name="leftBar" >
+							<ui:include src="commonLeftBar.xhtml" />
+						</ui:insert>
+					</div>
+
+					<div class="col-md-9" id="content">
+						<ui:insert name="content" >
+							<ui:include src="commonContent.xhtml" />
+						</ui:insert>
+					</div>
+				</div>
 			</div>
-			<div id="footer">
+
+			<div class="container" id="footer">
 	    		<ui:insert name="footer" >
 	    			<ui:include src="commonFooter.xhtml" />
 	    		</ui:insert>

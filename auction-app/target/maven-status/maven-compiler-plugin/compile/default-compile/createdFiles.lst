@@ -1,4 +1,4 @@
-viewHandlers/HeaderView.class
-services/AuthServices.class
-services/RestUtil.class
 services/ItemServices.class
+services/AuthServices.class
+viewHandlers/AppGlobalView.class
+services/RestUtil.class
