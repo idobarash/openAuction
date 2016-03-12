@@ -10,6 +10,9 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * View handler class to handle the header
+ */
 @Named
 @SessionScoped
 public class HeaderView implements Serializable {
