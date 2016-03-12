@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="autcion-parent:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/autcion_parent_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="autcion-parent/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="autcion-parent" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

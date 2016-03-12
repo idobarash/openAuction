@@ -1,5 +1,4 @@
 services/AuthServices.class
-model/Login.class
 services/RestUtil.class
+viewHandlers/SearchView.class
 services/ItemServices.class
-model/CategoriesBar.class
