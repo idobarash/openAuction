@@ -4,26 +4,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
->
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
     <body>
 	    <ui:composition>
 
-			<div id="logo">
-                <h:graphicImage library="images" name="logo.jpg" />
-            </div>
-            <div>
-                <div id="search">
-                    <div>Search for item:</div>
-                    <div><h:inputText name="searchInputText" /></div>
-                </div>
-                <div id="catagories">
-
+            <div class="container">
+                <div class="row">
+                    <div class="list-group">
+                        <div id="logo">
+                            <h:graphicImage library="images" name="logo.jpg" />
+                        </div>
+                        <div class="container">
+                            <div id="search" class="container">
+                                <p class="lead">Search for item: </p>
+                                <h:inputText name="searchInputText" value="#{headerView.searchText}" />
+                            </div>
+                        </div>
+                        <div id="catagories">
+                           <ui:repeat value="#{headerView.categoriesList}" var="category">
+                               <div class="list-group">
+                                   <a href="#" class="list-group-item">#{category.name}</a>
+                               </div>
+                           </ui:repeat>
+                        </div>
+                    </div>
                 </div>
             </div>
 
 	    </ui:composition>
     </body>
+
 </html>
 
 
