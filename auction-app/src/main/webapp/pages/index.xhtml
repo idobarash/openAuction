@@ -8,7 +8,13 @@
 >
 <h:body>
 
-	<ui:composition template="template/common/commonLayout.xhtml" />
+	<ui:composition template="template/common/commonLayout.xhtml" >
+
+		<ui:define name="auctionItems">
+				<ui:include src="visitorAuctionItems.xhtml" />
+		</ui:define>
+
+	</ui:composition>
 
 
 </h:body>
