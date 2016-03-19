@@ -16,4 +16,10 @@
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
+    <context-param>
+        <param-name>resteasy.providers</param-name>
+        <param-value>rest.ExceptionHandler</param-value>
+    </context-param>
+
+
 </web-app>

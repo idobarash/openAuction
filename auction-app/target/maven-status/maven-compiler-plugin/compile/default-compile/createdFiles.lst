@@ -1,4 +1,8 @@
-services/ItemServices.class
-services/AuthServices.class
-viewHandlers/AppGlobalView.class
+viewHandlers/LoginView.class
+services/AuthService.class
 services/RestUtil.class
+services/ItemService.class
+viewHandlers/ItemsView.class
+services/SessionService.class
+viewHandlers/AppGlobalView.class
+viewHandlers/RegisterView.class

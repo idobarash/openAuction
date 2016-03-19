@@ -20,6 +20,9 @@ public class User extends AbstractSoftDeletedEntity {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Item> items;
 
+    @Column(name = "is_admin")
+    private Boolean isAdmin = false;
+
     public String getUsername() {
         return username;
     }

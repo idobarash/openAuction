@@ -16,4 +16,14 @@ public class ItemServicesImpl implements ItemServices {
     public List<ItemCategory> getCategories() {
         return itemsBusinessService.getCategories();
     }
+
+    @Override
+    public List<ItemCategory> getItems(Integer userId, String categoryName) {
+
+        if (userId == null) {
+            return itemsBusinessService.getItemsForVisitor(categoryName);
+        }
+
+        return itemsBusinessService.getItemsByCategory(categoryName);
+    }
 }

@@ -5,6 +5,7 @@ import dao.base.AbstractSoftDeletedJpaDao;
 import entity.User;
 
 import javax.inject.Named;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 /**
@@ -16,10 +17,14 @@ public class UserDaoJpaImpl extends AbstractSoftDeletedJpaDao<User> implements U
     @Override
     public User readUserByUsernameAndPassword(String username, String password) {
 
-        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password")
-                .setParameter("username", username)
-                .setParameter("password", password);
+        try {
+            Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password")
+                    .setParameter("username", username)
+                    .setParameter("password", password);
 
-        return (User) query.getSingleResult();
+            return (User) query.getSingleResult();
+        } catch (PersistenceException exception) {
+            return null;
+        }
     }
 }

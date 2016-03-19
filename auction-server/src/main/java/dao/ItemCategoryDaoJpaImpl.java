@@ -15,4 +15,14 @@ public class ItemCategoryDaoJpaImpl extends AbstractJpaDao<ItemCategory> impleme
         Query query = entityManager.createQuery("SELECT ic FROM ItemCategory  ic");
         return query.getResultList();
     }
+
+    @Override
+    public ItemCategory readByName(String categoryName) {
+        Query query = entityManager.createQuery("SELECT ic FROM ItemCategory  ic WHERE ic.name = :categoryName");
+        query.setParameter("categoryName", categoryName);
+
+        return (ItemCategory) query.getSingleResult();
+    }
+
+
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<h:body>
+
+	<ui:composition template="template/common/commonLayout.xhtml" >
+
+		<ui:define name="auctionItems">
+
+
+			<div class="container" align="center">
+				<section id="loginContent">
+					<h:form id="loginForm">
+						<h1>Log in</h1>
+						<div >
+							<h:inputText value="#{loginView.username}" /> <br />
+						</div>
+						<div>
+							<h:inputText value="#{loginView.password}" /><br/>
+						</div>
+						<div>
+							<h:commandButton value="Log in" action="#{loginView.login()}" />
+							<a href="/auction-app/login/register">Register</a>
+						</div>
+					</h:form>
+					<div class="container" >
+
+						<h:outputText value="#{loginView.message}" />
+
+					</div>
+				</section>
+			</div>
+
+
+		</ui:define>
+
+	</ui:composition>
+
+
+</h:body>
+
+</html>

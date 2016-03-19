@@ -3,8 +3,11 @@ rest/AuthRestServicesImpl.class
 dao/UserDaoJpaImpl.class
 services/AuthBusinessService.class
 rest/AuthRestServices.class
+dao/ItemDaoJpaImpl.class
 dao/base/AbstractJpaDao.class
 rest/UsersRestService.class
+dao/ItemDao.class
+rest/ExceptionHandler.class
 rest/ItemServices.class
 rest/UsersRestServiceImpl.class
 rest/HealthServicesImpl.class

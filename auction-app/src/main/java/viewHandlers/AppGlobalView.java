@@ -2,7 +2,7 @@ package viewHandlers;
 
 
 import entity.ItemCategory;
-import services.ItemServices;
+import services.ItemService;
 
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -22,7 +22,7 @@ public class AppGlobalView implements Serializable {
     private List<ItemCategory> categories;
 
     @Inject
-    private ItemServices itemServices;
+    private ItemService itemServices;
 
     public String getSearchText() {
         return searchText;

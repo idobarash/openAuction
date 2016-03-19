@@ -1,6 +1,8 @@
 package rest;
 
 
+import dto.LoginRequest;
+import dto.LogoutRequest;
 import exception.AuctionException;
 import entity.User;
 import services.AuthBusinessService;
@@ -13,8 +15,8 @@ public class AuthRestServicesImpl implements AuthRestServices {
     private AuthBusinessService authBusinessService;
 
     @Override
-    public User login(String username, String password) {
-        User user = authBusinessService.loginUser(username, password);
+    public User login(LoginRequest loginRequest) {
+        User user = authBusinessService.loginUser(loginRequest.getUsername(), loginRequest.getPassword());
 
         if (user == null) {
             throw new AuctionException("Authetication problem: wrong username or password");
@@ -24,7 +26,7 @@ public class AuthRestServicesImpl implements AuthRestServices {
     }
 
     @Override
-    public User logout(String username, String password) {
+    public User logout(LogoutRequest logoutRequest) {
         return null;
     }
 }

@@ -1,4 +1,8 @@
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/AppGlobalView.java
-/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/AuthServices.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/ItemService.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/AuthService.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/SessionService.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/ItemsView.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/RegisterView.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/LoginView.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/RestUtil.java
-/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/ItemServices.java

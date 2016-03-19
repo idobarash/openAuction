@@ -1,13 +1,18 @@
 package services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import entity.AbstractEntity;
+import com.fasterxml.jackson.databind.RuntimeJsonMappingException;
+import entity.User;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+
+import java.util.Map;
 
 public abstract class RestUtil {
 
@@ -30,6 +35,28 @@ public abstract class RestUtil {
         }
         catch (Exception e) {
             throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    public static <T> T httpPost(String url, Class<T> type, Object requestBody) {
+
+        try {
+
+            HttpClient client = new DefaultHttpClient();
+            HttpPost request = new HttpPost(SERVER_URL + url);
+
+            StringEntity entity = new StringEntity(objectMapper.writeValueAsString(requestBody));
+            request.setEntity(entity);
+            request.setHeader("Content-type", "application/json");
+
+            HttpResponse response = client.execute(request);
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                return objectMapper.readValue(EntityUtils.toString(response.getEntity()), type);
+            } else {
+                throw new RuntimeException(EntityUtils.toString(response.getEntity()));
+            }
+        } catch (Exception e) {
+            throw new RuntimeJsonMappingException(e.getMessage());
         }
     }
 }

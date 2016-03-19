@@ -1,7 +1,10 @@
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/entity/AbstractEntity.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/entity/Item.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/dto/LogoutRequest.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/entity/Bidding.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/dto/UserDto.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/entity/AbstractSoftDeletedEntity.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/entity/User.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/entity/Auction.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/dto/LoginRequest.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-common/src/main/java/entity/ItemCategory.java
