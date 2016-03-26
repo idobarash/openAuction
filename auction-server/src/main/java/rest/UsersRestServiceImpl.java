@@ -19,8 +19,9 @@ public class UsersRestServiceImpl implements UsersRestService {
     }
 
     @Override
-    public User saveNewUser(User user) {
-        return usersBusinessService.saveUser(user);
+    public Boolean saveNewUser(User user) {
+        usersBusinessService.saveUser(user);
+        return true;
     }
 
     @Override

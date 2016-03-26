@@ -8,6 +8,7 @@ import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
@@ -44,6 +45,28 @@ public abstract class RestUtil {
 
             HttpClient client = new DefaultHttpClient();
             HttpPost request = new HttpPost(SERVER_URL + url);
+
+            StringEntity entity = new StringEntity(objectMapper.writeValueAsString(requestBody));
+            request.setEntity(entity);
+            request.setHeader("Content-type", "application/json");
+
+            HttpResponse response = client.execute(request);
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                return objectMapper.readValue(EntityUtils.toString(response.getEntity()), type);
+            } else {
+                throw new RuntimeException(EntityUtils.toString(response.getEntity()));
+            }
+        } catch (Exception e) {
+            throw new RuntimeJsonMappingException(e.getMessage());
+        }
+    }
+
+    public static <T> T httpPut(String url, Class<T> type, Object requestBody) {
+
+        try {
+
+            HttpClient client = new DefaultHttpClient();
+            HttpPut request = new HttpPut(SERVER_URL + url);
 
             StringEntity entity = new StringEntity(objectMapper.writeValueAsString(requestBody));
             request.setEntity(entity);

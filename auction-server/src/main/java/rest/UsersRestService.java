@@ -5,6 +5,8 @@ import entity.User;
 import javax.ws.rs.*;
 
 @Path("/users")
+@Consumes("application/json")
+@Produces("application/json")
 public interface UsersRestService {
 
     @GET
@@ -12,7 +14,7 @@ public interface UsersRestService {
     User get(@PathParam("id") Integer id);
 
     @POST
-    User saveNewUser(User user);
+    Boolean saveNewUser(User user);
 
     @PUT
     User updateUser(User user);

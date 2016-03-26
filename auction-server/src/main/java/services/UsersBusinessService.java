@@ -3,11 +3,15 @@ package services;
 import dao.UserDao;
 import entity.User;
 
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 
 @Named
+@Stateless
 public class UsersBusinessService {
 
     @Inject
@@ -18,8 +22,8 @@ public class UsersBusinessService {
         return userDao.read(id, User.class);
     }
 
-    @Transactional
     public User saveUser(User user) {
+        user.setIsActive(true);
         userDao.create(user);
         return user;
     }

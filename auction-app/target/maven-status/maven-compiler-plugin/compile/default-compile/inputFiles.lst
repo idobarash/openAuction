@@ -1,8 +1,10 @@
-/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/AppGlobalView.java
-/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/ItemService.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/AuthService.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/ItemService.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/UserServices.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/contorllers/LoginController.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/contorllers/UserController.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/SessionService.java
-/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/ItemsView.java
-/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/RegisterView.java
-/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/viewHandlers/LoginView.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/contorllers/BasicController.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/contorllers/ItemsController.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/contorllers/AppGlobalController.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-app/src/main/java/services/RestUtil.java

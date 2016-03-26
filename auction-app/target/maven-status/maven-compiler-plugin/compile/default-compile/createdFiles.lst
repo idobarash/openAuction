@@ -1,8 +1,10 @@
-viewHandlers/LoginView.class
+services/UserServices.class
+contorllers/LoginController.class
 services/AuthService.class
-services/RestUtil.class
 services/ItemService.class
-viewHandlers/ItemsView.class
 services/SessionService.class
-viewHandlers/AppGlobalView.class
-viewHandlers/RegisterView.class
+contorllers/UserController.class
+contorllers/BasicController.class
+contorllers/ItemsController.class
+services/RestUtil.class
+contorllers/AppGlobalController.class

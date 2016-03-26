@@ -9,7 +9,7 @@
     </url-mapping>
     <url-mapping id="register">
         <pattern value="/login/register" />
-        <view-id value="/pages/register.xhtml" />
+        <view-id value="/pages/user.xhtml?mode=register" />
     </url-mapping>
 
 </pretty-config>

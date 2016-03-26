@@ -18,19 +18,19 @@
 					<h:form id="loginForm">
 						<h1>Log in</h1>
 						<div >
-							<h:inputText value="#{loginView.username}" /> <br />
+							<h:inputText value="#{loginController.username}" /> <br />
 						</div>
 						<div>
-							<h:inputText value="#{loginView.password}" /><br/>
+							<h:inputText value="#{loginController.password}" /><br/>
 						</div>
 						<div>
-							<h:commandButton value="Log in" action="#{loginView.login()}" />
+							<h:commandButton value="Log in" action="#{loginController.login()}" />
 							<a href="/auction-app/login/register">Register</a>
 						</div>
 					</h:form>
 					<div class="container" >
 
-						<h:outputText value="#{loginView.message}" />
+						<h:outputText value="#{loginController.message}" />
 
 					</div>
 				</section>

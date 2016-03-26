@@ -10,7 +10,7 @@
 	    <ui:composition>
 
             <div class="list-group">
-                <ui:repeat value="#{appGlobalView.categoriesList}" var="category" >
+                <ui:repeat value="#{appGlobalController.categoriesList}" var="category" >
                     <a href="#" class="list-group-item">#{category.name}</a>
                 </ui:repeat>
             </div>
