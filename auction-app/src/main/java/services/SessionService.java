@@ -6,6 +6,11 @@ import javax.servlet.http.HttpSession;
 
 public class SessionService {
 
+    public static final String USER_PHOTO_PATH  = "userPhotoPath";
+    public static final String USERNAME         = "username";
+    public static final String USER_IS_ADMIN    = "userIsAdmin";
+
+
     public static HttpSession getSession() {
         return (HttpSession) FacesContext.getCurrentInstance()
                 .getExternalContext().getSession(false);

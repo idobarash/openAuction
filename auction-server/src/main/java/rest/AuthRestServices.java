@@ -2,7 +2,7 @@ package rest;
 
 import dto.LoginRequest;
 import dto.LogoutRequest;
-import entity.User;
+import dto.UserDto;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -16,9 +16,9 @@ public interface AuthRestServices {
 
     @POST
     @Path("/login")
-    User login(LoginRequest loginRequest);
+    UserDto login(LoginRequest loginRequest);
 
     @POST
     @Path("/logout")
-    User logout(LogoutRequest logoutRequest);
+    void logout(LogoutRequest logoutRequest);
 }

@@ -1,8 +1,7 @@
 package dto;
 
-/**
- * Created by ido on 19/03/2016.
- */
+import entity.User;
+
 public class UserDto {
 
     private String username;
@@ -10,6 +9,16 @@ public class UserDto {
     private String photoPath;
 
     private Boolean isAdmin;
+
+    public UserDto() {
+
+    }
+
+    public UserDto(User user) {
+        this.username = user.getUsername();
+        this.photoPath = user.getPhotoPath();
+        this.isAdmin = user.getAdmin();
+    }
 
     public String getUsername() {
         return username;
@@ -34,4 +43,6 @@ public class UserDto {
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
     }
+
+
 }

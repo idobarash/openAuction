@@ -4,7 +4,11 @@ import services.AuthService;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.faces.view.facelets.FaceletContext;
 import javax.inject.Inject;
+import java.io.IOException;
 
 @RequestScoped
 @ManagedBean(name = "loginController", eager = true)
@@ -30,14 +34,30 @@ public class LoginController {
         if (username != null && password != null) {
             message = authService.login(username, password);
             if ("".equals(message)) {
+                try {
+                    FacesContext facesContext = FacesContext.getCurrentInstance();
+                    ExternalContext externalContext = facesContext.getExternalContext();
+                    externalContext.redirect("/auction-app");
 
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
     }
 
     public void logout() {
-        System.out.println("");
+
+        try {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            ExternalContext externalContext = facesContext.getExternalContext();
+            externalContext.invalidateSession();
+            externalContext.redirect("/auction-app");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getUsername() {

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <body>
 	    <ui:composition>
@@ -20,24 +20,31 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Auction online</a>
+                        <a class="navbar-brand" href="/auction-app/">Auction online</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li>
                                 <a href="#">About</a>
                             </li>
-                            <li>
-                                <a href="/auction-app/login">Login</a>
-                            </li>
+                            <c:choose>
+
+                                <c:when test="${sessionScope.username}" >
+                                    <li><a href="/auction-app/login">#{sessionScope.username}</a></li>
+                                    <li><a href="/auction-app/items/my">Ongoing auctions</a></li>
+                                    <li><a href="/auction-app/items/participated" >Ongoing bids</a></li>
+                                    <li><a href="/auction-app/logout" onclick="">Logout</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li><a href="/auction-app/login">Login</a></li>
+                                </c:otherwise>
+                            </c:choose>
                             <li>
                                 <a href="#">Contact Us</a>
                             </li>
                         </ul>
                     </div>
-                    <!-- /.navbar-collapse -->
                 </div>
-                <!-- /.container -->
             </nav>
 
 	    </ui:composition>

@@ -17,8 +17,10 @@ public class AuthService {
         try {
 
             UserDto userData = RestUtil.httpPost(AUTHENTICATE_USER, UserDto.class, request);
-            if (userData == null) {
-
+            if (userData != null) {
+                SessionService.getSession().setAttribute(SessionService.USERNAME, userData.getUsername());
+                SessionService.getSession().setAttribute(SessionService.USER_IS_ADMIN, userData.getAdmin());
+                SessionService.getSession().setAttribute(SessionService.USER_PHOTO_PATH, userData.getPhotoPath());
             }
 
         } catch (Exception e) {
@@ -26,6 +28,12 @@ public class AuthService {
         }
 
         return "";
+    }
+
+    public void logoutCurrentUser() {
+        SessionService.getSession().setAttribute(SessionService.USER_IS_ADMIN, null);
+        SessionService.getSession().setAttribute(SessionService.USERNAME, null);
+        SessionService.getSession().setAttribute(SessionService.USER_PHOTO_PATH, null);
     }
 
 }

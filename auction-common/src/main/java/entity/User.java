@@ -63,4 +63,11 @@ public class User extends AbstractSoftDeletedEntity {
         this.items = items;
     }
 
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
 }
