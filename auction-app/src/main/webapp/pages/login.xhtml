@@ -13,7 +13,7 @@
 		<ui:define name="auctionItems">
 
 
-			<div class="container" align="center">
+			<div class="content" align="left">
 				<section id="loginContent">
 					<h:form id="loginForm">
 						<h1>Log in</h1>
@@ -21,7 +21,7 @@
 							<h:inputText value="#{loginController.username}" /> <br />
 						</div>
 						<div>
-							<h:inputText value="#{loginController.password}" /><br/>
+							<h:inputSecret value="#{loginController.password}" /><br/>
 						</div>
 						<div>
 							<h:commandButton value="Log in" action="#{loginController.login()}" />

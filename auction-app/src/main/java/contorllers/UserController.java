@@ -1,15 +1,10 @@
 package contorllers;
 
-import entity.User;
-import services.UserServices;
+import utils.UserServices;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
-import java.util.StringTokenizer;
 
 @RequestScoped
 @ManagedBean(name = "userController", eager = true)

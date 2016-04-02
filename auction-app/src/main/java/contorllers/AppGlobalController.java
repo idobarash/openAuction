@@ -2,7 +2,7 @@ package contorllers;
 
 
 import entity.ItemCategory;
-import services.ItemService;
+import utils.ItemService;
 
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -38,8 +38,6 @@ public class AppGlobalController implements Serializable {
      * @return list of categories
      */
     public List<ItemCategory> getCategoriesList() {
-
-        System.out.println("asfasfd");
 
         if (categories == null || categories.isEmpty()) {
             categories = itemServices.getCatagories();

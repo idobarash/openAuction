@@ -1,24 +1,24 @@
 package contorllers;
 
-import services.AuthService;
+import dto.LoginRequest;
+import dto.UserDto;
+import utils.RestUtil;
+import utils.SessionUtil;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletContext;
-import javax.inject.Inject;
 import java.io.IOException;
 
-@RequestScoped
+@SessionScoped
 @ManagedBean(name = "loginController", eager = true)
 public class LoginController {
 
-    @Inject
-    private AuthService authService;
+    private static final String AUTHENTICATE_USER_URL = "/auth/login";
 
-    private static final String USERNAME_INITIAL = "Username";
-    private static final String PASSWORD_INITIAL = "Password";
+    public static final String USERNAME_INITIAL = "Username";
+    public static final String PASSWORD_INITIAL = "Password";
 
     private String username;
 
@@ -32,19 +32,27 @@ public class LoginController {
         System.out.println("");
 
         if (username != null && password != null) {
-            message = authService.login(username, password);
-            if ("".equals(message)) {
-                try {
+
+            LoginRequest request = new LoginRequest(username, password);
+
+            try {
+
+                UserDto userData = RestUtil.httpPost(AUTHENTICATE_USER_URL, UserDto.class, request);
+                if (userData != null) {
+                    SessionUtil.getSession().setAttribute(SessionUtil.USERNAME, userData.getUsername());
+                    SessionUtil.getSession().setAttribute(SessionUtil.USER_IS_ADMIN, userData.getAdmin());
+                    SessionUtil.getSession().setAttribute(SessionUtil.USER_PHOTO_PATH, userData.getPhotoPath());
+
                     FacesContext facesContext = FacesContext.getCurrentInstance();
                     ExternalContext externalContext = facesContext.getExternalContext();
                     externalContext.redirect("/auction-app");
-
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                message = e.getMessage();
             }
         }
-
     }
 
     public void logout() {
@@ -88,5 +96,17 @@ public class LoginController {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public boolean isLoggedIn() {
+        return SessionUtil.getSessionAttribute(SessionUtil.USERNAME) != null;
+    }
+
+    public boolean isAdmin() {
+        if (SessionUtil.getSession().getAttribute(SessionUtil.USER_IS_ADMIN) == null) {
+           return false;
+        }
+
+        return (Boolean) SessionUtil.getSession().getAttribute(SessionUtil.USER_IS_ADMIN);
     }
 }

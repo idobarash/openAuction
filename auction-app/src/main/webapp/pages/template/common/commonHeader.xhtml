@@ -22,18 +22,20 @@
                         </button>
                         <a class="navbar-brand" href="/auction-app/">Auction online</a>
                     </div>
+
+                    <h:form>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="#">About</a>
+                                <a href="/auction-app/about">About</a>
                             </li>
                             <c:choose>
 
-                                <c:when test="${sessionScope.username}" >
-                                    <li><a href="/auction-app/login">#{sessionScope.username}</a></li>
+                                <c:when test="${loginController.loggedIn}" >
+                                    <li><a href="/auction-app/userData">userAccount</a></li>
                                     <li><a href="/auction-app/items/my">Ongoing auctions</a></li>
                                     <li><a href="/auction-app/items/participated" >Ongoing bids</a></li>
-                                    <li><a href="/auction-app/logout" onclick="">Logout</a></li>
+                                    <li><h:commandLink value="Logout" action="#{loginController.logout}"/></li>
                                 </c:when>
                                 <c:otherwise>
                                     <li><a href="/auction-app/login">Login</a></li>
@@ -44,6 +46,7 @@
                             </li>
                         </ul>
                     </div>
+                    </h:form>
                 </div>
             </nav>
 

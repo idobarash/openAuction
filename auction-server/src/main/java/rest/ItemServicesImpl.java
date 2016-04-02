@@ -1,7 +1,7 @@
 package rest;
 
 import entity.ItemCategory;
-import services.ItemsBusinessService;
+import utils.ItemsBusinessService;
 
 import javax.inject.Inject;
 import java.util.List;

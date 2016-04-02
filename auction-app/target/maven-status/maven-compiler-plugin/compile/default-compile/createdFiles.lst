@@ -1,10 +1,9 @@
-services/UserServices.class
 contorllers/LoginController.class
-services/AuthService.class
-services/ItemService.class
-services/SessionService.class
+utils/SessionUtil.class
+utils/UserServices.class
 contorllers/UserController.class
 contorllers/BasicController.class
+utils/RestUtil.class
+utils/ItemService.class
 contorllers/ItemsController.class
-services/RestUtil.class
 contorllers/AppGlobalController.class
