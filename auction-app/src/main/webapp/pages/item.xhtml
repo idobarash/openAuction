@@ -37,7 +37,7 @@
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Category" />
 								<div class="controls">
-									<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}">
+									<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}" converter="#{categoryConverterBean}">
 										<f:selectItems value="#{appGlobalController.categoriesList}" var="category" itemLabel="#{category.name}" itemValue="#{category}" />
 									</h:selectOneMenu>
 									<p class="help-block">&nbsp; </p>
@@ -46,7 +46,7 @@
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Condition" />
 								<div class="controls">
-									<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}">
+									<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">
 										<f:selectItems value="#{itemController.conditionValues}" var="condition" itemLabel="#{condition.label}" itemValue="#{condition}" />
 									</h:selectOneMenu>
 									<p class="help-block">&nbsp; </p>
@@ -71,7 +71,7 @@
 
 							<br/> <br/>
 							<div class="control-group">
-								<div class="controls"> <h:commandButton value="Post for Sale" action="${itemController.newItem()}"/> </div>
+								<div class="controls"> <h:commandButton value="Post for Sale" action="${itemController.postNewItem()}"/> </div>
 							</div>
 						</fieldset>
 					</h:form>

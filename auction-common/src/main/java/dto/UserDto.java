@@ -4,6 +4,8 @@ import entity.User;
 
 public class UserDto {
 
+    private Integer userId;
+
     private String username;
 
     private String photoPath;
@@ -15,6 +17,7 @@ public class UserDto {
     }
 
     public UserDto(User user) {
+        this.userId = user.getId();
         this.username = user.getUsername();
         this.photoPath = user.getPhotoPath();
         this.isAdmin = user.getAdmin();
@@ -44,5 +47,11 @@ public class UserDto {
         isAdmin = admin;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }

@@ -6,7 +6,7 @@ import dto.LogoutRequest;
 import dto.UserDto;
 import exception.AuctionException;
 import entity.User;
-import utils.AuthBusinessService;
+import services.AuthBusinessService;
 
 import javax.inject.Inject;
 

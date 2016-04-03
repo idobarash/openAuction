@@ -2,7 +2,7 @@ package rest;
 
 
 import entity.User;
-import utils.UsersBusinessService;
+import services.UsersBusinessService;
 
 import javax.inject.Inject;
 

@@ -1,13 +1,13 @@
 package contorllers;
 
-import utils.UserServices;
+import services.UserServices;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
 @RequestScoped
-@ManagedBean(name = "userController", eager = true)
+@ManagedBean(name = "userController", eager = false)
 public class UserController extends BasicController {
 
     private static final String TITLE_REGISTER = "Regsiter a new user";

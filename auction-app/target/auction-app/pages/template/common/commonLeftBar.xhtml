@@ -17,13 +17,11 @@
                 </div>
 
                 <div class="content">
-                    <!--<c:if test="#{loginController.loggedIn}">-->
-                    <h:link >
+                    <c:if test="#{loginController.loggedIn}">
                         <a href="/auction-app/items/new">
                             <h:graphicImage library="images" name="postNewSale.jpg"  />
                         </a>
-                    </h:link>
-                    <!--</c:if>-->
+                    </c:if>
                 </div>
             </h:form>
 	    </ui:composition>

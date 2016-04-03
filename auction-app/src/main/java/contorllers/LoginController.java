@@ -2,8 +2,8 @@ package contorllers;
 
 import dto.LoginRequest;
 import dto.UserDto;
-import utils.RestUtil;
-import utils.SessionUtil;
+import services.RestUtil;
+import services.SessionUtil;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -42,6 +42,7 @@ public class LoginController {
                     SessionUtil.getSession().setAttribute(SessionUtil.USERNAME, userData.getUsername());
                     SessionUtil.getSession().setAttribute(SessionUtil.USER_IS_ADMIN, userData.getAdmin());
                     SessionUtil.getSession().setAttribute(SessionUtil.USER_PHOTO_PATH, userData.getPhotoPath());
+                    SessionUtil.getSession().setAttribute(SessionUtil.USER_ID, userData.getUserId());
 
                     FacesContext facesContext = FacesContext.getCurrentInstance();
                     ExternalContext externalContext = facesContext.getExternalContext();
