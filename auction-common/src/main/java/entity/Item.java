@@ -25,6 +25,7 @@ public class Item extends AbstractEntity {
     @JoinColumn(name = "category", referencedColumnName = "id")
     private ItemCategory category;
 
+    @Column(name = "item_condition")
     @Enumerated(EnumType.STRING)
     private ItemCondition condition;
 
