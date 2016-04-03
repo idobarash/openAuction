@@ -1,6 +1,7 @@
 contorllers/LoginController.class
 utils/SessionUtil.class
 utils/UserServices.class
+contorllers/ItemController.class
 contorllers/UserController.class
 contorllers/BasicController.class
 utils/RestUtil.class

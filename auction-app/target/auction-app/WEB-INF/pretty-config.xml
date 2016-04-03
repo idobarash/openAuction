@@ -15,5 +15,9 @@
         <pattern value="/about" />
         <view-id value="/pages/about.xhtml" />
     </url-mapping>
+    <url-mapping id="newsale">
+        <pattern value="/items/new" />
+        <view-id value="/pages/item.xhtml" />
+    </url-mapping>
 
 </pretty-config>

@@ -2,6 +2,7 @@ entity/AbstractSoftDeletedEntity.class
 entity/AbstractEntity.class
 dto/UserDto.class
 entity/ItemCategory.class
+entity/ItemCondition.class
 entity/Bidding.class
 entity/Auction.class
 dto/LogoutRequest.class

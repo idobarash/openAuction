@@ -4,17 +4,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <body>
 	    <ui:composition>
+            <h:form>
+                <div class="list-group">
+                    <ui:repeat value="#{appGlobalController.categoriesList}" var="category" >
+                        <a href="#" class="list-group-item">#{category.name}</a>
+                    </ui:repeat>
+                </div>
 
-            <div class="list-group">
-                <ui:repeat value="#{appGlobalController.categoriesList}" var="category" >
-                    <a href="#" class="list-group-item">#{category.name}</a>
-                </ui:repeat>
-            </div>
-
+                <div class="content">
+                    <!--<c:if test="#{loginController.loggedIn}">-->
+                    <h:link >
+                        <a href="/auction-app/items/new">
+                            <h:graphicImage library="images" name="postNewSale.jpg"  />
+                        </a>
+                    </h:link>
+                    <!--</c:if>-->
+                </div>
+            </h:form>
 	    </ui:composition>
     </body>
 

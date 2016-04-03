@@ -25,6 +25,9 @@ public class Item extends AbstractEntity {
     @JoinColumn(name = "category", referencedColumnName = "id")
     private ItemCategory category;
 
+    @Enumerated(EnumType.STRING)
+    private ItemCondition condition;
+
     public Boolean getIsSold() {
         return isSold;
     }
@@ -79,5 +82,13 @@ public class Item extends AbstractEntity {
 
     public void setCategory(ItemCategory category) {
         this.category = category;
+    }
+
+    public ItemCondition getCondition() {
+        return condition;
+    }
+
+    public void setCondition(ItemCondition condition) {
+        this.condition = condition;
     }
 }
