@@ -5,9 +5,43 @@ import entity.Item;
 
 import java.util.List;
 
+/**
+ * Data Access Object for item
+ * Handles special items oriented DB operations
+ *
+ * Author: Ido Barash
+ */
 public interface ItemDao extends GenericDao<Item> {
 
-    List<Item> loadItemsByCategoryName(Integer categoryId, int firstResultIndex, Integer itemsPerPage);
+    /**
+     * Load all unsold items by a category name and pages.
+     *
+     * @param categoryId the category
+     * @param firstResultIndex the page first item
+     * @param itemsPerPage total items per page
+     * @return list of items
+     */
+    List<Item> loadUnsoldItemsByCategoryName(Integer categoryId, int firstResultIndex, Integer itemsPerPage);
 
-    Long countAllItemsByCategory(Integer categoryId);
+    /**
+     * Load all unsold items
+     *
+     * @param firstResultIndex the page first item
+     * @param pageSize total items per page
+     * @return list of items
+     */
+    List<Item> loadUnsoldItems(int firstResultIndex, int pageSize);
+
+    /**
+     * Counts all unsold items per category
+     * @param categoryId the category
+     * @return Long value
+     */
+    Long countAllUnsoldItemsByCategory(Integer categoryId);
+
+    /**
+     * Counts all unsold items
+     * @return Long value
+     */
+    Long countAllUnsoldItems();
 }

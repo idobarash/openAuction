@@ -8,6 +8,12 @@ import services.ItemsBusinessService;
 import javax.inject.Inject;
 import java.util.List;
 
+/**
+ * Items operations REST service implementation.
+ * Handles request-response operations for items data
+ *
+ * Author: Ido Barash
+ */
 public class ItemsRestServicesImpl implements ItemsRestServices {
 
     @Inject
@@ -29,7 +35,7 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
         result.setTotalItems(totalItemsCount);
 
         // Load items list
-        List<Item> itemsList = itemsBusinessService.getItemsByCategory(categoryId, pageNumber, pageSize);
+        List<Item> itemsList = itemsBusinessService.getItems(categoryId, pageNumber, pageSize);
         result.setItemList(itemsList);
 
         return result;

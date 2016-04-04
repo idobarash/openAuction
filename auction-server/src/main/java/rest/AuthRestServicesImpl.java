@@ -4,12 +4,18 @@ package rest;
 import dto.LoginRequest;
 import dto.LogoutRequest;
 import dto.UserDto;
-import exception.AuctionException;
 import entity.User;
+import exception.AuctionException;
 import services.AuthBusinessService;
 
 import javax.inject.Inject;
 
+/**
+ * Authentication REST service implementation.
+ * Handles request-response operations for Authentication
+ *
+ * Author: Ido Barash
+ */
 public class AuthRestServicesImpl implements AuthRestServices {
 
     @Inject

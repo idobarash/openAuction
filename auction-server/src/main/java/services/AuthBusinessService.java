@@ -10,6 +10,12 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 
+/**
+ * Service class to handle all the logic
+ * regarding the Authentication.
+ *
+ * Author: Ido Barash
+ */
 @Named
 @Stateless
 public class AuthBusinessService {
@@ -18,6 +24,13 @@ public class AuthBusinessService {
     private UserDao userDao;
 
 
+    /**
+     * Login user to the system
+     *
+     * @param username username
+     * @param password password
+     * @return User if exists, throws excpetion if not.
+     */
     @Transactional
     public User loginUser(String username, String password) {
 

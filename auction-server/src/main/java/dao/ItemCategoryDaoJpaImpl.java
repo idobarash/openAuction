@@ -7,6 +7,11 @@ import javax.inject.Named;
 import javax.persistence.Query;
 import java.util.List;
 
+/**
+ * JPA DAO implementation to handle Items entities.
+ *
+ * Author: Ido Barash
+ */
 @Named
 public class ItemCategoryDaoJpaImpl extends AbstractJpaDao<ItemCategory> implements ItemCategoryDao {
 

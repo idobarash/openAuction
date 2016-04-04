@@ -17,6 +17,8 @@ import java.util.List;
 /**
  * Service class to handle all the logic
  * regarding the items.
+ *
+ * Author: Ido Barash
  */
 @Named
 @Stateless
@@ -39,14 +41,29 @@ public class ItemsBusinessService {
     }
 
 
-    public List<Item> getItemsByCategory(Integer categoryId, int pageNumber, int pageSize) {
+    /**
+     * Load items from the DB.
+     *
+     * @param categoryId the category if exists
+     * @param pageNumber the page to load
+     * @param pageSize total item in page
+     * @return list of items
+     */
+    public List<Item> getItems(Integer categoryId, int pageNumber, int pageSize) {
 
+        // Calculate requested page first item index.
         int firstResultIndex = (pageNumber - 1) * pageSize;
         if (firstResultIndex < 0) {
             firstResultIndex = 0;
         }
 
-        return itemDao.loadItemsByCategoryName(categoryId, firstResultIndex, pageSize);
+        // Load by category
+        if (categoryId == null || categoryId == 0) {
+            itemDao.loadUnsoldItems(firstResultIndex, pageSize);
+        }
+
+        // Load without category
+        return itemDao.loadUnsoldItemsByCategoryName(categoryId, firstResultIndex, pageSize);
     }
 
     /**
@@ -78,7 +95,15 @@ public class ItemsBusinessService {
         return true;
     }
 
+    /**
+     * Count all items
+     * @param categoryId slice by category if exists
+     * @return The number of items
+     */
     public Long countAllItemsByCategory(Integer categoryId) {
-        return itemDao.countAllItemsByCategory(categoryId);
+        if (categoryId == null || categoryId == 0) {
+            return itemDao.countAllUnsoldItems();
+        }
+        return itemDao.countAllUnsoldItemsByCategory(categoryId);
     }
 }

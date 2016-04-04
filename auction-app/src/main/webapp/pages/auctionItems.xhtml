@@ -64,14 +64,32 @@
 									</h4>
 									<p>#{item.description}.</p>
 								</div>
+
+								<!-- Ratings - stars -->
+
 								<div class="ratings">
-									<p class="pull-right">12 Bids</p>
+									<p class="pull-right">#{item.bidsCounter} Bids</p>
 									<p>
-										<span class="glyphicon glyphicon-star"></span>
-										<span class="glyphicon glyphicon-star"></span>
-										<span class="glyphicon glyphicon-star"></span>
-										<span class="glyphicon glyphicon-star"></span>
-										<span class="glyphicon glyphicon-star"></span>
+										<c:choose>
+											<c:when test="#{item.bidsCounter > 5}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="#{item.bidsCounter > 10}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="#{item.bidsCounter > 15}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="#{item.bidsCounter > 20}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="#{item.bidsCounter > 25}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
+										</c:choose>
 									</p>
 								</div>
 							</div>

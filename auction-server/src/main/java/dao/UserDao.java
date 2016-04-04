@@ -5,6 +5,9 @@ import entity.User;
 
 /**
  * Data access object for User
+ * Handles special category oriented DB operations
+ *
+ * Author: Ido Barash
  */
 public interface UserDao extends GenericDao<User> {
 

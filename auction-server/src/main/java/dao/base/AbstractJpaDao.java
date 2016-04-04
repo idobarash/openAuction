@@ -12,6 +12,8 @@ import javax.persistence.PersistenceContext;
  * Notice: Delete method performs true delete.
  *
  * @param <T> entity
+ *
+ * Author: Ido Barash
  */
 public class AbstractJpaDao<T extends AbstractEntity> implements GenericDao<T> {
 

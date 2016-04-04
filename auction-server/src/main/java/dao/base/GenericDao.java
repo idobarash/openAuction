@@ -8,6 +8,8 @@ import entity.AbstractEntity;
  * Declares basic CRUD (Create, Read, Update, Delete)
  *
  * @param <T> entity
+ *
+ * Author: Ido Barash
  */
 public interface GenericDao<T extends AbstractEntity> {
 

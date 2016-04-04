@@ -5,6 +5,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+/**
+ * REST (JAX-RS) Exception handler.
+ * It catches Exceptions and wrap it with an HTTP server error response.
+ *
+ * Author: Ido Barash
+ */
 @Provider
 public class ExceptionHandler implements ExceptionMapper<Exception> {
 

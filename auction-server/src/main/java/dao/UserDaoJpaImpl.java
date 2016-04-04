@@ -9,7 +9,9 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 /**
- * A JPA implementation of User DAO.
+ * JPA DAO implementation to handle Items entities.
+ *
+ * Author: Ido Barash
  */
 @Named
 public class UserDaoJpaImpl extends AbstractSoftDeletedJpaDao<User> implements UserDao {

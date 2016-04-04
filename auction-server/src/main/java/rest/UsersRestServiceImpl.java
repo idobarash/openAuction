@@ -6,7 +6,12 @@ import services.UsersBusinessService;
 
 import javax.inject.Inject;
 
-
+/**
+ * User data REST service implementation.
+ * Handles request-response operations for User data
+ *
+ * Author: Ido Barash
+ */
 public class UsersRestServiceImpl implements UsersRestService {
 
     @Inject

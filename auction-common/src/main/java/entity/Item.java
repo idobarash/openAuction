@@ -25,6 +25,9 @@ public class Item extends AbstractEntity {
     @Column(name = "current_bid")
     private Double currentBid = 0.0;
 
+    @Column(name = "bids_counter")
+    private Integer bidsCounter = 0;
+
     @Column(name = "is_sold")
     private Boolean isSold;
 
@@ -114,5 +117,13 @@ public class Item extends AbstractEntity {
 
     public void setCurrentBid(Double currentBid) {
         this.currentBid = currentBid;
+    }
+
+    public Integer getBidsCounter() {
+        return bidsCounter;
+    }
+
+    public void setBidsCounter(Integer bidsCounter) {
+        this.bidsCounter = bidsCounter;
     }
 }

@@ -9,6 +9,8 @@ import entity.AbstractSoftDeletedEntity;
  * Notice: Delete method performs a soft delete --> set active field to false and update.
  *
  * @param <T> entity
+ *
+ * Author: Ido Barash
  */
 public class AbstractSoftDeletedJpaDao<T extends AbstractSoftDeletedEntity> extends AbstractJpaDao<T> {
 
