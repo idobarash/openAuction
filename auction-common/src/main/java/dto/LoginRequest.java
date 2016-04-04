@@ -1,5 +1,12 @@
 package dto;
 
+/**
+ * Wrapper class for Login request
+ *
+ * Contains the username and the password
+ *
+ * Author: Ido Barash
+ */
 public class LoginRequest {
 
     private String username;

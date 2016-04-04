@@ -2,6 +2,11 @@ package entity;
 
 import javax.persistence.*;
 
+/**
+ * Bidding entity
+ *
+ * Author: Ido Barash
+ */
 @Entity
 @Table(name = "biddings")
 public class Bidding extends AbstractEntity {

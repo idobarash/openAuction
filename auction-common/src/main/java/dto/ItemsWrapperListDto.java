@@ -4,6 +4,14 @@ import entity.Item;
 
 import java.util.List;
 
+/**
+ * Wrapper class for items
+ *
+ * Contains the items to show in one page plus the total
+ * number of items.
+ *
+ * Author: Ido Barash
+ */
 public class ItemsWrapperListDto {
 
     private Long totalItems;

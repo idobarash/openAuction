@@ -2,6 +2,12 @@ package entity;
 
 import javax.persistence.*;
 
+/**
+ * Abstract entity data
+ * Contains shared properties for all the entities tables
+ *
+ * Author: Ido Barash
+ */
 @MappedSuperclass
 public class AbstractEntity {
 

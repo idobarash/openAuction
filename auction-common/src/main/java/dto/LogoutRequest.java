@@ -1,5 +1,13 @@
 package dto;
 
+/**
+ * Wrapper class for Logout request
+ *
+ * Contains the username and the authtoken provided to him.
+ * The auth is used for security.
+ *
+ * Author: Ido Barash
+ */
 public class LogoutRequest {
 
     private String username;

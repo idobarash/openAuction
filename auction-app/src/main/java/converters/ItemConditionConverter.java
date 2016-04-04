@@ -1,7 +1,5 @@
 package converters;
 
-import contorllers.AppGlobalController;
-import entity.ItemCategory;
 import entity.ItemCondition;
 
 import javax.faces.bean.ManagedBean;
@@ -9,7 +7,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import javax.inject.Inject;
 
 @ManagedBean(name = "conditionConverterBean",eager = true)
 @FacesConverter(value = "conditionConverter")

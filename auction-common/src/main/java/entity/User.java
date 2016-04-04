@@ -3,6 +3,11 @@ package entity;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * User entity
+ *
+ * Author: Ido Barash
+ */
 @Entity
 @Table(name = "users")
 public class User extends AbstractSoftDeletedEntity {

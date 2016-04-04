@@ -2,6 +2,11 @@ package entity;
 
 import javax.persistence.*;
 
+/**
+ * Category entity
+ *
+ * Author: Ido Barash
+ */
 @Entity
 @Table(name = "item_categories")
 public class ItemCategory extends AbstractEntity {

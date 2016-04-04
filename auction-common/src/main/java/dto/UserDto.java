@@ -2,6 +2,13 @@ package dto;
 
 import entity.User;
 
+/**
+ * Wrapper class for User data
+ *
+ * Contains part of the user entity
+ *
+ * Author: Ido Barash
+ */
 public class UserDto {
 
     private Integer userId;
@@ -16,6 +23,10 @@ public class UserDto {
 
     }
 
+    /**
+     * Copy constructor
+     * @param user
+     */
     public UserDto(User user) {
         this.userId = user.getId();
         this.username = user.getUsername();

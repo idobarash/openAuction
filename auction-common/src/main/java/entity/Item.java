@@ -3,6 +3,11 @@ package entity;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Item entity
+ *
+ * Author: Ido Barash
+ */
 @Entity
 @Table(name = "items")
 public class Item extends AbstractEntity {
