@@ -19,5 +19,9 @@
         <pattern value="/items/new" />
         <view-id value="/pages/item.xhtml" />
     </url-mapping>
+    <url-mapping id="itemsList">
+        <pattern value="/items" />
+        <view-id value="/pages/itemsList.xhtml" />
+    </url-mapping>
 
 </pretty-config>

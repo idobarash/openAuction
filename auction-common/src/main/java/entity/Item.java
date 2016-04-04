@@ -11,12 +11,19 @@ public class Item extends AbstractEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 
+    @Column(name ="end_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date endDate;
+
     private String name;
 
     private String description;
 
     @Column(name = "start_price")
     private Double startPrice;
+
+    @Column(name = "current_bid")
+    private Double currentBid = 0.0;
 
     @Column(name = "is_sold")
     private Boolean isSold;
@@ -91,5 +98,21 @@ public class Item extends AbstractEntity {
 
     public void setCondition(ItemCondition condition) {
         this.condition = condition;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Double getCurrentBid() {
+        return currentBid;
+    }
+
+    public void setCurrentBid(Double currentBid) {
+        this.currentBid = currentBid;
     }
 }

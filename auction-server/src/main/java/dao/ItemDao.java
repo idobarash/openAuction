@@ -7,8 +7,7 @@ import java.util.List;
 
 public interface ItemDao extends GenericDao<Item> {
 
+    List<Item> loadItemsByCategoryName(Integer categoryId, int firstResultIndex, Integer itemsPerPage);
 
-    List<Item> loadItemsByCategoryName(String categoryName, int firstResultIndex, Integer itemsPerPage);
-
-    Long countAllItemsByCategory(String categoryName);
+    Long countAllItemsByCategory(Integer categoryId);
 }

@@ -1,6 +1,6 @@
 package rest;
 
-import dto.ItemsWrapperDto;
+import dto.ItemsWrapperListDto;
 import entity.Item;
 import entity.ItemCategory;
 import services.ItemsBusinessService;
@@ -20,19 +20,24 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     }
 
     @Override
-    public ItemsWrapperDto getItems(String categoryName, int pageNumber, int pageSize) {
+    public ItemsWrapperListDto getItems(Integer categoryId, int pageNumber, int pageSize) {
 
-        ItemsWrapperDto result = new ItemsWrapperDto();
+        ItemsWrapperListDto result = new ItemsWrapperListDto();
 
         // Count total items
-        Long totalItemsCount = itemsBusinessService.countAllItemsByCategory(categoryName);
+        Long totalItemsCount = itemsBusinessService.countAllItemsByCategory(categoryId);
         result.setTotalItems(totalItemsCount);
 
         // Load items list
-        List<Item> items = itemsBusinessService.getItemsByCategory(categoryName, pageNumber, pageSize);
-        result.setItemsList(items);
+        List<Item> itemsList = itemsBusinessService.getItemsByCategory(categoryId, pageNumber, pageSize);
+        result.setItemList(itemsList);
 
         return result;
+    }
+
+    @Override
+    public ItemsWrapperListDto getItems(int pageNumber, int pageSize) {
+        return getItems(null, pageNumber, pageSize);
     }
 
     @Override

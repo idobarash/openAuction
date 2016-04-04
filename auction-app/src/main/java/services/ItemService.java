@@ -1,5 +1,6 @@
 package services;
 
+import dto.ItemsWrapperListDto;
 import entity.Item;
 import entity.ItemCategory;
 
@@ -16,6 +17,7 @@ public class ItemService {
 
     private static final String GET_CATEGORIES_URL = "/items/categories";
     private static final String GET_ITEMS_URL = "/items/category/%s?pageNumber=%d&pageSize=%d";
+    private static final String GET_ITEMS_VISITOR_URL = "/items?pageNumber=%d&pageSize=%d";
     private static final String POST_NEW_ITEM_URL = "/items/%d";
 
     public List<ItemCategory> getCatagories() {
@@ -36,14 +38,13 @@ public class ItemService {
         return result;
     }
 
-    public static List<Item> getItems(ItemCategory category, Integer pageNumber, int itemsPerPage) {
+    public static ItemsWrapperListDto getItems(String category, Integer pageNumber, int itemsPerPage) {
 
-        String categoryString = "";
-        if (category != null) {
-            categoryString = category.getName();
+        if (category != null && "".equals(category) == false) {
+            return RestUtil.httpGet(String.format(GET_ITEMS_URL, category,pageNumber, itemsPerPage), ItemsWrapperListDto.class);
         }
 
-        return RestUtil.httpGet(String.format(GET_ITEMS_URL, categoryString,pageNumber, itemsPerPage), ArrayList.class);
+        return RestUtil.httpGet(String.format(GET_ITEMS_VISITOR_URL, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
     }
 
     public void postNewItem(Item item) {

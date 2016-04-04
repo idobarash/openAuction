@@ -12,6 +12,7 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -43,6 +44,11 @@ public class ItemController {
         item.setDescription(description);
         item.setStartPrice(startingPrice);
         item.setName(itemName);
+
+        // Calculate end date
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, daysTillEnd);
+        item.setEndDate(calendar.getTime());
 
         itemService.postNewItem(item);
     }

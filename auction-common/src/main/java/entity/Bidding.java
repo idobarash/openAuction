@@ -11,19 +11,19 @@ public class Bidding extends AbstractEntity {
     private User biddingUser;
 
     @ManyToOne
-    @JoinColumn(name = "auction_id", referencedColumnName = "id")
-    private Auction auction;
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    private Item item;
 
     @Column(name = "sum")
     private Double bidSum;
 
 
-    public Auction getAuction() {
-        return auction;
+    public Item getItem() {
+        return item;
     }
 
-    public void setAuction(Auction auction) {
-        this.auction = auction;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     public Double getBidSum() {

@@ -4,7 +4,7 @@ dto/UserDto.class
 entity/ItemCategory.class
 entity/ItemCondition.class
 entity/Bidding.class
-entity/Auction.class
+dto/ItemsWrapperListDto.class
 dto/LogoutRequest.class
 entity/Item.class
 entity/User.class

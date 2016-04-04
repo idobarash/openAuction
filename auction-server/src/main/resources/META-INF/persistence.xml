@@ -14,7 +14,6 @@
         <class>entity.Item</class>
         <class>entity.ItemCategory</class>
         <class>entity.Bidding</class>
-        <class>entity.Auction</class>
 
         <properties>
             <property name="hibernate.show_sql" value="true" />

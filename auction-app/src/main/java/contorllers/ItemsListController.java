@@ -1,13 +1,16 @@
 package contorllers;
 
+import dto.ItemsWrapperListDto;
 import entity.Item;
 import entity.ItemCategory;
 import services.ItemService;
+import services.RequestExtractorUtil;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
@@ -19,44 +22,36 @@ public class ItemsListController {
 
     private static String IMAGES_PATH = "/data/openu/img";
     private static int ITEMS_PER_PAGE = 9;
+    private static int ITEMS_PER_PAGE_VISITOR = 6;
 
 
     @Inject
     private ItemService itemService;
 
-    private ItemCategory category;
+    private String category;
 
     private Integer pageNumber = 0;
 
 
-    public List<List<Item>> getItems() {
-        List<Item> items = itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
+    public ItemsWrapperListDto getItemsListwrapper() {
 
-        List<List<Item>> result = new ArrayList<>();
+        category = RequestExtractorUtil.getRequestParameterValue("category");
 
-        if (items != null && !items.isEmpty()) {
-
-            List<Item> currentList = new ArrayList<>();
-            int count = 0;
-            for (Item item : items) {
-                currentList.add(item);
-                count++;
-                if (count == 3) {
-                    result.add(currentList);
-                    currentList = new ArrayList<>();
-                    count = 0;
-                }
-            }
+        // Load items (9 for user or 6 for visitor)
+        if (category == null || "".equals(category)) {
+            return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE_VISITOR);
         }
 
-        return result;
+        return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
     }
 
-    public ItemService getItemService() {
-        return itemService;
+    public boolean showIntroImages() {
+
+        if (pageNumber > 0) {
+            return false;
+        }
+
+        return category == null || "".equals(category);
     }
 
-    public void setItemService(ItemService itemService) {
-        this.itemService = itemService;
-    }
 }

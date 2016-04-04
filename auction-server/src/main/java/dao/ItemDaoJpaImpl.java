@@ -2,7 +2,6 @@ package dao;
 
 import dao.base.AbstractJpaDao;
 import entity.Item;
-import entity.ItemCategory;
 
 import javax.inject.Named;
 import javax.persistence.Query;
@@ -12,15 +11,15 @@ import java.util.List;
 public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
 
     @Override
-    public List<Item> loadItemsByCategoryName(String categoryName, int firstResultIndex, Integer itemsPerPage) {
+    public List<Item> loadItemsByCategoryName(Integer categoryId, int firstResultIndex, Integer itemsPerPage) {
 
         Query query;
 
-        if (categoryName != null) {
-            query = entityManager.createQuery("SELECT i FROM Item i LEFT JOIN FETCH ItemCategory c WHERE c.name = :categoryName ORDER BY i.creationDate DESC");
-            query.setParameter("categoryName", categoryName);
+        if (categoryId != null) {
+            query = entityManager.createQuery("SELECT i FROM  Item AS i WHERE i.category.id = :categoryId ORDER BY i.creationDate DESC");
+            query.setParameter("categoryId", categoryId);
         } else {
-            query = entityManager.createQuery("SELECT i FROM Item i ORDER BY i.creationDate DESC");
+            query = entityManager.createQuery("SELECT i FROM  Item i ORDER BY i.creationDate DESC");
         }
 
         query.setFirstResult(firstResultIndex);
@@ -30,13 +29,13 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
     }
 
     @Override
-    public Long countAllItemsByCategory(String categoryName) {
+    public Long countAllItemsByCategory(Integer categoryId) {
 
         Query query;
 
-        if (categoryName != null) {
-            query = entityManager.createQuery("SELECT COUNT(i) FROM Item i LEFT JOIN FETCH ItemCategory c WHERE c.name = :categoryName");
-            query.setParameter("categoryName", categoryName);
+        if (categoryId != null) {
+            query = entityManager.createQuery("SELECT COUNT(i) FROM Item AS i WHERE i.category.id = :categoryId");
+            query.setParameter("categoryId", categoryId);
         } else {
             query = entityManager.createQuery("SELECT COUNT(i) FROM Item i");
         }

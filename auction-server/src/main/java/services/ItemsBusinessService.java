@@ -39,11 +39,14 @@ public class ItemsBusinessService {
     }
 
 
-    public List<Item> getItemsByCategory(String categoryName, int pageNumber, int pageSize) {
+    public List<Item> getItemsByCategory(Integer categoryId, int pageNumber, int pageSize) {
 
         int firstResultIndex = (pageNumber - 1) * pageSize;
+        if (firstResultIndex < 0) {
+            firstResultIndex = 0;
+        }
 
-        return itemDao.loadItemsByCategoryName(categoryName, firstResultIndex, pageSize);
+        return itemDao.loadItemsByCategoryName(categoryId, firstResultIndex, pageSize);
     }
 
     /**
@@ -75,7 +78,7 @@ public class ItemsBusinessService {
         return true;
     }
 
-    public Long countAllItemsByCategory(String categoryName) {
-        return itemDao.countAllItemsByCategory(categoryName);
+    public Long countAllItemsByCategory(Integer categoryId) {
+        return itemDao.countAllItemsByCategory(categoryId);
     }
 }

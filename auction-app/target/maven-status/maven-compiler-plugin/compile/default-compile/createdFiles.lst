@@ -1,12 +1,13 @@
 services/UserServices.class
 contorllers/LoginController.class
 services/ItemService.class
+contorllers/BasicController.class
+services/RequestExtractorUtil.class
+contorllers/AppGlobalController.class
 converters/ItemConditionConverter.class
 contorllers/ItemController.class
 services/SessionUtil.class
 contorllers/UserController.class
-contorllers/BasicController.class
-services/RestUtil.class
 converters/ItemCategoryConverter.class
-contorllers/AppGlobalController.class
+services/RestUtil.class
 contorllers/ItemsListController.class

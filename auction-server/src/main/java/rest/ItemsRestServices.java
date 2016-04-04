@@ -1,6 +1,6 @@
 package rest;
 
-import dto.ItemsWrapperDto;
+import dto.ItemsWrapperListDto;
 import entity.Item;
 import entity.ItemCategory;
 
@@ -16,8 +16,11 @@ public interface ItemsRestServices {
     List<ItemCategory> getCategories();
 
     @GET
-    @Path("/category/{categoryName}")
-    ItemsWrapperDto getItems(@PathParam("categoryName") String categoryName, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+    @Path("/category/{categoryId}")
+    ItemsWrapperListDto getItems(@PathParam("categoryId") Integer categoryId, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+
+    @GET
+    ItemsWrapperListDto getItems(@QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
 
 
     @POST

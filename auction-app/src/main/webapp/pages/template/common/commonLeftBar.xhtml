@@ -12,7 +12,7 @@
             <h:form>
                 <div class="list-group">
                     <ui:repeat value="#{appGlobalController.categoriesList}" var="category" >
-                        <a href="#" class="list-group-item">#{category.name}</a>
+                        <a href="/auction-app/items?category=#{category.id}" class="list-group-item">#{category.name}</a>
                     </ui:repeat>
                 </div>
 
