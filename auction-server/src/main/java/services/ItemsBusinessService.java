@@ -97,13 +97,26 @@ public class ItemsBusinessService {
 
     /**
      * Count all items
+     *
      * @param categoryId slice by category if exists
      * @return The number of items
      */
     public Long countAllItemsByCategory(Integer categoryId) {
+
         if (categoryId == null || categoryId == 0) {
             return itemDao.countAllUnsoldItems();
         }
+
         return itemDao.countAllUnsoldItemsByCategory(categoryId);
+    }
+
+    /**
+     * Read an item from the DB.
+     *
+     * @param itemId the id of the item to load
+     * @return the item if exists
+     */
+    public Item loadItemById(Integer itemId) {
+        return itemDao.read(itemId, Item.class);
     }
 }

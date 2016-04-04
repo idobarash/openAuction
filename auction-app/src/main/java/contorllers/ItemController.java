@@ -5,6 +5,7 @@ import entity.Item;
 import entity.ItemCategory;
 import enums.ItemCondition;
 import services.ItemService;
+import services.RequestExtractorUtil;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @RequestScoped
@@ -32,6 +34,33 @@ public class ItemController {
     private Double startingPrice;
 
     private Integer daysTillEnd;
+
+    private Double currentBid;
+
+    private Integer bidsCounter;
+
+    public void loadItemData() {
+
+        String itemId = RequestExtractorUtil.getRequestParameterValue("itemId");
+
+        if (itemId == null || itemId.isEmpty()) {
+            return;
+        }
+
+        Item item = itemService.loadItemFromServer(itemId);
+
+        this.itemName = item.getName();
+        this.description = item.getDescription();
+        this.condition = item.getCondition();
+        this.category = item.getCategory();
+        this.startingPrice = item.getStartPrice();
+        this.currentBid = item.getCurrentBid();
+        this.bidsCounter = item.getBidsCounter();
+
+        // Calculate days till end of sale
+        long millisTillEnd = item.getEndDate().getTime() - System.currentTimeMillis();
+        daysTillEnd = (int)TimeUnit.DAYS.convert(millisTillEnd, TimeUnit.MILLISECONDS);
+    }
 
     public void postNewItem() {
 

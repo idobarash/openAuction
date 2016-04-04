@@ -25,7 +25,7 @@ public interface ItemsRestServices {
     List<ItemCategory> getCategories();
 
     /**
-     * Endpoing exposing items data per category
+     * Get items list per category
      * @param categoryId the category
      * @param pageNumber current page
      * @param pageSize total items in page
@@ -37,7 +37,7 @@ public interface ItemsRestServices {
     ItemsWrapperListDto getItems(@PathParam("categoryId") Integer categoryId, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
 
     /**
-     * Endpoing exposing items data
+     * Get items list data
      * @param pageNumber current page
      * @param pageSize total items in page
      * @return DTO object containing a list of the items in the page and
@@ -48,7 +48,7 @@ public interface ItemsRestServices {
 
 
     /**
-     * Endpoing to insert a new item to the DB.
+     * Insert a new item to the DB.
      * @param userId the usre inserting the data.
      * @param item the item data to store.
      * @return true if success.
@@ -56,4 +56,13 @@ public interface ItemsRestServices {
     @POST
     @Path("/{userId}")
     Boolean postNewItem(@PathParam("userId") Integer userId, Item item);
+
+    /**
+     * Load a specific item.
+     * @param itemId the item id to load by
+     * @return the item if exists
+     */
+    @GET
+    @Path("/{itemId}")
+    Item getItem(@PathParam("itemId") Integer itemId);
 }

@@ -3,22 +3,33 @@
                xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
                       http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
+    <!-- Handle mappings for the app -->
+
     <url-mapping id="login">
         <pattern value="/login" />
         <view-id value="/pages/login.xhtml" />
     </url-mapping>
+
     <url-mapping id="register">
         <pattern value="/login/register" />
         <view-id value="/pages/user.xhtml?mode=register" />
     </url-mapping>
+
     <url-mapping id="about">
         <pattern value="/about" />
         <view-id value="/pages/about.xhtml" />
     </url-mapping>
+
     <url-mapping id="newsale">
-        <pattern value="/items/new" />
+        <pattern value="/item/new" />
+        <view-id value="/pages/item.xhtml?mode=new" />
+    </url-mapping>
+
+    <url-mapping id="itemView">
+        <pattern value="/item" />
         <view-id value="/pages/item.xhtml" />
     </url-mapping>
+
     <url-mapping id="itemsList">
         <pattern value="/items" />
         <view-id value="/pages/itemsList.xhtml" />

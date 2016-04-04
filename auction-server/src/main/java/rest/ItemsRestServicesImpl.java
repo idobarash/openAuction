@@ -50,4 +50,9 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     public Boolean postNewItem(Integer userId, Item item) {
         return itemsBusinessService.saveNewItem(userId, item);
     }
+
+    @Override
+    public Item getItem(Integer itemId) {
+        return itemsBusinessService.loadItemById(itemId);
+    }
 }

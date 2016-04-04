@@ -15,10 +15,13 @@ import java.util.List;
 @ApplicationScoped
 public class ItemService {
 
+    // URLs
     private static final String GET_CATEGORIES_URL = "/items/categories";
     private static final String GET_ITEMS_URL = "/items/category/%s?pageNumber=%d&pageSize=%d";
     private static final String GET_ITEMS_VISITOR_URL = "/items?pageNumber=%d&pageSize=%d";
     private static final String POST_NEW_ITEM_URL = "/items/%d";
+    private static final String GET_ITEM_URL = "/items/%d";
+
 
     public List<ItemCategory> getCatagories() {
 
@@ -52,5 +55,9 @@ public class ItemService {
         Integer userId = (Integer) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
 
         RestUtil.httpPostNoResponse(String.format(POST_NEW_ITEM_URL,userId), item);
+    }
+
+    public Item loadItemFromServer(String itemId) {
+        return RestUtil.httpGet(String.format(GET_ITEM_URL,itemId), Item.class);
     }
 }
