@@ -1,6 +1,6 @@
 package converters;
 
-import entity.ItemCondition;
+import enums.ItemCondition;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;

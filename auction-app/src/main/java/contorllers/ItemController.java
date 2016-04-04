@@ -3,7 +3,7 @@ package contorllers;
 
 import entity.Item;
 import entity.ItemCategory;
-import entity.ItemCondition;
+import enums.ItemCondition;
 import services.ItemService;
 
 import javax.faces.bean.ManagedBean;

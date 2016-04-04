@@ -1,5 +1,7 @@
 package entity;
 
+import enums.ItemCondition;
+
 import javax.persistence.*;
 import java.util.Date;
 
