@@ -1,12 +1,12 @@
 package rest;
 
+import dto.ItemsWrapperDto;
 import entity.Item;
 import entity.ItemCategory;
 import services.ItemsBusinessService;
 
 import javax.inject.Inject;
 import java.util.List;
-import java.util.jar.Pack200;
 
 public class ItemsRestServicesImpl implements ItemsRestServices {
 
@@ -20,13 +20,19 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     }
 
     @Override
-    public List<ItemCategory> getItems(Integer userId, String categoryName) {
+    public ItemsWrapperDto getItems(String categoryName, int pageNumber, int pageSize) {
 
-        if (userId == null) {
-            return itemsBusinessService.getItemsForVisitor(categoryName);
-        }
+        ItemsWrapperDto result = new ItemsWrapperDto();
 
-        return itemsBusinessService.getItemsByCategory(categoryName);
+        // Count total items
+        Long totalItemsCount = itemsBusinessService.countAllItemsByCategory(categoryName);
+        result.setTotalItems(totalItemsCount);
+
+        // Load items list
+        List<Item> items = itemsBusinessService.getItemsByCategory(categoryName, pageNumber, pageSize);
+        result.setItemsList(items);
+
+        return result;
     }
 
     @Override

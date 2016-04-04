@@ -6,7 +6,7 @@ contorllers/ItemController.class
 services/SessionUtil.class
 contorllers/UserController.class
 contorllers/BasicController.class
-contorllers/ItemsController.class
 services/RestUtil.class
 converters/ItemCategoryConverter.class
 contorllers/AppGlobalController.class
+contorllers/ItemsListController.class

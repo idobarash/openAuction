@@ -38,21 +38,12 @@ public class ItemsBusinessService {
         return itemCategoryDao.readAll();
     }
 
-    /**
-     * Return last items for a visitor per a specific category
-     *
-     * @param categoryName the category
-     * @return list of last items in that category
-     */
-    public List<ItemCategory> getItemsForVisitor(String categoryName) {
 
-        ItemCategory category = itemCategoryDao.readByName(categoryName);
+    public List<Item> getItemsByCategory(String categoryName, int pageNumber, int pageSize) {
 
-        return itemDao.getItemsForVisitor(category);
-    }
+        int firstResultIndex = (pageNumber - 1) * pageSize;
 
-    public List<ItemCategory> getItemsByCategory(String categoryName) {
-        return null;
+        return itemDao.loadItemsByCategoryName(categoryName, firstResultIndex, pageSize);
     }
 
     /**
@@ -82,5 +73,9 @@ public class ItemsBusinessService {
         userDao.update(user);
 
         return true;
+    }
+
+    public Long countAllItemsByCategory(String categoryName) {
+        return itemDao.countAllItemsByCategory(categoryName);
     }
 }

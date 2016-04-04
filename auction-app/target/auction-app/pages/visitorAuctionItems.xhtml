@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
 >
     <body>
 	    <ui:composition>
-
+			<h:form>
 
 			<div class="row carousel-holder">
 
@@ -19,13 +20,13 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<img class="slide-image" src="http://placehold.it/800x300" alt="" />
+								<h:graphicImage styleClass="slide-image" library="images" name="intro1.jpg" />
 							</div>
 							<div class="item">
-								<img class="slide-image" src="http://placehold.it/800x300" alt="" />
+								<h:graphicImage styleClass="slide-image" library="images" name="intro3.jpg" />
 							</div>
 							<div class="item">
-								<img class="slide-image" src="http://placehold.it/800x300" alt="" />
+								<h:graphicImage styleClass="slide-image" library="images" name="intro2.jpg" />
 							</div>
 						</div>
 						<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -174,7 +175,7 @@
 				</div>
 
 			</div>
-
+			</h:form>
 
 	    </ui:composition>
     </body>

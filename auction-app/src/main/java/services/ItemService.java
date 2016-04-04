@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemService {
 
     private static final String GET_CATEGORIES_URL = "/items/categories";
-    private static final String GET_ITEMS_URL = "/items/{%d}/category/{%s}";
+    private static final String GET_ITEMS_URL = "/items/category/%s?pageNumber=%d&pageSize=%d";
     private static final String POST_NEW_ITEM_URL = "/items/%d";
 
     public List<ItemCategory> getCatagories() {
@@ -36,19 +36,14 @@ public class ItemService {
         return result;
     }
 
-    public static List<Item> getItems(ItemCategory category) {
-
-        Integer userId = (Integer) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
-        if (userId == null) {
-            userId = -1;
-        }
+    public static List<Item> getItems(ItemCategory category, Integer pageNumber, int itemsPerPage) {
 
         String categoryString = "";
         if (category != null) {
             categoryString = category.getName();
         }
 
-        return RestUtil.httpGet(String.format(GET_ITEMS_URL, userId, categoryString), ArrayList.class);
+        return RestUtil.httpGet(String.format(GET_ITEMS_URL, categoryString,pageNumber, itemsPerPage), ArrayList.class);
     }
 
     public void postNewItem(Item item) {

@@ -2,12 +2,13 @@ package dao;
 
 import dao.base.GenericDao;
 import entity.Item;
-import entity.ItemCategory;
 
 import java.util.List;
 
 public interface ItemDao extends GenericDao<Item> {
 
 
-    List<ItemCategory> getItemsForVisitor(ItemCategory category);
+    List<Item> loadItemsByCategoryName(String categoryName, int firstResultIndex, Integer itemsPerPage);
+
+    Long countAllItemsByCategory(String categoryName);
 }

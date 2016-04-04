@@ -14,7 +14,7 @@
 
 
 			<div class="content" align="left">
-					<h:form id="registerForm" styleClass="form-horizontal">
+					<h:form id="registerForm" styleClass="form-group">
 						<fieldset>
 							<div id="legend">
 								<legend class="">Sale item</legend>
@@ -22,52 +22,68 @@
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Item name" />
 								<div class="controls">
-									<h:inputText id="itemName" name="itemName" placeholder="" styleClass="input-xlarge" value="#{itemController.itemName}" />
+									<h:inputText id="itemName" name="itemName" placeholder="" styleClass="input-xlarge" value="#{itemController.itemName}" style="width: 430px" />
 									<p class="help-block">&nbsp; </p>
 								</div>
 							</div>
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Description" />
 								<div class="controls">
-									<h:inputTextarea cols="40" rows="5" value="#{itemController.description}" name="description" />
+									<h:inputTextarea cols="58" rows="5" value="#{itemController.description}" name="description" />
 									<p class="help-block">Insert a brief description </p>
 								</div>
 							</div>
 
-							<div class="control-group">
-								<h:outputLabel class="control-label" value="Category" />
-								<div class="controls">
-									<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}" converter="#{categoryConverterBean}">
-										<f:selectItems value="#{appGlobalController.categoriesList}" var="category" itemLabel="#{category.name}" itemValue="#{category}" />
-									</h:selectOneMenu>
-									<p class="help-block">&nbsp; </p>
-								</div>
-							</div>
-							<div class="control-group">
-								<h:outputLabel class="control-label" value="Condition" />
-								<div class="controls">
-									<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">
-										<f:selectItems value="#{itemController.conditionValues}" var="condition" itemLabel="#{condition.label}" itemValue="#{condition}" />
-									</h:selectOneMenu>
-									<p class="help-block">&nbsp; </p>
-								</div>
-							</div>
+							<table>
+								<tr>
+									<td>
 
-							<div class="control-group">
-								<h:outputLabel class="control-label" value="Starting price" />
-								<div class="controls">
-									<h:inputText id="startingPrice" name="startingPrice" placeholder="" styleClass="input-xlarge" value="#{itemController.startingPrice}" />
-									<p class="help-block">Insert the lowest price you will accept </p>
-								</div>
-							</div>
+										<div class="control-group">
+											<h:outputLabel class="control-label" value="Category" />
+											<div class="controls">
+												<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}" converter="#{categoryConverterBean}" style="width: 155px">
+													<f:selectItems value="#{appGlobalController.categoriesList}" var="category" itemLabel="#{category.name}" itemValue="#{category}" />
+												</h:selectOneMenu>
+												<p class="help-block">&nbsp; </p>
+											</div>
+										</div>
+									</td>
+									<td style="width: 35px"></td>
+									<td>
+										<div class="control-group">
+											<h:outputLabel class="control-label" value="Condition" />
+											<div class="controls">
+												<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">
+													<f:selectItems value="#{itemController.conditionValues}" var="condition" itemLabel="#{condition.label}" itemValue="#{condition}" />
+												</h:selectOneMenu>
+												<p class="help-block">&nbsp; </p>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="control-group">
+											<h:outputLabel class="control-label" value="Starting price" />
+											<div class="controls">
+												<h:inputText id="startingPrice" name="startingPrice" placeholder="" styleClass="input-xlarge" value="#{itemController.startingPrice}" />
+												<p class="help-block">Insert the lowest price you will accept </p>
+											</div>
+										</div>
+									</td>
+									<td style="width: 35px"></td>
+									<td>
+										<div class="control-group">
+											<h:outputLabel class="control-label" value="Auction ends in: " />
+											<div class="controls">
+												<h:inputText id="daysTillEnd" name="daysTillEnd" placeholder="" styleClass="input-xlarge" value="#{itemController.daysTillEnd}" />
+												<p class="help-block">Insert the number of days till auction end </p>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
 
-							<div class="control-group">
-								<h:outputLabel class="control-label" value="Auction ends in: " />
-								<div class="controls">
-									<h:inputText id="daysTillEnd" name="daysTillEnd" placeholder="" styleClass="input-xlarge" value="#{itemController.daysTillEnd}" />
-									<p class="help-block">Insert the number of days till auction end </p>
-								</div>
-							</div>
 
 							<br/> <br/>
 							<div class="control-group">
