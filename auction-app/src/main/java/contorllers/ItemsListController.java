@@ -45,7 +45,9 @@ public class ItemsListController {
         return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
     }
 
-    public boolean showIntroImages() {
+    public boolean getShowIntroImages() {
+
+        category = RequestExtractorUtil.getRequestParameterValue("category");
 
         if (pageNumber > 0) {
             return false;
