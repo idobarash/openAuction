@@ -14,19 +14,21 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * View handler class to handle the header
+ * Controller which is globally used through the entire session.
+ * Contains global data such as the categories, texts and stuff.
+ *
+ * Author: Ido Barash
  */
 @SessionScoped
 @ManagedBean(name = "appGlobalController", eager = true)
-public class AppGlobalController implements Serializable {
-
-    private String searchText = "Type item to search";
-
-    private List<ItemCategory> categories;
+public class AppGlobalController extends BasicController implements Serializable {
 
     @Inject
     private ItemService itemServices;
 
+    private String searchText = "Type item to search";
+
+    private List<ItemCategory> categories;
 
     @PostConstruct
     public void init() {
@@ -50,7 +52,14 @@ public class AppGlobalController implements Serializable {
         return categories;
     }
 
+    /**
+     * Find a category by a given ID.
+     *
+     * @param categoryId the category ID to find
+     * @return the category
+     */
     public Object getCategoryById(String categoryId) {
+
         for (ItemCategory category : getCategoriesList()) {
             if (category.getName().toString().equals(categoryId)) {
                 return category;

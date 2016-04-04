@@ -8,6 +8,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+/**
+ * Converter class which handles the ItemDefinition enum.
+ *
+ * Author: Ido Barash
+ */
 @ManagedBean(name = "conditionConverterBean",eager = true)
 @FacesConverter(value = "conditionConverter")
 public class ItemConditionConverter implements Converter {

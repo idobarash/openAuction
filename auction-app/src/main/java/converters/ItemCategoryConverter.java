@@ -12,6 +12,11 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
+/**
+ * Converter class which handles ItemCategory entity.
+ *
+ * Author: Ido Barash
+ */
 @ManagedBean(name = "categoryConverterBean",eager = true)
 @FacesConverter(value = "categoryConverter")
 public class ItemCategoryConverter implements Converter {

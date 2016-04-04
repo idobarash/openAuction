@@ -11,9 +11,14 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import java.io.IOException;
 
+/**
+ * Controller class which handles the login view (login.xhtml)
+ *
+ * Author: Ido Barash
+ */
 @SessionScoped
 @ManagedBean(name = "loginController", eager = true)
-public class LoginController {
+public class LoginController extends BasicController {
 
     private static final String AUTHENTICATE_USER_URL = "/auth/login";
 
@@ -27,9 +32,10 @@ public class LoginController {
     private String message = "";
 
 
+    /**
+     * Login user
+     */
     public void login() {
-
-        System.out.println("");
 
         if (username != null && password != null) {
 
@@ -56,6 +62,9 @@ public class LoginController {
         }
     }
 
+    /**
+     * Logout user
+     */
     public void logout() {
 
         try {
@@ -69,11 +78,36 @@ public class LoginController {
         }
     }
 
+    /**
+     * Username label data
+     * @return the username if was enterd, "Username" if not.
+     */
     public String getUsername() {
         if (username == null) {
             return USERNAME_INITIAL;
         }
         return username;
+    }
+
+    /**
+     * Check if user is logged in.
+     * @return true if user is logged in
+     */
+    public boolean isLoggedIn() {
+        return SessionUtil.getSessionAttribute(SessionUtil.USERNAME) != null;
+    }
+
+    /**
+     * Check if user is administrator
+     * @return true if user is administrator
+     */
+    public boolean isAdmin() {
+
+        if (SessionUtil.getSession().getAttribute(SessionUtil.USER_IS_ADMIN) == null) {
+            return false;
+        }
+
+        return (Boolean) SessionUtil.getSession().getAttribute(SessionUtil.USER_IS_ADMIN);
     }
 
     public void setUsername(String username) {
@@ -97,17 +131,5 @@ public class LoginController {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public boolean isLoggedIn() {
-        return SessionUtil.getSessionAttribute(SessionUtil.USERNAME) != null;
-    }
-
-    public boolean isAdmin() {
-        if (SessionUtil.getSession().getAttribute(SessionUtil.USER_IS_ADMIN) == null) {
-           return false;
-        }
-
-        return (Boolean) SessionUtil.getSession().getAttribute(SessionUtil.USER_IS_ADMIN);
     }
 }

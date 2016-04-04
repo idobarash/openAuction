@@ -12,12 +12,28 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+/**
+ * A utility class that wraps the REST API with
+ * the server.
+ *
+ * It exposes generics methods to handl HTTP GET, POST, UPDATE and DELETE
+ * server calls.
+ *
+ * Author: Ido Barash
+ */
 public abstract class RestUtil {
 
     private static final String SERVER_URL = "http://localhost:8080/auction-server";
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * HTTP GET - used to retrieve data
+     *
+     * @param url the url
+     * @param type the expected response type
+     * @return Response
+     */
     public static <T> T httpGet(String url, Class<T> type) {
 
         try {
@@ -38,6 +54,14 @@ public abstract class RestUtil {
         }
     }
 
+    /**
+     * HTTP POST - used to insert new data or commit hidden data (login)
+     *
+     * @param url the url
+     * @param type the expected response type
+     * @param requestBody the entity to send
+     * @return Response
+     */
     public static <T> T httpPost(String url, Class<T> type, Object requestBody) {
 
         try {
@@ -61,6 +85,12 @@ public abstract class RestUtil {
     }
 
 
+    /**
+     * HTTP POST with no response back
+     *
+     * @param url the url
+     * @param requestBody the entity to send
+     */
     public static void httpPostNoResponse(String url, Object requestBody) {
 
         try {
@@ -81,6 +111,14 @@ public abstract class RestUtil {
         }
     }
 
+    /**
+     * HTTP PUT - used to update
+     *
+     * @param url the url
+     * @param type the expected response type
+     * @param requestBody the entity to send
+     * @return Response
+     */
     public static <T> T httpPut(String url, Class<T> type, Object requestBody) {
 
         try {

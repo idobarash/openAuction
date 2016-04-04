@@ -6,6 +6,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
+/**
+ * Controller class which handles the User view (user.xhtml)
+ *
+ * Author: Ido Barash
+ */
 @RequestScoped
 @ManagedBean(name = "userController", eager = false)
 public class UserController extends BasicController {
@@ -24,6 +29,10 @@ public class UserController extends BasicController {
 
     private String email;
 
+    /**
+     * Get the title accordinf to the mode
+     * @return the title to display
+     */
     public String getLegendTitle() {
 
         String mode = (String) getRequestParameter("mode");
@@ -35,10 +44,11 @@ public class UserController extends BasicController {
     }
 
 
+    /**
+     * Go to server to register a new user.
+     */
     public void regiterNewUser() {
-
         userServices.createUser(username, password, email);
-
     }
 
     public String getUsername() {

@@ -5,7 +5,6 @@ import entity.Item;
 import entity.ItemCategory;
 import enums.ItemCondition;
 import services.ItemService;
-import services.RequestExtractorUtil;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -15,10 +14,14 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-
+/**
+ * Controller class which which handles the single item view (item.xhtml)
+ *
+ * Author: Ido Barash
+ */
 @RequestScoped
 @ManagedBean(name = "itemController", eager = true)
-public class ItemController {
+public class ItemController extends BasicController {
 
     @Inject
     private ItemService itemService;
@@ -41,13 +44,13 @@ public class ItemController {
 
     public void loadItemData() {
 
-        String itemId = RequestExtractorUtil.getRequestParameterValue("itemId");
+        Object itemId = getRequestParameter("itemId");
 
-        if (itemId == null || itemId.isEmpty()) {
+        if (itemId == null || ((String)itemId).isEmpty()) {
             return;
         }
 
-        Item item = itemService.loadItemFromServer(itemId);
+        Item item = itemService.loadItemFromServer((String)itemId);
 
         this.itemName = item.getName();
         this.description = item.getDescription();

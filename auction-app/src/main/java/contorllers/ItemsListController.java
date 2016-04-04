@@ -1,41 +1,42 @@
 package contorllers;
 
 import dto.ItemsWrapperListDto;
-import entity.Item;
-import entity.ItemCategory;
 import services.ItemService;
-import services.RequestExtractorUtil;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Controller class which handles the list items view (auctionItems.xhtml)
+ *
+ * Author: Ido Barash
+ */
 @RequestScoped
 @ManagedBean(name = "itemsListController")
-public class ItemsListController {
+public class ItemsListController extends BasicController {
 
     private static String IMAGES_PATH = "/data/openu/img";
     private static int ITEMS_PER_PAGE = 9;
     private static int ITEMS_PER_PAGE_VISITOR = 6;
 
-
     @Inject
     private ItemService itemService;
+
 
     private String category;
 
     private Integer pageNumber = 0;
 
-
+    /**
+     * Load item list from the server
+     *
+     * @return items list for the current page
+     */
     public ItemsWrapperListDto getItemsListwrapper() {
 
-        category = RequestExtractorUtil.getRequestParameterValue("category");
+        // Extract category
+        category = getRequestParameter("category");
 
         // Load items (9 for user or 6 for visitor)
         if (category == null || "".equals(category)) {
@@ -45,9 +46,16 @@ public class ItemsListController {
         return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
     }
 
+    /**
+     * Decide whether to display the big intro images or not.
+     * The images should be displayed only on the first page when
+     * navigating through items with no category filtering.
+     *
+     * @return true if images should be displayed.
+     */
     public boolean getShowIntroImages() {
 
-        category = RequestExtractorUtil.getRequestParameterValue("category");
+        category = getRequestParameter("category");
 
         if (pageNumber > 0) {
             return false;
