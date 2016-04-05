@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52e751ce-cf1e-4722-aa97-8611b7e1e3fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/java/services/SessionUtil.java" afterPath="$PROJECT_DIR$/auction-app/src/main/java/services/SessionUtil.java" />
-    </list>
+    <list default="true" id="52e751ce-cf1e-4722-aa97-8611b7e1e3fd" name="Default" comment="" />
     <ignored path="autcion-parent.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,20 +29,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RestUtil.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RestUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/RestUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="2.8654485">
               <caret line="125" column="32" selection-start-line="125" selection-start-column="32" selection-end-line="125" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SessionUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SessionUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/SessionUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47342193">
+            <state vertical-scroll-proportion="0.0">
               <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
               <folding>
                 <element signature="e#1229#1230#0" expanded="true" />
@@ -1783,12 +1781,12 @@
       <workItem from="1458895270701" duration="4347000" />
       <workItem from="1458899995387" duration="519000" />
       <workItem from="1458986112054" duration="6062000" />
-      <workItem from="1459585440462" duration="56215000" />
+      <workItem from="1459585440462" duration="56239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136968000" />
+    <option name="totallyTimeSpent" value="136992000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-43" width="1920" height="1053" extended-state="6" />
@@ -2458,6 +2456,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/SessionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding>
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1292#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2468,20 +2477,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/RestUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="2.8654485">
           <caret line="125" column="32" selection-start-line="125" selection-start-column="32" selection-end-line="125" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/SessionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47342193">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-          <folding>
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1292#1293#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
