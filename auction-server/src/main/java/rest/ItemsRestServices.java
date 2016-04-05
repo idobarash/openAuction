@@ -65,4 +65,15 @@ public interface ItemsRestServices {
     @GET
     @Path("/{itemId}")
     Item getItem(@PathParam("itemId") Integer itemId);
+
+    /**
+     * Place a new bid on item
+     * @param userId the usre inserting the data.
+     * @param itemId the item id to place bid on.
+     * @param bidSum the sum of the bid.
+     * @return true if success.
+     */
+    @POST
+    @Path("/{itemId}/user/{userId}/bid/{bidSum}")
+    Boolean postNewItem(@PathParam("itemId") Integer itemId, @PathParam("userId") Integer userId, @PathParam("bidSum") Integer bidSum);
 }

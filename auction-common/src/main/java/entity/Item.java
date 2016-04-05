@@ -27,10 +27,10 @@ public class Item extends AbstractEntity {
     private String description;
 
     @Column(name = "start_price")
-    private Double startPrice;
+    private Integer startPrice;
 
     @Column(name = "current_bid")
-    private Double currentBid = 0.0;
+    private Integer currentBid = 0;
 
     @Column(name = "bids_counter")
     private Integer bidsCounter = 0;
@@ -70,11 +70,11 @@ public class Item extends AbstractEntity {
         this.description = description;
     }
 
-    public Double getStartPrice() {
+    public Integer getStartPrice() {
         return startPrice;
     }
 
-    public void setStartPrice(Double startPrice) {
+    public void setStartPrice(Integer startPrice) {
         this.startPrice = startPrice;
     }
 
@@ -118,11 +118,11 @@ public class Item extends AbstractEntity {
         this.endDate = endDate;
     }
 
-    public Double getCurrentBid() {
+    public Integer getCurrentBid() {
         return currentBid;
     }
 
-    public void setCurrentBid(Double currentBid) {
+    public void setCurrentBid(Integer currentBid) {
         this.currentBid = currentBid;
     }
 

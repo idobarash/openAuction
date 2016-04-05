@@ -55,4 +55,9 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     public Item getItem(Integer itemId) {
         return itemsBusinessService.loadItemById(itemId);
     }
+
+    @Override
+    public Boolean postNewItem(Integer itemId, Integer userId, Integer bidSum) {
+        return itemsBusinessService.placeNewBidOnItem(itemId, userId, bidSum);
+    }
 }

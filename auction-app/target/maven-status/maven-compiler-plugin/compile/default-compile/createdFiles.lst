@@ -1,9 +1,10 @@
-services/UserServices.class
 contorllers/LoginController.class
+services/UserServices.class
 services/ItemService.class
 contorllers/BasicController.class
-services/RequestExtractorUtil.class
+validators/BidValidator.class
 contorllers/AppGlobalController.class
+validators/EmailValidator.class
 converters/ItemConditionConverter.class
 contorllers/ItemController.class
 services/SessionUtil.class

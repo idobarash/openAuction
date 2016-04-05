@@ -5,9 +5,13 @@ import entity.Item;
 import entity.ItemCategory;
 import enums.ItemCondition;
 import services.ItemService;
+import services.SessionUtil;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -19,12 +23,14 @@ import java.util.concurrent.TimeUnit;
  *
  * Author: Ido Barash
  */
-@RequestScoped
+@ViewScoped
 @ManagedBean(name = "itemController", eager = true)
 public class ItemController extends BasicController {
 
     @Inject
     private ItemService itemService;
+
+    private String currentItemId;
 
     private String itemName;
 
@@ -34,31 +40,41 @@ public class ItemController extends BasicController {
 
     private ItemCategory category;
 
-    private Double startingPrice;
+    private Integer startingPrice;
 
     private Integer daysTillEnd;
 
-    private Double currentBid;
+    private Integer currentBid;
 
     private Integer bidsCounter;
 
+    private Integer bidSum;
+
+    private String message;
+
+    @PostConstruct
     public void loadItemData() {
 
-        Object itemId = getRequestParameter("itemId");
+        currentItemId = getRequestParameter("itemId");
 
-        if (itemId == null || ((String)itemId).isEmpty()) {
+        if (currentItemId == null || ((String)currentItemId).isEmpty()) {
             return;
         }
 
-        Item item = itemService.loadItemFromServer((String)itemId);
+        Item item = itemService.loadItemFromServer((String)currentItemId);
 
         this.itemName = item.getName();
         this.description = item.getDescription();
         this.condition = item.getCondition();
         this.category = item.getCategory();
         this.startingPrice = item.getStartPrice();
-        this.currentBid = item.getCurrentBid();
         this.bidsCounter = item.getBidsCounter();
+
+        // Current bid
+        this.currentBid = item.getCurrentBid();
+        if (currentBid == null) {
+            this.currentBid = item.getStartPrice();
+        }
 
         // Calculate days till end of sale
         long millisTillEnd = item.getEndDate().getTime() - System.currentTimeMillis();
@@ -81,6 +97,49 @@ public class ItemController extends BasicController {
         item.setEndDate(calendar.getTime());
 
         itemService.postNewItem(item);
+    }
+
+    /**
+     * Check if user is logged in.
+     * @return true if user is logged in
+     */
+    public boolean isLoggedIn() {
+        return SessionUtil.getSessionAttribute(SessionUtil.USERNAME) != null;
+    }
+
+    /**
+     * Decide if the post new item button should
+     * be displayed.
+     *
+     * @return true if the post new item button
+     *                  should be displayed
+     */
+    public boolean isDisplayPostNewItemButton() {
+
+        String mode = getRequestParameter("mode");
+        if (mode == null) {
+            return  false;
+        }
+
+        return isLoggedIn() && mode.equals("new");
+    }
+
+    /**
+     * Place a new bid on item.
+     */
+    public void placeBid() {
+       if (bidSum > currentBid) {
+           try {
+               itemService.placeNewBid((String) currentItemId, bidSum);
+
+               FacesContext facesContext = FacesContext.getCurrentInstance();
+               ExternalContext externalContext = facesContext.getExternalContext();
+               externalContext.redirect("/auction-app/item/itemId=" + currentItemId);
+           } catch (Exception e) {
+               e.printStackTrace();
+               message = e.getMessage();
+           }
+       }
     }
 
     public String getItemName() {
@@ -115,11 +174,11 @@ public class ItemController extends BasicController {
         this.category = category;
     }
 
-    public Double getStartingPrice() {
+    public Integer getStartingPrice() {
         return startingPrice;
     }
 
-    public void setStartingPrice(Double startingPrice) {
+    public void setStartingPrice(Integer startingPrice) {
         this.startingPrice = startingPrice;
     }
 
@@ -133,5 +192,21 @@ public class ItemController extends BasicController {
 
     public List<ItemCondition> getConditionValues() {
         return Arrays.asList(ItemCondition.values());
+    }
+
+    public Integer getCurrentBid() {
+        return currentBid;
+    }
+
+    public void setCurrentBid(Integer currentBid) {
+        this.currentBid = currentBid;
+    }
+
+    public void setBidSum(Integer bidSum) {
+        this.bidSum = bidSum;
+    }
+
+    public Integer getBidSum() {
+        return bidSum;
     }
 }

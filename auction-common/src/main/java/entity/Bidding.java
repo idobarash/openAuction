@@ -20,7 +20,7 @@ public class Bidding extends AbstractEntity {
     private Item item;
 
     @Column(name = "sum")
-    private Double bidSum;
+    private Integer bidSum;
 
 
     public Item getItem() {
@@ -31,11 +31,11 @@ public class Bidding extends AbstractEntity {
         this.item = item;
     }
 
-    public Double getBidSum() {
+    public Integer getBidSum() {
         return bidSum;
     }
 
-    public void setBidSum(Double bidSum) {
+    public void setBidSum(Integer bidSum) {
         this.bidSum = bidSum;
     }
 

@@ -25,7 +25,8 @@ public class ItemService {
     private static final String GET_ITEMS_URL = "/items/category/%s?pageNumber=%d&pageSize=%d";
     private static final String GET_ITEMS_VISITOR_URL = "/items?pageNumber=%d&pageSize=%d";
     private static final String POST_NEW_ITEM_URL = "/items/%d";
-    private static final String GET_ITEM_URL = "/items/%d";
+    private static final String POST_NEW_BID_ON_ITEM_URL = "/items/%s/bis/%d";
+    private static final String GET_ITEM_URL = "/items/%s";
 
 
     /**
@@ -90,5 +91,20 @@ public class ItemService {
      */
     public Item loadItemFromServer(String itemId) {
         return RestUtil.httpGet(String.format(GET_ITEM_URL,itemId), Item.class);
+    }
+
+    /**
+     * Send a new bid to server
+     * @param itemId
+     * @param bidSum
+     */
+    public void placeNewBid(String itemId, Integer bidSum) {
+
+        try {
+            Boolean success = RestUtil.httpPost(String.format(POST_NEW_BID_ON_ITEM_URL,itemId, bidSum), Boolean.class, null);
+        }
+        catch (Exception e) {
+
+        }
     }
 }

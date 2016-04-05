@@ -69,6 +69,10 @@ public abstract class RestUtil {
             HttpClient client = new DefaultHttpClient();
             HttpPost request = new HttpPost(SERVER_URL + url);
 
+            if (requestBody == null) {
+                requestBody = new String("");
+            }
+
             StringEntity entity = new StringEntity(objectMapper.writeValueAsString(requestBody));
             request.setEntity(entity);
             request.setHeader("Content-type", "application/json");
@@ -97,6 +101,10 @@ public abstract class RestUtil {
 
             HttpClient client = new DefaultHttpClient();
             HttpPost request = new HttpPost(SERVER_URL + url);
+
+            if (requestBody == null) {
+                requestBody = new String("");
+            }
 
             StringEntity entity = new StringEntity(objectMapper.writeValueAsString(requestBody));
             request.setEntity(entity);

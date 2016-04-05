@@ -1,5 +1,6 @@
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/rest/AuthRestServicesImpl.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/dao/ItemDao.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/dao/BiddingDaoJpaImpl.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/rest/AuthRestServices.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/exception/AuctionException.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/dao/ItemCategoryDao.java
@@ -9,6 +10,7 @@
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/rest/ExceptionHandler.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/dao/UserDaoJpaImpl.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/rest/UsersRestService.java
+/Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/dao/BiddingDao.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/services/ItemsBusinessService.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/services/UsersBusinessService.java
 /Users/ido/workspaces/ido/openu/auction/auction-parent/auction-server/src/main/java/rest/ItemsRestServices.java

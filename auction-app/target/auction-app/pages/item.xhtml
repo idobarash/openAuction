@@ -5,7 +5,8 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:ui="http://java.sun.com/jsf/facelets"
->
+	  xmlns:c="http://java.sun.com/jsp/jstl/core">
+
 <h:body>
 
 	<ui:composition template="template/common/commonLayout.xhtml" >
@@ -14,83 +15,127 @@
 
 
 			<div class="content" align="left">
-					<h:form id="registerForm" styleClass="form-group">
-						<fieldset>
-							<div id="legend">
-								<legend class="">Sale item</legend>
+				<h:form id="registerForm" styleClass="form-group">
+					<fieldset>
+						<div id="legend">
+							<legend class="">Sale item</legend>
+						</div>
+						<div class="control-group">
+							<h:outputLabel class="control-label" value="Item title:" />
+							<div class="controls">
+								<h:inputText id="itemName" name="itemName" placeholder="" styleClass="input-xlarge" value="#{itemController.itemName}" style="width: 430px" />
+								<p class="help-block">&nbsp; </p>
 							</div>
-							<div class="control-group">
-								<h:outputLabel class="control-label" value="Item name" />
-								<div class="controls">
-									<h:inputText id="itemName" name="itemName" placeholder="" styleClass="input-xlarge" value="#{itemController.itemName}" style="width: 430px" />
-									<p class="help-block">&nbsp; </p>
+						</div>
+						<div class="control-group">
+							<h:outputLabel class="control-label" value="Description:" />
+							<div class="controls">
+								<h:inputTextarea cols="58" rows="5" value="#{itemController.description}" name="description" />
+								<p class="help-block">Insert a brief description </p>
+							</div>
+						</div>
+
+						<table>
+							<tr>
+								<td>
+
+									<div class="control-group">
+										<h:outputLabel class="control-label" value="Category:" />
+										<div class="controls">
+											<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}" converter="#{categoryConverterBean}" style="width: 155px">
+												<f:selectItems value="#{appGlobalController.categoriesList}" var="category" itemLabel="#{category.name}" itemValue="#{category}" />
+											</h:selectOneMenu>
+											<p class="help-block">&nbsp; </p>
+										</div>
+									</div>
+								</td>
+								<td style="width: 35px"></td>
+								<td>
+									<div class="control-group">
+										<h:outputLabel class="control-label" value="Condition:" />
+										<div class="controls">
+											<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">
+												<f:selectItems value="#{itemController.conditionValues}" var="condition" itemLabel="#{condition.label}" itemValue="#{condition}" />
+											</h:selectOneMenu>
+											<p class="help-block">&nbsp; </p>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="control-group">
+										<h:outputLabel class="control-label" value="Starting price ($):" />
+										<div class="controls">
+											<h:inputText id="startingPrice" name="startingPrice" placeholder="" styleClass="input-xlarge" value="#{itemController.startingPrice}" />
+											<p class="help-block">Insert the lowest price you will accept </p>
+										</div>
+									</div>
+								</td>
+								<td style="width: 35px"></td>
+								<td>
+									<div class="control-group">
+										<h:outputLabel class="control-label" value="Auction ends in (Days):" />
+										<div class="controls">
+											<h:inputText id="daysTillEnd" name="daysTillEnd" placeholder="" styleClass="input-xlarge" value="#{itemController.daysTillEnd}" />
+											<p class="help-block">Insert the number of days till auction end </p>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+
+						<br/> <br/>
+						<div class="control-group">
+							<c:choose>
+								<c:when test="#{itemController.displayPostNewItemButton}">
+									<div class="controls"> <h:commandButton value="Post for Sale" action=""/> </div>
+								</c:when>
+								<c:otherwise>
+									<div class="controls">
+										<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bidModal">Bid Now!!</button>
+									</div>
+								</c:otherwise>
+							</c:choose>
+						</div>
+					</fieldset>
+				</h:form>
+
+				<div id="bidModal" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+						<h:form id="bidForm" styleClass="form-group">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">BID on:  #{itemController.itemName}</h4>
+								</div>
+								<div class="modal-body">
+									<div class="row" style="padding-left: 20px;">
+									<table>
+										<tr>
+											<td><h2>Current bid:</h2></td>
+											<td width="50px">&nbsp;</td>
+											<td><h2>#{itemController.currentBid}&nbsp;$</h2></td>
+										</tr>
+										<tr>
+											<td><h2>Place your bid:</h2></td>
+											<td>&nbsp;</td>
+											<td><h2><h:inputText id="bidSum" value="#{itemController.bidSum}" validatorId="validators.BidValidator" style="width: 100px" /></h2></td>
+										</tr>
+									</table>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<h:commandLink action="#{itemController.placeBid}" styleClass="clickAll">
+										<h:graphicImage library="images" name="bid-now.jpg" data-dismiss="modal" />
+									</h:commandLink>
 								</div>
 							</div>
-							<div class="control-group">
-								<h:outputLabel class="control-label" value="Description" />
-								<div class="controls">
-									<h:inputTextarea cols="58" rows="5" value="#{itemController.description}" name="description" />
-									<p class="help-block">Insert a brief description </p>
-								</div>
-							</div>
+						</h:form>
+					</div>
+				</div>
 
-							<table>
-								<tr>
-									<td>
-
-										<div class="control-group">
-											<h:outputLabel class="control-label" value="Category" />
-											<div class="controls">
-												<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}" converter="#{categoryConverterBean}" style="width: 155px">
-													<f:selectItems value="#{appGlobalController.categoriesList}" var="category" itemLabel="#{category.name}" itemValue="#{category}" />
-												</h:selectOneMenu>
-												<p class="help-block">&nbsp; </p>
-											</div>
-										</div>
-									</td>
-									<td style="width: 35px"></td>
-									<td>
-										<div class="control-group">
-											<h:outputLabel class="control-label" value="Condition" />
-											<div class="controls">
-												<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">
-													<f:selectItems value="#{itemController.conditionValues}" var="condition" itemLabel="#{condition.label}" itemValue="#{condition}" />
-												</h:selectOneMenu>
-												<p class="help-block">&nbsp; </p>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="control-group">
-											<h:outputLabel class="control-label" value="Starting price" />
-											<div class="controls">
-												<h:inputText id="startingPrice" name="startingPrice" placeholder="" styleClass="input-xlarge" value="#{itemController.startingPrice}" />
-												<p class="help-block">Insert the lowest price you will accept </p>
-											</div>
-										</div>
-									</td>
-									<td style="width: 35px"></td>
-									<td>
-										<div class="control-group">
-											<h:outputLabel class="control-label" value="Auction ends in: " />
-											<div class="controls">
-												<h:inputText id="daysTillEnd" name="daysTillEnd" placeholder="" styleClass="input-xlarge" value="#{itemController.daysTillEnd}" />
-												<p class="help-block">Insert the number of days till auction end </p>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</table>
-
-
-							<br/> <br/>
-							<div class="control-group">
-								<div class="controls"> <h:commandButton value="Post for Sale" action="${itemController.postNewItem()}"/> </div>
-							</div>
-						</fieldset>
-					</h:form>
 
 			</div>
 
@@ -99,7 +144,7 @@
 
 	</ui:composition>
 
-
 </h:body>
+
 
 </html>

@@ -1,8 +1,10 @@
 package services;
 
+import dao.BiddingDao;
 import dao.ItemCategoryDao;
 import dao.ItemDao;
 import dao.UserDao;
+import entity.Bidding;
 import entity.Item;
 import entity.ItemCategory;
 import entity.User;
@@ -33,6 +35,9 @@ public class ItemsBusinessService {
     @Inject
     private UserDao userDao;
 
+    @Inject
+    private BiddingDao biddingDao;
+
     /**
      * @return a list of all the catagories
      */
@@ -59,7 +64,7 @@ public class ItemsBusinessService {
 
         // Load by category
         if (categoryId == null || categoryId == 0) {
-            itemDao.loadUnsoldItems(firstResultIndex, pageSize);
+            return itemDao.loadUnsoldItems(firstResultIndex, pageSize);
         }
 
         // Load without category
@@ -118,5 +123,41 @@ public class ItemsBusinessService {
      */
     public Item loadItemById(Integer itemId) {
         return itemDao.read(itemId, Item.class);
+    }
+
+    /**
+     * Create a new bid.
+     * First, check that the bid sum is higher than the current bid sum.
+     * Than create the bid, save it and update the item's record too.
+     *
+     * @param itemId the item id to bid on
+     * @param userId the user id
+     * @param bidSum the bid sum
+     * @return true if success
+     */
+    public Boolean placeNewBidOnItem(Integer itemId, Integer userId, Integer bidSum) {
+
+        // Load item and validate sums
+        Item item = itemDao.read(itemId, Item.class);
+        if (item.getCurrentBid() > bidSum) {
+            throw new AuctionException("You were already ouybidded!!!");
+        }
+
+        // Load user
+        User user = userDao.read(userId, User.class);
+
+        // Create bidding
+        Bidding biddingData = new Bidding();
+        biddingData.setBidSum(bidSum);
+        biddingData.setBiddingUser(user);
+        biddingData.setItem(item);
+        biddingDao.create(biddingData);
+
+        // Update item
+        item.setCurrentBid(bidSum);
+        item.setBidsCounter(item.getBidsCounter() + 1);
+        itemDao.update(item);
+
+        return true;
     }
 }
