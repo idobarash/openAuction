@@ -58,4 +58,12 @@ public interface ItemDao extends GenericDao<Item> {
 
 
     Long countAllUnsoldItemsOfUser(Integer userId);
+
+    List<Item> loadFinishedItemsOfOwner(User user, int firstResultIndex, int pageSize);
+
+    Long countAllFinishedItemsOfUser(Integer userId);
+
+    List<Item> loadBiddedItemsByUser(User user, int firstResultIndex, int pageSize);
+
+    Long countAllBiddedItemsByUser(Integer userId);
 }

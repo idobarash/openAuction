@@ -20,7 +20,7 @@ import java.util.List;
 @ApplicationScoped
 public class ItemService {
 
-    // URLs
+    // URLs - items
     private static final String GET_CATEGORIES_URL = "/items/categories";
     private static final String GET_ITEMS_URL = "/items/category/%s?pageNumber=%d&pageSize=%d";
     private static final String GET_ITEMS_VISITOR_URL = "/items?pageNumber=%d&pageSize=%d";
@@ -28,9 +28,10 @@ public class ItemService {
     private static final String POST_NEW_BID_ON_ITEM_URL = "/items/%s/user/%d/bid/%d";
     private static final String GET_ITEM_URL = "/items/%s";
 
-    private static final String GET_USER_ONGOING_ITEMS_URL = "/users/%s/ongoing?pageNumber=%d&pageSize=%d\";";
-    private static final String GET_USER_FINISHED_ITEMS_URL = "/users/%s/finished?pageNumber=%d&pageSize=%d\";";
-    private static final String GET_USER_BIDS_URL = "/users/%s/bids?pageNumber=%d&pageSize=%d\";";
+    // URLs - user filtering
+    private static final String GET_USER_ONGOING_ITEMS_URL = "/users/%d/ongoing?pageNumber=%d&pageSize=%d";
+    private static final String GET_USER_FINISHED_ITEMS_URL = "/users/%d/finished?pageNumber=%d&pageSize=%d";
+    private static final String GET_USER_BIDS_URL = "/users/%d/bids?pageNumber=%d&pageSize=%d";
 
 
     /**
@@ -123,7 +124,7 @@ public class ItemService {
      */
     public ItemsWrapperListDto getItemsForUser(boolean isOngoing, Integer pageNumber, int itemsPerPage) {
 
-        String userId = (String) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
+        Integer userId = (Integer) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
 
         if (isOngoing) {
             return RestUtil.httpGet(String.format(GET_USER_ONGOING_ITEMS_URL,userId, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
@@ -141,8 +142,8 @@ public class ItemService {
      */
     public ItemsWrapperListDto getUserBidedItems(Integer pageNumber, int itemsPerPage) {
 
-        String userId = (String) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
+        Integer userId = (Integer) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
 
-        return RestUtil.httpGet(String.format(GET_USER_FINISHED_ITEMS_URL,userId, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
+        return RestUtil.httpGet(String.format(GET_USER_BIDS_URL,userId, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
     }
 }

@@ -55,6 +55,7 @@ public class UsersRestServiceImpl implements UsersRestService {
 
     @Override
     public ItemsWrapperListDto getUserOngoingAuctions(Integer userId, int pageNumber, int pageSize) {
+
         ItemsWrapperListDto result = new ItemsWrapperListDto();
 
         List<Item> items = itemsBusinessService.getOngoingAuctionItems(userId, pageNumber, pageSize);
@@ -67,13 +68,31 @@ public class UsersRestServiceImpl implements UsersRestService {
     }
 
     @Override
-    public ItemsWrapperListDto getUserOngoingBids(Integer userId, int pageNumber, int pageSize) {
-        return null;
+    public ItemsWrapperListDto getUserBiddedItems(Integer userId, int pageNumber, int pageSize) {
+
+        ItemsWrapperListDto result = new ItemsWrapperListDto();
+
+        List<Item> items = itemsBusinessService.getItemsBiddedByUser(userId, pageNumber, pageSize);
+        result.setItemList(items);
+
+        Long itemsCount = itemsBusinessService.countItemsBiddedByUser(userId);
+        result.setTotalItems(itemsCount);
+
+        return result;
     }
 
     @Override
     public ItemsWrapperListDto getUserFinishedAuctions(Integer userId, int pageNumber, int pageSize) {
-        return null;
+
+        ItemsWrapperListDto result = new ItemsWrapperListDto();
+
+        List<Item> items = itemsBusinessService.getFinishedAuctionItems(userId, pageNumber, pageSize);
+        result.setItemList(items);
+
+        Long itemsCount = itemsBusinessService.countFinishedAuctionsForUser(userId);
+        result.setTotalItems(itemsCount);
+
+        return result;
     }
 
 

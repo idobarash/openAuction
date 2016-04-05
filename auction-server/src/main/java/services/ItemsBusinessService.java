@@ -180,6 +180,43 @@ public class ItemsBusinessService {
         return itemDao.loadUnsoldItemsOfOwner(user, firstResultIndex, pageSize);
     }
 
+    public Long countOnGoingAuctionsForUser(Integer userId) {
+        return itemDao.countAllUnsoldItemsOfUser(userId);
+    }
+
+    public List<Item> getFinishedAuctionItems(Integer userId, int pageNumber, int pageSize) {
+        User user = userDao.read(userId, User.class);
+        if (user == null) {
+            return new ArrayList<>();
+        }
+
+        // Calculate requested page first item index.
+        int firstResultIndex = getFirstResultIndex(pageNumber, pageSize);
+
+        return itemDao.loadFinishedItemsOfOwner(user, firstResultIndex, pageSize);
+    }
+
+    public Long countFinishedAuctionsForUser(Integer userId) {
+        return itemDao.countAllFinishedItemsOfUser(userId);
+    }
+
+    public List<Item> getItemsBiddedByUser(Integer userId, int pageNumber, int pageSize) {
+
+        User user = userDao.read(userId, User.class);
+        if (user == null) {
+            return new ArrayList<>();
+        }
+
+        // Calculate requested page first item index.
+        int firstResultIndex = getFirstResultIndex(pageNumber, pageSize);
+
+        return itemDao.loadBiddedItemsByUser(user, firstResultIndex, pageSize);
+    }
+
+    public Long countItemsBiddedByUser(Integer userId) {
+        return itemDao.countAllBiddedItemsByUser(userId);
+    }
+
     /**
      * Helper method to calculate the first index of the current page.
      *
@@ -193,9 +230,5 @@ public class ItemsBusinessService {
             firstResultIndex = 0;
         }
         return firstResultIndex;
-    }
-
-    public Long countOnGoingAuctionsForUser(Integer userId) {
-        return itemDao.countAllUnsoldItemsOfUser(userId);
     }
 }

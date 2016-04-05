@@ -78,7 +78,7 @@ public interface UsersRestService {
      */
     @GET
     @Path("{userId}/bids")
-    ItemsWrapperListDto getUserOngoingBids(@PathParam("userId") Integer userId,  @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+    ItemsWrapperListDto getUserBiddedItems(@PathParam("userId") Integer userId, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
 
     /**
      * Retrieve a list of the finished user auctions.
