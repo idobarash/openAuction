@@ -23,8 +23,7 @@ public class SessionUtil {
     public static final String USER_PHOTO_PATH  = "userPhotoPath";
     public static final String USERNAME         = "username";
     public static final String USER_IS_ADMIN    = "userIsAdmin";
-    public static final String USER_ID    = "userId";
-
+    public static final String USER_ID          = "userId";
 
     /**
      * Get the full session object.
@@ -32,8 +31,7 @@ public class SessionUtil {
      * @return HttpSession object
      */
     public static HttpSession getSession() {
-        return (HttpSession) FacesContext.getCurrentInstance()
-                .getExternalContext().getSession(false);
+        return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     }
 
     /**
