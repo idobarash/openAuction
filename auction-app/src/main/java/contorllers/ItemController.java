@@ -13,6 +13,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -50,15 +51,16 @@ public class ItemController extends BasicController {
 
     private Integer bidSum;
 
-    private String message;
+    private String message = "";
 
     @PostConstruct
     public void loadItemData() {
 
-        currentItemId = getRequestParameter("itemId");
-
-        if (currentItemId == null || ((String)currentItemId).isEmpty()) {
-            return;
+        if (currentItemId == null) {
+            currentItemId = getRequestParameter("itemId");
+            if (currentItemId == null || ((String) currentItemId).isEmpty()) {
+                return;
+            }
         }
 
         Item item = itemService.loadItemFromServer((String)currentItemId);
@@ -131,10 +133,7 @@ public class ItemController extends BasicController {
        if (bidSum > currentBid) {
            try {
                itemService.placeNewBid((String) currentItemId, bidSum);
-
-               FacesContext facesContext = FacesContext.getCurrentInstance();
-               ExternalContext externalContext = facesContext.getExternalContext();
-               externalContext.redirect("/auction-app/item/itemId=" + currentItemId);
+               loadItemData();
            } catch (Exception e) {
                e.printStackTrace();
                message = e.getMessage();
@@ -208,5 +207,19 @@ public class ItemController extends BasicController {
 
     public Integer getBidSum() {
         return bidSum;
+    }
+
+    public boolean isReadOnly() {
+
+        if (isLoggedIn() == false) {
+            return true;
+        }
+
+        String mode = getRequestParameter("mode");
+        if (mode != null && mode.equals("new")) {
+            return false;
+        }
+
+        return true;
     }
 }

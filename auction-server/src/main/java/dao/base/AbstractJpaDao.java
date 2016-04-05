@@ -34,13 +34,17 @@ public class AbstractJpaDao<T extends AbstractEntity> implements GenericDao<T> {
 
     @Override
     public T update(T entity) {
+        entityManager.getTransaction().begin();
         T val = entityManager.merge(entity);
+        entityManager.getTransaction().commit();
         return val;
     }
 
     @Override
     public void delete(T entity) {
+        entityManager.getTransaction().begin();
         entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
 }

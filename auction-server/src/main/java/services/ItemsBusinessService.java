@@ -4,6 +4,7 @@ import dao.BiddingDao;
 import dao.ItemCategoryDao;
 import dao.ItemDao;
 import dao.UserDao;
+import dto.ItemsWrapperListDto;
 import entity.Bidding;
 import entity.Item;
 import entity.ItemCategory;
@@ -159,5 +160,11 @@ public class ItemsBusinessService {
         itemDao.update(item);
 
         return true;
+    }
+
+    public List<Item> getOngoingAuctionItems(Integer userId, int pageNumber, int pageSize) {
+
+        User 
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package rest;
 
+import dto.ItemsWrapperListDto;
 import entity.User;
 
 import javax.ws.rs.*;
@@ -51,4 +52,44 @@ public interface UsersRestService {
      */
     @DELETE
     Boolean deleteUser(User user);
+
+    /**
+     * Retrieve a list of the ongoing auctions of a specific
+     * user.
+     *
+     * @param userId the user ID
+     * @param pageNumber the page number to load
+     * @param pageSize the total page size
+     * @return A wrapper containing list of all the ongoing auctions and counter.
+     */
+    @GET
+    @Path("{userId}/ongoing")
+    ItemsWrapperListDto getUserOngoingAuctions(@PathParam("userId") Integer userId, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+
+    /**
+     * Retrieve a list of the ongoing auctions of a specific user of which the
+     * user has participated.
+     *
+     * @param userId the user ID
+     * @param pageNumber the page number to load
+     * @param pageSize the total page size
+     * @return A wrapper containing list of all the auctions the user had participated
+     *                  and are ongoing, and a counter.
+     */
+    @GET
+    @Path("{userId}/bids")
+    ItemsWrapperListDto getUserOngoingBids(@PathParam("userId") Integer userId,  @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+
+    /**
+     * Retrieve a list of the finished user auctions.
+     * user.
+     *
+     * @param userId the user ID
+     * @param pageNumber the page number to load
+     * @param pageSize the total page size
+     * @return A wrapper containing list of all the finished auctions and counter.
+     */
+    @GET
+    @Path("{userId}/bids")
+    ItemsWrapperListDto getUserFinishedAuctions(@PathParam("userId") Integer userId,  @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
 }

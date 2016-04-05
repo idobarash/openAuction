@@ -25,7 +25,7 @@ public class ItemService {
     private static final String GET_ITEMS_URL = "/items/category/%s?pageNumber=%d&pageSize=%d";
     private static final String GET_ITEMS_VISITOR_URL = "/items?pageNumber=%d&pageSize=%d";
     private static final String POST_NEW_ITEM_URL = "/items/%d";
-    private static final String POST_NEW_BID_ON_ITEM_URL = "/items/%s/bis/%d";
+    private static final String POST_NEW_BID_ON_ITEM_URL = "/items/%s/user/%d/bid/%d";
     private static final String GET_ITEM_URL = "/items/%s";
 
 
@@ -101,7 +101,8 @@ public class ItemService {
     public void placeNewBid(String itemId, Integer bidSum) {
 
         try {
-            Boolean success = RestUtil.httpPost(String.format(POST_NEW_BID_ON_ITEM_URL,itemId, bidSum), Boolean.class, null);
+            Object userId = SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
+            Boolean success = RestUtil.httpPost(String.format(POST_NEW_BID_ON_ITEM_URL,itemId, userId, bidSum), Boolean.class, null);
         }
         catch (Exception e) {
 
