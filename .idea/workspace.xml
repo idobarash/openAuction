@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52e751ce-cf1e-4722-aa97-8611b7e1e3fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/auction-server.war" afterPath="$PROJECT_DIR$/auction-server/target/auction-server.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/auction-server/WEB-INF/classes/dao/base/AbstractJpaDao.class" afterPath="$PROJECT_DIR$/auction-server/target/auction-server/WEB-INF/classes/dao/base/AbstractJpaDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/auction-server/WEB-INF/lib/auction-common-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/auction-server/target/auction-server/WEB-INF/lib/auction-common-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/classes/dao/base/AbstractJpaDao.class" afterPath="$PROJECT_DIR$/auction-server/target/classes/dao/base/AbstractJpaDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java" afterPath="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java" afterPath="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java" afterPath="$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/auctionItems.xhtml" afterPath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/auctionItems.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml" afterPath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml" afterPath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/target/auction-app/pages/auctionItems.xhtml" afterPath="$PROJECT_DIR$/auction-app/target/auction-app/pages/auctionItems.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/target/auction-app/pages/item.xhtml" afterPath="$PROJECT_DIR$/auction-app/target/auction-app/pages/item.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/auction-app/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-common/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/auction-common/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDao.java" afterPath="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java" afterPath="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/src/main/java/dao/base/AbstractJpaDao.java" afterPath="$PROJECT_DIR$/auction-server/src/main/java/dao/base/AbstractJpaDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java" afterPath="$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestServiceImpl.java" afterPath="$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java" afterPath="$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/auction-server/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="autcion-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,24 +38,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="item.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.60784316">
-              <caret line="110" column="55" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ItemDaoJpaImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemsListController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.52330506">
+              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,57 +64,7 @@
         <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2851#2852#0" expanded="true" />
-                <element signature="e#2935#2936#0" expanded="true" />
-                <element signature="e#4425#4426#0" expanded="true" />
-                <element signature="e#4461#4462#0" expanded="true" />
-                <element signature="e#5072#5073#0" expanded="true" />
-                <element signature="e#5108#5109#0" expanded="true" />
-                <element signature="e#5142#5143#0" expanded="true" />
-                <element signature="e#5171#5172#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commonHeader.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8333335">
-              <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemsRestServices.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/ItemsRestServices.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="156" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="156" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersRestService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="42" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+              <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -136,32 +74,37 @@
         <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
-              <folding>
-                <element signature="e#1726#1727#0" expanded="true" />
-                <element signature="e#1753#1754#0" expanded="true" />
-                <element signature="e#1871#1872#0" expanded="true" />
-                <element signature="e#1898#1899#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemsBusinessService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7457627">
-              <caret line="166" column="13" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="13" />
+              <caret line="19" column="61" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auctionItems.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/auctionItems.xhtml">
+      <file leaf-file-name="UsersRestService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-44.375">
-              <caret line="82" column="115" selection-start-line="82" selection-start-column="115" selection-end-line="82" selection-end-column="115" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="92" column="28" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commonHeader.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.333333">
+              <caret line="38" column="83" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pretty-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/WEB-INF/pretty-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.291667">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -191,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/UserDaoJpaImpl.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemCategoryDaoJpaImpl.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/base/GenericDao.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/base/AbstractSoftDeletedJpaDao.java" />
@@ -214,7 +156,6 @@
         <option value="$PROJECT_DIR$/auction-common/src/main/java/dto/LogoutRequest.java" />
         <option value="$PROJECT_DIR$/auction-common/src/main/java/dto/UserDto.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonLeftBar.xhtml" />
-        <option value="$PROJECT_DIR$/auction-app/src/main/webapp/WEB-INF/pretty-config.xml" />
         <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/AppGlobalController.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/BasicController.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/LoginController.java" />
@@ -230,18 +171,20 @@
         <option value="$PROJECT_DIR$/auction-common/src/main/java/entity/Bidding.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/BiddingDao.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/BiddingDaoJpaImpl.java" />
-        <option value="$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/base/AbstractJpaDao.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml" />
-        <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/webapp/pages/auctionItems.xhtml" />
-        <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java" />
-        <option value="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/rest/ItemsRestServices.java" />
-        <option value="$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestServiceImpl.java" />
         <option value="$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java" />
+        <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDao.java" />
+        <option value="$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java" />
+        <option value="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml" />
+        <option value="$PROJECT_DIR$/auction-app/src/main/webapp/WEB-INF/pretty-config.xml" />
+        <option value="$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java" />
+        <option value="$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java" />
+        <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java" />
       </list>
     </option>
   </component>
@@ -1342,6 +1285,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -1994,12 +1938,12 @@
       <workItem from="1458895270701" duration="4347000" />
       <workItem from="1458899995387" duration="519000" />
       <workItem from="1458986112054" duration="6062000" />
-      <workItem from="1459585440462" duration="70541000" />
+      <workItem from="1459585440462" duration="74069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151294000" />
+    <option name="totallyTimeSpent" value="154822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-43" width="1920" height="1053" extended-state="6" />
@@ -2121,7 +2065,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java</url>
-          <line>18</line>
+          <line>19</line>
           <properties />
           <option name="timeStamp" value="89" />
         </line-breakpoint>
@@ -2139,7 +2083,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java</url>
-          <line>141</line>
+          <line>139</line>
           <properties />
           <option name="timeStamp" value="104" />
         </line-breakpoint>
@@ -2161,8 +2105,14 @@
           <properties />
           <option name="timeStamp" value="109" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="110" />
+      <option name="time" value="111" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2208,16 +2158,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2337,14 +2277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/WEB-INF/pretty-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.166666">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/WEB-INF/beans.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625">
@@ -2445,17 +2377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auction-common/src/main/java/entity/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
-          <folding>
-            <element signature="e#2187#2188#0" expanded="true" />
-            <element signature="e#2229#2230#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/validators/BidValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2549,38 +2470,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.60784316">
           <caret line="110" column="55" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -2593,6 +2486,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="198" column="48" selection-start-line="198" selection-start-column="23" selection-end-line="198" selection-end-column="48" />
+          <folding>
+            <element signature="e#5169#5170#0" expanded="true" />
+            <element signature="e#5233#5234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/ItemsRestServices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2601,26 +2513,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="42" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8333335">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.55508476">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2851#2852#0" expanded="true" />
@@ -2635,23 +2531,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/auction-common/src/main/java/entity/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+        <state vertical-scroll-proportion="2.2881355">
+          <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
           <folding>
-            <element signature="e#1726#1727#0" expanded="true" />
-            <element signature="e#1753#1754#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
+            <element signature="e#2497#2498#0" expanded="true" />
+            <element signature="e#2541#2542#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java">
+    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/dao/ItemDaoJpaImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7457627">
-          <caret line="166" column="13" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/WEB-INF/pretty-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.291667">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.333333">
+          <caret line="38" column="83" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-server/src/main/java/rest/UsersRestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="28" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemsListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52330506">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
           <folding />
         </state>
       </provider>

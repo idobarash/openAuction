@@ -28,6 +28,10 @@ public class ItemService {
     private static final String POST_NEW_BID_ON_ITEM_URL = "/items/%s/user/%d/bid/%d";
     private static final String GET_ITEM_URL = "/items/%s";
 
+    private static final String GET_USER_ONGOING_ITEMS_URL = "/users/%s/ongoing?pageNumber=%d&pageSize=%d\";";
+    private static final String GET_USER_FINISHED_ITEMS_URL = "/users/%s/finished?pageNumber=%d&pageSize=%d\";";
+    private static final String GET_USER_BIDS_URL = "/users/%s/bids?pageNumber=%d&pageSize=%d\";";
+
 
     /**
      * Get the list of categories from the server
@@ -107,5 +111,38 @@ public class ItemService {
         catch (Exception e) {
 
         }
+    }
+
+    /**
+     * Get user Items
+     *
+     * @param isOngoing whether to get only ongoing or finished
+     * @param pageNumber the current page
+     * @param itemsPerPage items per page
+     * @return Wrapper object containing the count and the list.
+     */
+    public ItemsWrapperListDto getItemsForUser(boolean isOngoing, Integer pageNumber, int itemsPerPage) {
+
+        String userId = (String) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
+
+        if (isOngoing) {
+            return RestUtil.httpGet(String.format(GET_USER_ONGOING_ITEMS_URL,userId, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
+        }
+
+        return RestUtil.httpGet(String.format(GET_USER_FINISHED_ITEMS_URL,userId, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
+    }
+
+    /**
+     * Get user bidded items
+     *
+     * @param pageNumber the current page
+     * @param itemsPerPage items per page
+     * @return Wrapper object containing the count and the list.
+     */
+    public ItemsWrapperListDto getUserBidedItems(Integer pageNumber, int itemsPerPage) {
+
+        String userId = (String) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
+
+        return RestUtil.httpGet(String.format(GET_USER_FINISHED_ITEMS_URL,userId, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
     }
 }

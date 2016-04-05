@@ -2,6 +2,7 @@ package dao;
 
 import dao.base.GenericDao;
 import entity.Item;
+import entity.User;
 
 import java.util.List;
 
@@ -44,4 +45,17 @@ public interface ItemDao extends GenericDao<Item> {
      * @return Long value
      */
     Long countAllUnsoldItems();
+
+    /**
+     * Load all unsold items of a specific user
+     *
+     * @param user the onwer
+     * @param firstResultIndex the first result index
+     * @param pageSize the pageSize
+     * @return
+     */
+    List<Item> loadUnsoldItemsOfOwner(User user, int firstResultIndex, int pageSize);
+
+
+    Long countAllUnsoldItemsOfUser(Integer userId);
 }

@@ -90,6 +90,6 @@ public interface UsersRestService {
      * @return A wrapper containing list of all the finished auctions and counter.
      */
     @GET
-    @Path("{userId}/bids")
+    @Path("{userId}/finished")
     ItemsWrapperListDto getUserFinishedAuctions(@PathParam("userId") Integer userId,  @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
 }

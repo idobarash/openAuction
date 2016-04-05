@@ -35,15 +35,27 @@ public class ItemsListController extends BasicController {
      */
     public ItemsWrapperListDto getItemsListwrapper() {
 
-        // Extract category
-        category = getRequestParameter("category");
-
-        // Load items (9 for user or 6 for visitor)
-        if (category == null || "".equals(category)) {
-            return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE_VISITOR);
+        String mode = getRequestParameter("mode");
+        if ("myOngoing".equals(mode)) {
+            return itemService.getItemsForUser(true, pageNumber, ITEMS_PER_PAGE);
         }
+        else if ("myFinished".equals(mode)) {
+            return itemService.getItemsForUser(false, pageNumber, ITEMS_PER_PAGE);
+        }
+        else if ("myBids".equals(mode)) {
+            return itemService.getUserBidedItems(pageNumber, ITEMS_PER_PAGE);
+        }
+        else {
+            // Extract category
+            category = getRequestParameter("category");
 
-        return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
+            // Load items (9 for user or 6 for visitor)
+            if (category == null || "".equals(category)) {
+                return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE_VISITOR);
+            }
+
+            return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
+        }
     }
 
     /**

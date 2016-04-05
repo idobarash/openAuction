@@ -14,6 +14,7 @@ import exception.AuctionException;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -58,10 +59,7 @@ public class ItemsBusinessService {
     public List<Item> getItems(Integer categoryId, int pageNumber, int pageSize) {
 
         // Calculate requested page first item index.
-        int firstResultIndex = (pageNumber - 1) * pageSize;
-        if (firstResultIndex < 0) {
-            firstResultIndex = 0;
-        }
+        int firstResultIndex = getFirstResultIndex(pageNumber, pageSize);
 
         // Load by category
         if (categoryId == null || categoryId == 0) {
@@ -162,9 +160,42 @@ public class ItemsBusinessService {
         return true;
     }
 
+    /**
+     * Load a page of ongoing auction items for a spcific user.
+     * @param userId the user id
+     * @param pageNumber
+     * @param pageSize
+     * @return
+     */
     public List<Item> getOngoingAuctionItems(Integer userId, int pageNumber, int pageSize) {
 
-        User 
-        return null;
+        User user = userDao.read(userId, User.class);
+        if (user == null) {
+            return new ArrayList<>();
+        }
+
+        // Calculate requested page first item index.
+        int firstResultIndex = getFirstResultIndex(pageNumber, pageSize);
+
+        return itemDao.loadUnsoldItemsOfOwner(user, firstResultIndex, pageSize);
+    }
+
+    /**
+     * Helper method to calculate the first index of the current page.
+     *
+     * @param pageNumber
+     * @param pageSize
+     * @return
+     */
+    private int getFirstResultIndex(int pageNumber, int pageSize) {
+        int firstResultIndex = (pageNumber - 1) * pageSize;
+        if (firstResultIndex < 0) {
+            firstResultIndex = 0;
+        }
+        return firstResultIndex;
+    }
+
+    public Long countOnGoingAuctionsForUser(Integer userId) {
+        return itemDao.countAllUnsoldItemsOfUser(userId);
     }
 }
