@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 public class SessionUtil {
 
-    /** Session parameters keys */
+    /* Session parameters keys */
 
     public static final String USER_PHOTO_PATH  = "userPhotoPath";
     public static final String USERNAME         = "username";
