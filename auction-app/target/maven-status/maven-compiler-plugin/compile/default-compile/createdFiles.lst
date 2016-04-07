@@ -1,10 +1,12 @@
-contorllers/LoginController.class
 services/UserServices.class
+contorllers/LoginController.class
 services/ItemService.class
 contorllers/BasicController.class
 validators/BidValidator.class
 contorllers/AppGlobalController.class
 validators/EmailValidator.class
+servlet/ImagesServlet.class
+services/ImagesUtil.class
 converters/ItemConditionConverter.class
 contorllers/ItemController.class
 services/SessionUtil.class

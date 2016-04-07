@@ -81,11 +81,9 @@ public class ItemService {
      *
      * @param item the item to sale.
      */
-    public void postNewItem(Item item) {
-
+    public Integer postNewItem(Item item) {
         Integer userId = (Integer) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
-
-        RestUtil.httpPostNoResponse(String.format(POST_NEW_ITEM_URL,userId), item);
+        return RestUtil.httpPost(String.format(POST_NEW_ITEM_URL,userId), Integer.class, item);
     }
 
     /**

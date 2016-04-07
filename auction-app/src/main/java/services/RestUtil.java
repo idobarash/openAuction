@@ -43,8 +43,6 @@ public abstract class RestUtil {
             HttpResponse response = client.execute(request);
             if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                 return objectMapper.readValue(EntityUtils.toString(response.getEntity()), type);
-            } else {
-                System.out.println(EntityUtils.toString(response.getEntity()));
             }
 
             return type.newInstance();

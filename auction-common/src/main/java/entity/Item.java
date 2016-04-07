@@ -134,3 +134,4 @@ public class Item extends AbstractEntity {
         this.bidsCounter = bidsCounter;
     }
 }
+

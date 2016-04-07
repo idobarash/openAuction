@@ -4,16 +4,16 @@ package contorllers;
 import entity.Item;
 import entity.ItemCategory;
 import enums.ItemCondition;
+import org.primefaces.model.StreamedContent;
+import org.primefaces.model.UploadedFile;
+import services.ImagesUtil;
 import services.ItemService;
 import services.SessionUtil;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -53,6 +53,10 @@ public class ItemController extends BasicController {
 
     private String message = "";
 
+    private UploadedFile uploadedFile;
+
+    private StreamedContent imageAsStream;
+
     @PostConstruct
     public void loadItemData() {
 
@@ -79,8 +83,10 @@ public class ItemController extends BasicController {
         }
 
         // Calculate days till end of sale
-        long millisTillEnd = item.getEndDate().getTime() - System.currentTimeMillis();
-        daysTillEnd = (int)TimeUnit.DAYS.convert(millisTillEnd, TimeUnit.MILLISECONDS);
+        if (item.getEndDate() != null) {
+            long millisTillEnd = item.getEndDate().getTime() - System.currentTimeMillis();
+            daysTillEnd = (int) TimeUnit.DAYS.convert(millisTillEnd, TimeUnit.MILLISECONDS);
+        }
     }
 
     public void postNewItem() {
@@ -98,7 +104,16 @@ public class ItemController extends BasicController {
         calendar.add(Calendar.DATE, daysTillEnd);
         item.setEndDate(calendar.getTime());
 
-        itemService.postNewItem(item);
+        //Integer itemId = itemService.postNewItem(item);
+        ImagesUtil.saveImage(uploadedFile, 1);
+    }
+
+    /**
+     * Retrieve the item's image path
+     * @return
+     */
+    public String getImagePath() {
+        return ImagesUtil.getImagePath(currentItemId);
     }
 
     /**
@@ -116,7 +131,7 @@ public class ItemController extends BasicController {
      * @return true if the post new item button
      *                  should be displayed
      */
-    public boolean isDisplayPostNewItemButton() {
+    public boolean isNewItemView() {
 
         String mode = getRequestParameter("mode");
         if (mode == null) {
@@ -139,6 +154,24 @@ public class ItemController extends BasicController {
                message = e.getMessage();
            }
        }
+    }
+
+    /**
+     * Is item in read-only mode
+     * @return
+     */
+    public boolean isReadOnly() {
+
+        if (isLoggedIn() == false) {
+            return true;
+        }
+
+        String mode = getRequestParameter("mode");
+        if (mode != null && mode.equals("new")) {
+            return false;
+        }
+
+        return true;
     }
 
     public String getItemName() {
@@ -209,17 +242,11 @@ public class ItemController extends BasicController {
         return bidSum;
     }
 
-    public boolean isReadOnly() {
+    public UploadedFile getUploadedFile() {
+        return uploadedFile;
+    }
 
-        if (isLoggedIn() == false) {
-            return true;
-        }
-
-        String mode = getRequestParameter("mode");
-        if (mode != null && mode.equals("new")) {
-            return false;
-        }
-
-        return true;
+    public void setUploadedFile(UploadedFile uploadedFile) {
+        this.uploadedFile = uploadedFile;
     }
 }
