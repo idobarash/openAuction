@@ -30,6 +30,7 @@ public class ImagesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Get by id or by file name
+
         String itemId = request.getParameter("itemId");
         String filename = "";
         if (itemId == null || itemId.isEmpty() == true) {

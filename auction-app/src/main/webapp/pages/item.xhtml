@@ -94,7 +94,7 @@
 										<div class="controls">
 											<c:choose>
 												<c:when test="#{itemController.readOnly}">
-													<h:inputText value="#{itemController.condition}" readonly="true" />
+													<h:inputText value="#{itemController.condition.label}" readonly="true" />
 												</c:when>
 												<c:otherwise>
 													<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">

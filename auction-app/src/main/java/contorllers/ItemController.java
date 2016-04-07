@@ -8,6 +8,7 @@ import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 import services.ImagesUtil;
 import services.ItemService;
+import services.NavigationUtil;
 import services.SessionUtil;
 
 import javax.annotation.PostConstruct;
@@ -78,7 +79,7 @@ public class ItemController extends BasicController {
 
         // Current bid
         this.currentBid = item.getCurrentBid();
-        if (currentBid == null) {
+        if (currentBid == null || currentBid == 0) {
             this.currentBid = item.getStartPrice();
         }
 
@@ -104,8 +105,10 @@ public class ItemController extends BasicController {
         calendar.add(Calendar.DATE, daysTillEnd);
         item.setEndDate(calendar.getTime());
 
-        //Integer itemId = itemService.postNewItem(item);
-        ImagesUtil.saveImage(uploadedFile, 1);
+        Integer itemId = itemService.postNewItem(item);
+        ImagesUtil.saveImage(uploadedFile, itemId);
+
+        NavigationUtil.navigateToRoot();
     }
 
     /**

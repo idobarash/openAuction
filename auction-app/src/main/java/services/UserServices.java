@@ -3,6 +3,8 @@ package services;
 import entity.User;
 
 import javax.faces.bean.ApplicationScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 
@@ -29,7 +31,14 @@ public class UserServices {
     }
 
     public void createUser(String username, String password, String email) {
-        User user = generate(username, password, email);
-        RestUtil.httpPost(USER_CREATE, Boolean.TYPE, user);
+
+        try {
+            User user = generate(username, password, email);
+            RestUtil.httpPost(USER_CREATE, Boolean.TYPE, user);
+
+            NavigationUtil.navigateToRoot();
+        } catch (Exception e) {
+
+        }
     }
 }

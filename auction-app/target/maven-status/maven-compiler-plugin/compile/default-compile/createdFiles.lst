@@ -7,10 +7,11 @@ contorllers/AppGlobalController.class
 validators/EmailValidator.class
 servlet/ImagesServlet.class
 services/ImagesUtil.class
+services/NavigationUtil.class
 converters/ItemConditionConverter.class
 contorllers/ItemController.class
 services/SessionUtil.class
 contorllers/UserController.class
-converters/ItemCategoryConverter.class
 services/RestUtil.class
+converters/ItemCategoryConverter.class
 contorllers/ItemsListController.class

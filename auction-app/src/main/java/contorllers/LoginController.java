@@ -2,6 +2,7 @@ package contorllers;
 
 import dto.LoginRequest;
 import dto.UserDto;
+import services.NavigationUtil;
 import services.RestUtil;
 import services.SessionUtil;
 
@@ -50,9 +51,7 @@ public class LoginController extends BasicController {
                     SessionUtil.getSession().setAttribute(SessionUtil.USER_PHOTO_PATH, userData.getPhotoPath());
                     SessionUtil.getSession().setAttribute(SessionUtil.USER_ID, userData.getUserId());
 
-                    FacesContext facesContext = FacesContext.getCurrentInstance();
-                    ExternalContext externalContext = facesContext.getExternalContext();
-                    externalContext.redirect("/auction-app");
+                    NavigationUtil.navigateToRoot();
                 }
 
             } catch (Exception e) {
@@ -66,14 +65,13 @@ public class LoginController extends BasicController {
      * Logout user
      */
     public void logout() {
-
         try {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             ExternalContext externalContext = facesContext.getExternalContext();
             externalContext.invalidateSession();
             externalContext.redirect("/auction-app");
-
-        } catch (IOException e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }

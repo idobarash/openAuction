@@ -19,7 +19,7 @@ public class ImagesUtil {
         BufferedInputStream bufferedInputStream = null;
         BufferedOutputStream bufferedOutputStream = null;
         try {
-            File file = new File(String.format(PATH, itemId.toString()));
+            File file = new File(String.format(REAL_PATH, itemId.toString()));
             if (file.exists() == false) {
                 file.createNewFile();
             }
