@@ -55,7 +55,7 @@ public interface ItemsRestServices {
      */
     @POST
     @Path("/{userId}")
-    Boolean postNewItem(@PathParam("userId") Integer userId, Item item);
+    Integer postNewItem(@PathParam("userId") Integer userId, Item item);
 
     /**
      * Load a specific item.
@@ -75,5 +75,5 @@ public interface ItemsRestServices {
      */
     @POST
     @Path("/{itemId}/user/{userId}/bid/{bidSum}")
-    Boolean postNewItem(@PathParam("itemId") Integer itemId, @PathParam("userId") Integer userId, @PathParam("bidSum") Integer bidSum);
+    Boolean placeNewBid(@PathParam("itemId") Integer itemId, @PathParam("userId") Integer userId, @PathParam("bidSum") Integer bidSum);
 }

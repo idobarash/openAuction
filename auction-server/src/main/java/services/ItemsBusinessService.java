@@ -75,9 +75,9 @@ public class ItemsBusinessService {
      *
      * @param userId the owner
      * @param item the item to save
-     * @return true if success
+     * @return the item id
      */
-    public Boolean saveNewItem(Integer userId, Item item) {
+    public Integer saveNewItem(Integer userId, Item item) {
 
         // Validate user
         User user = userDao.read(userId, User.class);
@@ -96,7 +96,7 @@ public class ItemsBusinessService {
         itemDao.create(item);
         userDao.update(user);
 
-        return true;
+        return item.getId();
     }
 
     /**

@@ -5,7 +5,7 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:ui="http://java.sun.com/jsf/facelets"
-	  xmlns:c="http://java.sun.com/jsp/jstl/core">
+	  xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
 
 <h:body>
 
@@ -20,27 +20,41 @@
 						<div id="legend">
 							<legend class="">Sale item</legend>
 						</div>
-						<div class="control-group">
-							<h:outputLabel class="control-label" value="Item title:" />
-							<div class="controls">
-								<h:inputText id="itemName" name="itemName" placeholder="" styleClass="input-xlarge" value="#{itemController.itemName}" style="width: 430px" readonly="#{itemController.readOnly}" />
-								<p class="help-block">&nbsp; </p>
-							</div>
-						</div>
-						<div class="control-group">
-							<h:outputLabel class="control-label" value="Description:" />
-							<div class="controls">
-								<h:inputTextarea cols="58" rows="5" value="#{itemController.description}" name="description" readonly="#{itemController.readOnly}" />
-								<c:choose>
-									<c:when test="#{itemController.readOnly}">
-										<p class="help-block">&nbsp;</p>
-									</c:when>
-									<c:otherwise>
-										<p class="help-block">Insert a brief description </p>
-									</c:otherwise>
-								</c:choose>
-							</div>
-						</div>
+						<table>
+							<tr>
+								<td>
+									<div class="control-group">
+										<h:outputLabel class="control-label" value="Item title:" />
+										<div class="controls">
+											<h:inputText id="itemName" name="itemName" placeholder="" styleClass="input-xlarge" value="#{itemController.itemName}" style="width: 430px" readonly="#{itemController.readOnly}" />
+											<p class="help-block">&nbsp; </p>
+										</div>
+									</div>
+									<div class="control-group">
+										<h:outputLabel class="control-label" value="Description:" />
+										<div class="controls">
+											<h:inputTextarea cols="58" rows="5" value="#{itemController.description}" name="description" readonly="#{itemController.readOnly}" />
+											<c:choose>
+												<c:when test="#{itemController.readOnly}">
+													<p class="help-block">&nbsp;</p>
+												</c:when>
+												<c:otherwise>
+													<p class="help-block">Insert a brief description </p>
+												</c:otherwise>
+											</c:choose>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="control-group">
+										<h:outputLabel class="control-label" value="Image:" />
+										<div class="controls">
+											<p class="help-block">&nbsp; </p>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
 
 						<table>
 							<tr>

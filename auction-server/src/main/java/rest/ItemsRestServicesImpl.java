@@ -47,7 +47,7 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     }
 
     @Override
-    public Boolean postNewItem(Integer userId, Item item) {
+    public Integer postNewItem(Integer userId, Item item) {
         return itemsBusinessService.saveNewItem(userId, item);
     }
 
@@ -57,7 +57,7 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     }
 
     @Override
-    public Boolean postNewItem(Integer itemId, Integer userId, Integer bidSum) {
+    public Boolean placeNewBid(Integer itemId, Integer userId, Integer bidSum) {
         return itemsBusinessService.placeNewBidOnItem(itemId, userId, bidSum);
     }
 }
