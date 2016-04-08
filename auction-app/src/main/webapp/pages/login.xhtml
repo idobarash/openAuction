@@ -18,10 +18,10 @@
 					<h:form id="loginForm">
 						<h1>Log in</h1>
 						<div >
-							<h:inputText value="#{loginController.username}" /> <br />
+							<h:inputText value="#{loginController.username}" placeholder="Username" /> <br />
 						</div>
 						<div>
-							<h:inputSecret value="#{loginController.password}" /><br/>
+							<h:inputSecret value="#{loginController.password}" placeholder="Password" /><br/>
 						</div>
 						<div>
 							<h:commandButton value="Log in" action="#{loginController.login()}" />

@@ -23,9 +23,6 @@ public class LoginController extends BasicController {
 
     private static final String AUTHENTICATE_USER_URL = "/auth/login";
 
-    public static final String USERNAME_INITIAL = "Username";
-    public static final String PASSWORD_INITIAL = "Password";
-
     private String username;
 
     private String password;
@@ -81,9 +78,6 @@ public class LoginController extends BasicController {
      * @return the username if was enterd, "Username" if not.
      */
     public String getUsername() {
-        if (username == null) {
-            return USERNAME_INITIAL;
-        }
         return username;
     }
 
@@ -113,9 +107,6 @@ public class LoginController extends BasicController {
     }
 
     public String getPassword() {
-        if (password == null) {
-            return PASSWORD_INITIAL;
-        }
         return password;
     }
 

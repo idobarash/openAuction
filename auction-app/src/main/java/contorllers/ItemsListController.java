@@ -80,7 +80,7 @@ public class ItemsListController extends BasicController {
             }
         }
 
-        if (items.getTotalItems() > ITEMS_PER_PAGE) {
+        if (items != null && items.getTotalItems() != null && items.getTotalItems() > ITEMS_PER_PAGE) {
             paginationRequired = true;
         }
     }
@@ -94,9 +94,15 @@ public class ItemsListController extends BasicController {
      */
     public boolean getShowIntroImages() {
 
-        category = getRequestParameter("category");
+        String category = getRequestParameter("category");
+        String mode = getRequestParameter("mode");
 
         if (pageNumber > 1) {
+            return false;
+        }
+
+
+        if (mode != null && "".equals(mode) == false) {
             return false;
         }
 

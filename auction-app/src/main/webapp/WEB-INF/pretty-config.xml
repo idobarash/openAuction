@@ -35,4 +35,9 @@
         <view-id value="/pages/itemsList.xhtml" />
     </url-mapping>
 
+    <url-mapping id="contact">
+        <pattern value="/contact" />
+        <view-id value="/pages/contact.xhtml" />
+    </url-mapping>
+
 </pretty-config>
