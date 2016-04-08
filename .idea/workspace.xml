@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52e751ce-cf1e-4722-aa97-8611b7e1e3fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/auction-server.war" afterPath="$PROJECT_DIR$/auction-server/target/auction-server.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/auction-server/WEB-INF/lib/auction-common-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/auction-server/target/auction-server/WEB-INF/lib/auction-common-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java" afterPath="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml" afterPath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml" afterPath="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/target/auction-app/pages/item.xhtml" afterPath="$PROJECT_DIR$/auction-app/target/auction-app/pages/item.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-app/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/auction-app/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-common/src/main/java/entity/User.java" afterPath="$PROJECT_DIR$/auction-common/src/main/java/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-common/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/auction-common/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auction-server/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/auction-server/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="autcion-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="item.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="item.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2166667">
-              <caret line="319" column="106" selection-start-line="319" selection-start-column="106" selection-end-line="319" selection-end-column="106" />
+            <state vertical-scroll-proportion="-14.458333">
+              <caret line="271" column="106" selection-start-line="271" selection-start-column="106" selection-end-line="271" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -69,23 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ItemController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.52441615">
+              <caret line="186" column="35" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4128#4129#0" expanded="true" />
                 <element signature="e#4189#4190#0" expanded="true" />
-                <element signature="e#5552#5553#0" expanded="true" />
-                <element signature="e#5599#5600#0" expanded="true" />
-                <element signature="e#7284#7285#0" expanded="true" />
-                <element signature="e#7322#7323#0" expanded="true" />
-                <element signature="e#7359#7360#0" expanded="true" />
-                <element signature="e#7394#7395#0" expanded="true" />
-                <element signature="e#7425#7426#0" expanded="true" />
-                <element signature="e#7454#7455#0" expanded="true" />
+                <element signature="e#5814#5815#0" expanded="true" />
+                <element signature="e#5861#5862#0" expanded="true" />
+                <element signature="e#7546#7547#0" expanded="true" />
+                <element signature="e#7584#7585#0" expanded="true" />
+                <element signature="e#7621#7622#0" expanded="true" />
+                <element signature="e#7656#7657#0" expanded="true" />
+                <element signature="e#7687#7688#0" expanded="true" />
+                <element signature="e#7716#7717#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -239,8 +230,8 @@
         <option value="$PROJECT_DIR$/auction-server/src/main/java/services/ItemsBusinessService.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/java/services/ItemService.java" />
         <option value="$PROJECT_DIR$/auction-common/src/main/java/entity/User.java" />
-        <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml" />
+        <option value="$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java" />
         <option value="$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml" />
       </list>
     </option>
@@ -1677,12 +1668,12 @@
       <workItem from="1458986112054" duration="6062000" />
       <workItem from="1459585440462" duration="76723000" />
       <workItem from="1460041251822" duration="957000" />
-      <workItem from="1460051906239" duration="43536000" />
+      <workItem from="1460051906239" duration="44967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201969000" />
+    <option name="totallyTimeSpent" value="203400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-43" width="1920" height="1053" extended-state="6" />
@@ -1701,7 +1692,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46631017" sideWeight="0.49361023" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46631017" sideWeight="0.49361023" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32513368" sideWeight="0.4968051" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1771,10 +1762,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java</url>
+          <line>181</line>
+          <properties />
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="176" />
+      <option name="time" value="177" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2187,26 +2186,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4128#4129#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#5552#5553#0" expanded="true" />
-            <element signature="e#5599#5600#0" expanded="true" />
-            <element signature="e#7284#7285#0" expanded="true" />
-            <element signature="e#7322#7323#0" expanded="true" />
-            <element signature="e#7359#7360#0" expanded="true" />
-            <element signature="e#7394#7395#0" expanded="true" />
-            <element signature="e#7425#7426#0" expanded="true" />
-            <element signature="e#7454#7455#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/template/common/commonHeader.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.375">
@@ -2233,9 +2212,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auction-app/src/main/webapp/pages/item.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2166667">
-          <caret line="319" column="106" selection-start-line="319" selection-start-column="106" selection-end-line="319" selection-end-column="106" />
+        <state vertical-scroll-proportion="-14.458333">
+          <caret line="271" column="106" selection-start-line="271" selection-start-column="106" selection-end-line="271" selection-end-column="106" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auction-app/src/main/java/contorllers/ItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52441615">
+          <caret line="186" column="35" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4128#4129#0" expanded="true" />
+            <element signature="e#4189#4190#0" expanded="true" />
+            <element signature="e#5814#5815#0" expanded="true" />
+            <element signature="e#5861#5862#0" expanded="true" />
+            <element signature="e#7546#7547#0" expanded="true" />
+            <element signature="e#7584#7585#0" expanded="true" />
+            <element signature="e#7621#7622#0" expanded="true" />
+            <element signature="e#7656#7657#0" expanded="true" />
+            <element signature="e#7687#7688#0" expanded="true" />
+            <element signature="e#7716#7717#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

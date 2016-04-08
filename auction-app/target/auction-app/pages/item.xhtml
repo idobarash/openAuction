@@ -253,7 +253,7 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">BID on:  #{itemController.itemName}</h4>
+									<h4 class="modal-title">BID ON:  #{itemController.itemName}</h4>
 								</div>
 								<div class="modal-body">
 									<div class="row" style="padding-left: 20px;">
@@ -266,7 +266,13 @@
 										<tr>
 											<td><h2>Place your bid:</h2></td>
 											<td>&nbsp;</td>
-											<td><h2><h:inputText id="bidSum" value="#{itemController.bidSum}" validatorId="validators.BidValidator" style="width: 100px" /></h2></td>
+											<td>
+												<div style="width: 130px">
+													<p:spinner id="bidSum" value="#{itemController.bidSum}" prefix="$"
+															   min="#{itemController.currentBid}" size="10"
+															   stepFactor="#{itemController.bidStep}"/>
+												</div>
+											</td>
 										</tr>
 									</table>
 									</div>

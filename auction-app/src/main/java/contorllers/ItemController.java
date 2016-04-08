@@ -208,6 +208,22 @@ public class ItemController extends BasicController {
         return true;
     }
 
+    public Integer getBidStep() {
+        if (currentBid < 100) {
+            return 5;
+        }
+
+        if (currentBid < 1000) {
+            return 10;
+        }
+
+        if (currentBid < 10000) {
+            return 100;
+        }
+
+        return 250;
+    }
+
     public boolean isAllowContactBuyer() {
        return ownerViewsFinishedAuction;
     }
