@@ -106,7 +106,9 @@ public class ItemController extends BasicController {
         item.setEndDate(calendar.getTime());
 
         Integer itemId = itemService.postNewItem(item);
-        ImagesUtil.saveImage(uploadedFile, itemId);
+        if (uploadedFile != null) {
+            ImagesUtil.saveImage(uploadedFile, itemId);
+        }
 
         NavigationUtil.navigateToRoot();
     }

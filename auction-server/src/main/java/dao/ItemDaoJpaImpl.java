@@ -93,7 +93,7 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
     @Override
     public List<Item> loadFinishedItemsOfOwner(User user, int firstResultIndex, int pageSize) {
         Query query = entityManager.createQuery("SELECT i FROM User AS u LEFT JOIN u.items AS i " +
-                "WHERE i.endDate < :today and u.id = :userId  ORDER BY i.endDate");
+                "WHERE i.endDate <= :today and u.id = :userId  ORDER BY i.endDate DESC");
         query.setParameter("today", new Date());
         query.setParameter("userId", user.getId());
         query.setFirstResult(firstResultIndex);

@@ -70,7 +70,7 @@ public class ItemsListController extends BasicController {
             }
 
             // Load items (9 for user or 6 for visitor)
-            if ((category == null || "".equals(category)) && (pageNumber == 0)) {
+            if ((category == null || "".equals(category)) && (pageNumber == 1)) {
                 items = itemService.getItems(category, pageNumber, ITEMS_PER_PAGE_VISITOR);
                 if (items.getTotalItems() > ITEMS_PER_PAGE_VISITOR) {
                     paginationRequired = true;

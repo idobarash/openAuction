@@ -48,25 +48,37 @@
 				<!-- Items -->
 
 				<div class="row">
-					<ui:repeat value="#{itemsListController.items.itemList}" var="item">
+					<c:forEach items="#{itemsListController.items.itemList}" var="item">
 						<div class="col-sm-4 col-lg-4 col-md-4">
 							<div class="thumbnail">
 								<a href="/auction-app/item?itemId=#{item.id}">
-									<h:graphicImage value="/pics/item?itemId=#{item.id}" width="320" height="150" />
+									<h:graphicImage value="/pics/item?itemId=#{item.id}" width="320" height="150"
+													style="border-bottom: solid 1px #d4d4d4"/>
 								</a>
-								<div class="caption">
-									<c:choose>
-										<c:when test="#{item.currentBid != null}">
-											<h4 class="pull-right">$#{item.currentBid}</h4>
-										</c:when>
-										<c:otherwise>
-											<h4 class="pull-right">$#{item.startPrice}</h4>
-										</c:otherwise>
-									</c:choose>
-									<h4><a href="/auction-app/item?itemId=#{item.id}">#{item.name}</a>
-									</h4>
-									<p>#{item.description}.</p>
-								</div>
+								<c:choose>
+									<c:when test="#{item.auctionFinished}" >
+										<div class="caption">
+											<a href="/auction-app/item?itemId=#{item.id}">
+												<h:graphicImage library="images" name="completed.jpg" />
+											</a>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="caption">
+											<c:choose>
+												<c:when test="#{item.currentBid gt 0}">
+													<h4 class="pull-right">$#{item.currentBid}</h4>
+												</c:when>
+												<c:otherwise>
+													<h4 class="pull-right">$#{item.startPrice}</h4>
+												</c:otherwise>
+											</c:choose>
+											<h4><a href="/auction-app/item?itemId=#{item.id}">#{item.name}</a>
+											</h4>
+											<p>#{item.description}.</p>
+										</div>
+									</c:otherwise>
+								</c:choose>
 
 								<!-- Ratings - stars -->
 
@@ -97,7 +109,7 @@
 								</div>
 							</div>
 						</div>
-					</ui:repeat>
+					</c:forEach>
 				</div>
 				<c:if test="#{itemsListController.paginationRequired}" >
 					<table>

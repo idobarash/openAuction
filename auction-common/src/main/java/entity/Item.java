@@ -14,11 +14,11 @@ import java.util.Date;
 @Table(name = "items")
 public class Item extends AbstractEntity {
 
-    @Column(name ="creation_date")
+    @Column(name = "creation_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 
-    @Column(name ="end_date")
+    @Column(name = "end_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
@@ -35,8 +35,8 @@ public class Item extends AbstractEntity {
     @Column(name = "bids_counter")
     private Integer bidsCounter = 0;
 
-    @Column(name = "is_sold")
-    private Boolean isSold;
+    @Column(name = "auction_finished")
+    private boolean isAuctionFinished;
 
     @ManyToOne
     @JoinColumn(name = "category", referencedColumnName = "id")
@@ -45,14 +45,6 @@ public class Item extends AbstractEntity {
     @Column(name = "item_condition")
     @Enumerated(EnumType.STRING)
     private ItemCondition condition;
-
-    public Boolean getIsSold() {
-        return isSold;
-    }
-
-    public void setIsSold(Boolean isSold) {
-        this.isSold = isSold;
-    }
 
     public String getName() {
         return name;
@@ -84,14 +76,6 @@ public class Item extends AbstractEntity {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
-    }
-
-    public Boolean getSold() {
-        return isSold;
-    }
-
-    public void setSold(Boolean sold) {
-        isSold = sold;
     }
 
     public ItemCategory getCategory() {
@@ -133,5 +117,12 @@ public class Item extends AbstractEntity {
     public void setBidsCounter(Integer bidsCounter) {
         this.bidsCounter = bidsCounter;
     }
-}
 
+    public boolean isAuctionFinished() {
+        return isAuctionFinished;
+    }
+
+    public void setAuctionFinished(boolean auctionFinished) {
+        isAuctionFinished = auctionFinished;
+    }
+}

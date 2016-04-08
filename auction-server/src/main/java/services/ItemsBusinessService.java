@@ -87,7 +87,7 @@ public class ItemsBusinessService {
 
         // Update item system data
         item.setCreationDate(new Date());
-        item.setIsSold(false);
+        item.setAuctionFinished(false);
 
         // Add item to user
         user.getItems().add(item);
@@ -193,7 +193,16 @@ public class ItemsBusinessService {
         // Calculate requested page first item index.
         int firstResultIndex = getFirstResultIndex(pageNumber, pageSize);
 
-        return itemDao.loadFinishedItemsOfOwner(user, firstResultIndex, pageSize);
+        // Set items that are not already sold as sold.
+        List<Item> finishedItems = itemDao.loadFinishedItemsOfOwner(user, firstResultIndex, pageSize);
+        for (Item item : finishedItems) {
+            if (item.isAuctionFinished() == false) {
+                item.setAuctionFinished(true);
+                itemDao.update(item);
+            }
+        }
+
+        return finishedItems;
     }
 
     public Long countFinishedAuctionsForUser(Integer userId) {
