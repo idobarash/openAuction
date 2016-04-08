@@ -2,6 +2,7 @@ entity/AbstractSoftDeletedEntity.class
 entity/AbstractEntity.class
 dto/UserDto.class
 entity/ItemCategory.class
+dto/FinishedAuctionDataDto.class
 entity/Bidding.class
 dto/ItemsWrapperListDto.class
 enums/ItemCondition.class

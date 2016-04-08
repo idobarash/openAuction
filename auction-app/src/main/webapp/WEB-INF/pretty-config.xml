@@ -40,4 +40,9 @@
         <view-id value="/pages/contact.xhtml" />
     </url-mapping>
 
+    <url-mapping id="finishedItem">
+        <pattern value="/item/finished" />
+        <view-id value="/pages/item.xhtml?mode=finished" />
+    </url-mapping>
+
 </pretty-config>

@@ -16,4 +16,17 @@ import java.util.List;
 @Named
 public class BiddingDaoJpaImpl extends AbstractJpaDao<Bidding> implements BiddingDao {
 
+    @Override
+    public Bidding getMaxBidForItem(Integer itemId) {
+        try {
+            Query query = entityManager.createQuery("SELECT b FROM Bidding b JOIN b.biddingUser u  WHERE b.item.id = :itemId ORDER BY b.bidSum DESC")
+                    .setParameter("itemId", itemId)
+                    .setMaxResults(1);
+
+            return (Bidding) query.getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
 }

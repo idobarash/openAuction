@@ -14,4 +14,11 @@ import java.util.List;
  */
 public interface BiddingDao extends GenericDao<Bidding> {
 
+    /**
+     * Find the highest bid for item.
+     *
+     * @param itemId
+     * @return the max bid for item
+     */
+    Bidding getMaxBidForItem(Integer itemId);
 }

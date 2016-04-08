@@ -19,4 +19,12 @@ public interface UserDao extends GenericDao<User> {
      * @return A user if exists
      */
     User readUserByUsernameAndPassword(String userName, String password);
+
+    /**
+     * Find a user by an a published auction.
+     *
+     * @param itemId
+     * @return the owner user of the item.
+     */
+    User findOwnerOfItem(Integer itemId);
 }

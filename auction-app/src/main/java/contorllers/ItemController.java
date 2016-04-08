@@ -1,8 +1,10 @@
 package contorllers;
 
 
+import dto.FinishedAuctionDataDto;
 import entity.Item;
 import entity.ItemCategory;
+import entity.User;
 import enums.ItemCondition;
 import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
@@ -58,6 +60,12 @@ public class ItemController extends BasicController {
 
     private StreamedContent imageAsStream;
 
+    private boolean auctionFinished;
+
+    private boolean ownerViewsFinishedAuction = false;
+
+    private User winner;
+
     @PostConstruct
     public void loadItemData() {
 
@@ -76,6 +84,7 @@ public class ItemController extends BasicController {
         this.category = item.getCategory();
         this.startingPrice = item.getStartPrice();
         this.bidsCounter = item.getBidsCounter();
+        this.auctionFinished = item.isAuctionFinished();
 
         // Current bid
         this.currentBid = item.getCurrentBid();
@@ -87,6 +96,22 @@ public class ItemController extends BasicController {
         if (item.getEndDate() != null) {
             long millisTillEnd = item.getEndDate().getTime() - System.currentTimeMillis();
             daysTillEnd = (int) TimeUnit.DAYS.convert(millisTillEnd, TimeUnit.MILLISECONDS);
+        }
+
+
+        if (auctionFinished) {
+            FinishedAuctionDataDto finishedAuctionDataDto = ItemService.getFinishedAuctionData(item.getId());
+
+            if (finishedAuctionDataDto.getOwner() != null) {
+                if (isLoggedIn()) {
+                    Integer currentUserId = (Integer) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
+                    if (currentUserId.equals(finishedAuctionDataDto.getOwner().getId())) {
+                        ownerViewsFinishedAuction = true;
+                    }
+                }
+            }
+
+            winner = finishedAuctionDataDto.getWinner();
         }
     }
 
@@ -179,6 +204,15 @@ public class ItemController extends BasicController {
         return true;
     }
 
+    public boolean isAllowContactBuyer() {
+        String mode = getRequestParameter("mode");
+        if (mode != null && mode.equals("myFinished")) {
+            return true;
+        }
+
+        return false;
+    }
+
     public String getItemName() {
         return itemName;
     }
@@ -253,5 +287,9 @@ public class ItemController extends BasicController {
 
     public void setUploadedFile(UploadedFile uploadedFile) {
         this.uploadedFile = uploadedFile;
+    }
+
+    public boolean isAuctionFinished() {
+        return auctionFinished;
     }
 }

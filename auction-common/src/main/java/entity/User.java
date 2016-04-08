@@ -21,7 +21,7 @@ public class User extends AbstractSoftDeletedEntity {
     @Column(name = "photo_path")
     private String photoPath;
 
-    @OneToMany
+    @OneToMany()
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Item> items;
 

@@ -1,5 +1,6 @@
 package rest;
 
+import dto.FinishedAuctionDataDto;
 import dto.ItemsWrapperListDto;
 import entity.Item;
 import entity.ItemCategory;
@@ -76,4 +77,15 @@ public interface ItemsRestServices {
     @POST
     @Path("/{itemId}/user/{userId}/bid/{bidSum}")
     Boolean placeNewBid(@PathParam("itemId") Integer itemId, @PathParam("userId") Integer userId, @PathParam("bidSum") Integer bidSum);
+
+    /**
+     * Retrieve a finished auction data.
+     * Get the owner user and winner user.
+     *
+     * @param itemId the auction item
+     * @return dto with both users.
+     */
+    @GET
+    @Path("/{itemId}/finishedAuctionData")
+    FinishedAuctionDataDto getFinishedAuctionData(@PathParam("itemId") Integer itemId);
 }

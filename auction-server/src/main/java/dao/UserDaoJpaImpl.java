@@ -25,6 +25,21 @@ public class UserDaoJpaImpl extends AbstractSoftDeletedJpaDao<User> implements U
                     .setParameter("password", password);
 
             return (User) query.getSingleResult();
+
+        } catch (PersistenceException exception) {
+            return null;
+        }
+    }
+
+    @Override
+    public User findOwnerOfItem(Integer itemId) {
+
+        try {
+            Query query = entityManager.createQuery("SELECT u FROM User u JOIN u.items i WHERE i.id = :itemId")
+                    .setParameter("itemId", itemId);
+
+            return (User) query.getSingleResult();
+
         } catch (PersistenceException exception) {
             return null;
         }

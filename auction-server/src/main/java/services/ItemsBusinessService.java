@@ -4,6 +4,7 @@ import dao.BiddingDao;
 import dao.ItemCategoryDao;
 import dao.ItemDao;
 import dao.UserDao;
+import dto.FinishedAuctionDataDto;
 import dto.ItemsWrapperListDto;
 import entity.Bidding;
 import entity.Item;
@@ -239,5 +240,28 @@ public class ItemsBusinessService {
             firstResultIndex = 0;
         }
         return firstResultIndex;
+    }
+
+    public FinishedAuctionDataDto getFinishedAuctionItemData(Integer itemId) {
+
+        // Validate
+        Item item = itemDao.read(itemId, Item.class);
+        if (item == null) {
+            throw new AuctionException("No such item with id " + itemId);
+        }
+
+        if (item.isAuctionFinished() == false) {
+            throw new AuctionException("Item " + itemId + " : " + item.getName() + " - auction was not finished.");
+        }
+
+        // Get Usres
+        User owner = userDao.findOwnerOfItem(itemId);
+        Bidding maxBid = biddingDao.getMaxBidForItem(itemId);
+
+        // Remove items from result
+        owner.setItems(null);
+        maxBid.getBiddingUser().setItems(null);
+
+        return new FinishedAuctionDataDto(owner, maxBid.getBiddingUser());
     }
 }

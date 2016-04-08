@@ -56,8 +56,7 @@
 													<p:fileUpload value="#{itemController.uploadedFile}" mode="simple" skinSimple="true" />
 												</c:when>
 												<c:otherwise>
-															<p:graphicImage value="#{itemController.imagePath}" style="border: solid black 1px;" />
-
+													<p:graphicImage value="/#{itemController.imagePath}" style="border: solid black 1px;" />
 												</c:otherwise>
 											</c:choose>
 										</div>
@@ -147,8 +146,11 @@
 								</td>
 							</tr>
 						</table>
-
-
+						<c:if test="#{itemController.auctionFinished}">
+							<div style="position: absolute; float: right; right:20px; bottom:120px">
+								<h:graphicImage library="images" name="completed.jpg" />
+							</div>
+						</c:if>
 						<br/> <br/>
 						<div class="control-group">
 							<c:choose>
@@ -159,7 +161,17 @@
 									<c:choose>
 										<c:when test="#{itemController.loggedIn}">
 											<div class="controls">
-												<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bidModal">Bid Now!!</button>
+												<c:choose>
+													<c:when test="#{itemController.auctionFinished}">
+														<c:if test="#{itemController.allowContactBuyer}">
+															<button type="button" class="btn btn-info btn-lg">Contact buyer!</button>
+														</c:if>
+													</c:when>
+													<c:otherwise>
+														<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bidModal">Bid Now!!</button>
+													</c:otherwise>
+												</c:choose>
+
 											</div>
 										</c:when>
 										<c:otherwise>

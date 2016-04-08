@@ -1,5 +1,6 @@
 package rest;
 
+import dto.FinishedAuctionDataDto;
 import dto.ItemsWrapperListDto;
 import entity.Item;
 import entity.ItemCategory;
@@ -59,5 +60,10 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     @Override
     public Boolean placeNewBid(Integer itemId, Integer userId, Integer bidSum) {
         return itemsBusinessService.placeNewBidOnItem(itemId, userId, bidSum);
+    }
+
+    @Override
+    public FinishedAuctionDataDto getFinishedAuctionData(Integer itemId) {
+        return itemsBusinessService.getFinishedAuctionItemData(itemId);
     }
 }

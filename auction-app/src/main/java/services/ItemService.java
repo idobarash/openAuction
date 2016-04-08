@@ -1,5 +1,6 @@
 package services;
 
+import dto.FinishedAuctionDataDto;
 import dto.ItemsWrapperListDto;
 import entity.Item;
 import entity.ItemCategory;
@@ -21,18 +22,18 @@ import java.util.List;
 public class ItemService {
 
     // URLs - items
-    private static final String GET_CATEGORIES_URL = "/items/categories";
-    private static final String GET_ITEMS_URL = "/items/category/%s?pageNumber=%d&pageSize=%d";
-    private static final String GET_ITEMS_VISITOR_URL = "/items?pageNumber=%d&pageSize=%d";
-    private static final String POST_NEW_ITEM_URL = "/items/%d";
-    private static final String POST_NEW_BID_ON_ITEM_URL = "/items/%s/user/%d/bid/%d";
-    private static final String GET_ITEM_URL = "/items/%s";
+    private static final String GET_CATEGORIES_URL =            "/items/categories";
+    private static final String GET_ITEMS_URL =                 "/items/category/%s?pageNumber=%d&pageSize=%d";
+    private static final String GET_ITEMS_VISITOR_URL =         "/items?pageNumber=%d&pageSize=%d";
+    private static final String POST_NEW_ITEM_URL =             "/items/%d";
+    private static final String POST_NEW_BID_ON_ITEM_URL =      "/items/%s/user/%d/bid/%d";
+    private static final String GET_FINISHED_AUCTION_DATA_URL = "/items/%d/finishedAuctionData";
+    private static final String GET_ITEM_URL =                  "/items/%s";
 
     // URLs - user filtering
-    private static final String GET_USER_ONGOING_ITEMS_URL = "/users/%d/ongoing?pageNumber=%d&pageSize=%d";
-    private static final String GET_USER_FINISHED_ITEMS_URL = "/users/%d/finished?pageNumber=%d&pageSize=%d";
-    private static final String GET_USER_BIDS_URL = "/users/%d/bids?pageNumber=%d&pageSize=%d";
-
+    private static final String GET_USER_ONGOING_ITEMS_URL =    "/users/%d/ongoing?pageNumber=%d&pageSize=%d";
+    private static final String GET_USER_FINISHED_ITEMS_URL =   "/users/%d/finished?pageNumber=%d&pageSize=%d";
+    private static final String GET_USER_BIDS_URL =             "/users/%d/bids?pageNumber=%d&pageSize=%d";
 
     /**
      * Get the list of categories from the server
@@ -143,5 +144,14 @@ public class ItemService {
         Integer userId = (Integer) SessionUtil.getSessionAttribute(SessionUtil.USER_ID);
 
         return RestUtil.httpGet(String.format(GET_USER_BIDS_URL,userId, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
+    }
+
+    /**
+     * Get finished auction data from the server
+     * @param itemId
+     * @return
+     */
+    public static FinishedAuctionDataDto getFinishedAuctionData(Integer itemId) {
+        return RestUtil.httpGet(String.format(GET_FINISHED_AUCTION_DATA_URL, itemId), FinishedAuctionDataDto.class);
     }
 }
