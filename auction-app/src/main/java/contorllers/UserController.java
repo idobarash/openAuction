@@ -29,6 +29,10 @@ public class UserController extends BasicController {
 
     private String email;
 
+    private String name;
+
+    private String phone;
+
     /**
      * Get the title accordinf to the mode
      * @return the title to display
@@ -48,7 +52,7 @@ public class UserController extends BasicController {
      * Go to server to register a new user.
      */
     public void regiterNewUser() {
-        userServices.createUser(username, password, email);
+        userServices.createUser(username, password, email, name, phone);
     }
 
     public String getUsername() {
@@ -81,5 +85,21 @@ public class UserController extends BasicController {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
