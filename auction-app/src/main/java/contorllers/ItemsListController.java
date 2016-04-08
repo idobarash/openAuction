@@ -1,21 +1,21 @@
 package contorllers;
 
 import dto.ItemsWrapperListDto;
-import services.ImagesUtil;
 import services.ItemService;
+import services.NavigationUtil;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.IntegerConverter;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import java.util.regex.Matcher;
 
 /**
  * Controller class which handles the list items view (auctionItems.xhtml)
  *
  * Author: Ido Barash
  */
-@RequestScoped
+@ViewScoped
 @ManagedBean(name = "itemsListController")
 public class ItemsListController extends BasicController {
 
@@ -26,38 +26,62 @@ public class ItemsListController extends BasicController {
     @Inject
     private ItemService itemService;
 
+    private ItemsWrapperListDto items;
 
     private String category;
 
-    private Integer pageNumber = 0;
+    private Integer pageNumber = 1;
+
+    private String mode;
+
+    private boolean paginationRequired = false;
 
     /**
      * Load item list from the server
      *
      * @return items list for the current page
      */
-    public ItemsWrapperListDto getItemsListwrapper() {
+    @PostConstruct
+    public void init() {
 
-        String mode = getRequestParameter("mode");
+        // Extract page
+        String pageNumberAsString = getRequestParameter("page");
+        if (pageNumberAsString != null && pageNumberAsString.isEmpty() == false && pageNumberAsString.matches("-?\\d+(\\.\\d+)?"))  {
+            pageNumber = Integer.valueOf(pageNumberAsString);
+        }
+
+        // Extract mode
+        if (mode == null) {
+            mode = getRequestParameter("mode");
+        }
         if ("myOngoing".equals(mode)) {
-            return itemService.getItemsForUser(true, pageNumber, ITEMS_PER_PAGE);
+            items = itemService.getItemsForUser(true, pageNumber, ITEMS_PER_PAGE);
         }
         else if ("myFinished".equals(mode)) {
-            return itemService.getItemsForUser(false, pageNumber, ITEMS_PER_PAGE);
+            items = itemService.getItemsForUser(false, pageNumber, ITEMS_PER_PAGE);
         }
         else if ("myBids".equals(mode)) {
-            return itemService.getUserBidedItems(pageNumber, ITEMS_PER_PAGE);
+            items = itemService.getUserBidedItems(pageNumber, ITEMS_PER_PAGE);
         }
         else {
             // Extract category
-            category = getRequestParameter("category");
-
-            // Load items (9 for user or 6 for visitor)
-            if (category == null || "".equals(category)) {
-                return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE_VISITOR);
+            if (category == null) {
+                category = getRequestParameter("category");
             }
 
-            return itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
+            // Load items (9 for user or 6 for visitor)
+            if ((category == null || "".equals(category)) && (pageNumber == 0)) {
+                items = itemService.getItems(category, pageNumber, ITEMS_PER_PAGE_VISITOR);
+                if (items.getTotalItems() > ITEMS_PER_PAGE_VISITOR) {
+                    paginationRequired = true;
+                }
+            } else {
+                items = itemService.getItems(category, pageNumber, ITEMS_PER_PAGE);
+            }
+        }
+
+        if (items.getTotalItems() > ITEMS_PER_PAGE) {
+            paginationRequired = true;
         }
     }
 
@@ -72,11 +96,44 @@ public class ItemsListController extends BasicController {
 
         category = getRequestParameter("category");
 
-        if (pageNumber > 0) {
+        if (pageNumber > 1) {
             return false;
         }
 
         return category == null || "".equals(category);
     }
 
+    public void nextPage() {
+        pageNumber += 1;
+        NavigationUtil.navigetToItemsPage(mode, category, pageNumber);
+    }
+
+    public void previousPage() {
+
+        pageNumber = pageNumber - 1;
+        if (pageNumber < 1) {
+            pageNumber = 1;
+        }
+        NavigationUtil.navigetToItemsPage(mode, category, pageNumber);
+    }
+
+    public boolean isPaginationRequired() {
+        return paginationRequired;
+    }
+
+    public ItemsWrapperListDto getItems() {
+        return items;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public Integer getPageNumber() {
+        return pageNumber;
+    }
 }

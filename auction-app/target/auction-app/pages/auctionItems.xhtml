@@ -19,9 +19,9 @@
 						<div class="col-md-12">
 							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 								<ol class="carousel-indicators">
-									<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-									<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-									<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+									<li data-target="#carousel-example-generic" data-slide-to="0" class="active"/>
+									<li data-target="#carousel-example-generic" data-slide-to="1"/>
+									<li data-target="#carousel-example-generic" data-slide-to="2"/>
 								</ol>
 								<div class="carousel-inner">
 									<div class="item active">
@@ -35,10 +35,10 @@
 									</div>
 								</div>
 								<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-									<span class="glyphicon glyphicon-chevron-left"></span>
+									<span class="glyphicon glyphicon-chevron-left"/>
 								</a>
 								<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-									<span class="glyphicon glyphicon-chevron-right"></span>
+									<span class="glyphicon glyphicon-chevron-right"/>
 								</a>
 							</div>
 						</div>
@@ -48,10 +48,12 @@
 				<!-- Items -->
 
 				<div class="row">
-					<ui:repeat value="#{itemsListController.itemsListwrapper.itemList}" var="item">
+					<ui:repeat value="#{itemsListController.items.itemList}" var="item">
 						<div class="col-sm-4 col-lg-4 col-md-4">
 							<div class="thumbnail">
-								<h:graphicImage value="/pics/item?itemId=#{item.id}" />
+								<a href="/auction-app/item?itemId=#{item.id}">
+									<h:graphicImage value="/pics/item?itemId=#{item.id}" />
+								</a>
 								<div class="caption">
 									<c:choose>
 										<c:when test="#{item.currentBid != null}">
@@ -72,23 +74,23 @@
 									<p class="pull-right">#{item.bidsCounter} Bids</p>
 									<p>
 										<c:choose>
-											<c:when test="#{item.bidsCounter ge 5}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:when test="#{item.bidsCounter ge 5}"><span class="glyphicon glyphicon-star"/></c:when>
 											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="#{item.bidsCounter ge 10}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:when test="#{item.bidsCounter ge 10}"><span class="glyphicon glyphicon-star"/></c:when>
 											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="#{item.bidsCounter ge 15}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:when test="#{item.bidsCounter ge 15}"><span class="glyphicon glyphicon-star"/></c:when>
 											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="#{item.bidsCounter ge 20}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:when test="#{item.bidsCounter ge 20}"><span class="glyphicon glyphicon-star"/></c:when>
 											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="#{item.bidsCounter ge 25}"><span class="glyphicon glyphicon-star"></span></c:when>
+											<c:when test="#{item.bidsCounter ge 25}"><span class="glyphicon glyphicon-star"/></c:when>
 											<c:otherwise><span class="glyphicon glyphicon-star-empty"></span></c:otherwise>
 										</c:choose>
 									</p>
@@ -97,6 +99,23 @@
 						</div>
 					</ui:repeat>
 				</div>
+				<c:if test="#{itemsListController.paginationRequired}" >
+					<table>
+						<tr>
+							<td width="375px;" />
+							<td>
+								<h:commandLink action="#{itemsListController.previousPage}">
+									<span class="glyphicon glyphicon-chevron-left" style="font-size: 30px; color: #d5d5d5" />
+								</h:commandLink>
+								&nbsp;&nbsp;
+								<h:commandLink action="#{itemsListController.nextPage}">
+									<span class="glyphicon glyphicon-chevron-right" style="font-size: 30px; color: #d5d5d5" />
+								</h:commandLink>
+							</td>
+							<td width="300px;"/>
+						</tr>
+					</table>
+				</c:if>
 			</h:form>
 
 	    </ui:composition>
