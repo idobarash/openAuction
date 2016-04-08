@@ -19,6 +19,7 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -51,6 +52,8 @@ public class ItemController extends BasicController {
     private Integer currentBid;
 
     private Integer bidsCounter;
+
+    private Date startingDate;
 
     private Integer bidSum;
 
@@ -85,6 +88,7 @@ public class ItemController extends BasicController {
         this.startingPrice = item.getStartPrice();
         this.bidsCounter = item.getBidsCounter();
         this.auctionFinished = item.isAuctionFinished();
+        this.startingDate = item.getCreationDate();
 
         // Current bid
         this.currentBid = item.getCurrentBid();
@@ -205,12 +209,7 @@ public class ItemController extends BasicController {
     }
 
     public boolean isAllowContactBuyer() {
-        String mode = getRequestParameter("mode");
-        if (mode != null && mode.equals("myFinished")) {
-            return true;
-        }
-
-        return false;
+       return ownerViewsFinishedAuction;
     }
 
     public String getItemName() {
@@ -291,5 +290,13 @@ public class ItemController extends BasicController {
 
     public boolean isAuctionFinished() {
         return auctionFinished;
+    }
+
+    public Date getStartingDate() {
+        return startingDate;
+    }
+
+    public User getWinner() {
+        return winner;
     }
 }

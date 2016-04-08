@@ -18,6 +18,10 @@ public class User extends AbstractSoftDeletedEntity {
 
     private String email;
 
+    private String name;
+
+    private String phone;
+
     @Column(name = "photo_path")
     private String photoPath;
 
@@ -74,5 +78,21 @@ public class User extends AbstractSoftDeletedEntity {
 
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

@@ -34,7 +34,7 @@
 									<div class="control-group">
 										<h:outputLabel class="control-label" value="Description:" />
 										<div class="controls">
-											<h:inputTextarea cols="58" rows="5" value="#{itemController.description}" name="description" readonly="#{itemController.readOnly}" />
+											<h:inputTextarea cols="58" rows="3" value="#{itemController.description}" name="description" readonly="#{itemController.readOnly}" />
 											<c:choose>
 												<c:when test="#{itemController.readOnly}">
 													<p class="help-block">&nbsp;</p>
@@ -65,93 +65,159 @@
 							</tr>
 						</table>
 
-						<table>
-							<tr>
-								<td>
+						<div id="legend">
+							<legend class="">&nbsp;</legend>
+						</div>
 
-									<div class="control-group">
-										<h:outputLabel class="control-label" value="Category:" />
-										<div class="controls">
-											<c:choose>
-												<c:when test="#{itemController.readOnly}">
-													<h:inputText value="#{itemController.category.name}" readonly="true" />
-												</c:when>
-												<c:otherwise>
-													<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}" converter="#{categoryConverterBean}" style="width: 155px" >
-														<f:selectItems value="#{appGlobalController.categoriesList}" var="category" itemLabel="#{category.name}" itemValue="#{category}" />
-													</h:selectOneMenu>
-												</c:otherwise>
-											</c:choose>
-											<p class="help-block">&nbsp; </p>
-										</div>
-									</div>
-								</td>
-								<td style="width: 35px"></td>
-								<td>
-									<div class="control-group">
-										<h:outputLabel class="control-label" value="Condition:" />
-										<div class="controls">
-											<c:choose>
-												<c:when test="#{itemController.readOnly}">
-													<h:inputText value="#{itemController.condition.label}" readonly="true" />
-												</c:when>
-												<c:otherwise>
-													<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">
-														<f:selectItems value="#{itemController.conditionValues}" var="condition" itemLabel="#{condition.label}" itemValue="#{condition}" />
-													</h:selectOneMenu>
-												</c:otherwise>
-											</c:choose>
-											<p class="help-block">&nbsp; </p>
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="control-group">
-										<c:choose>
-											<c:when test="#{itemController.newItemView}">
-												<h:outputLabel class="control-label" value="Starting price ($):" />
+						<c:choose>
+							<!-- new item view -->
+							<c:when test="#{itemController.newItemView}">
+								<table>
+									<tr>
+										<td>
+											<div class="control-group">
+												<h:outputLabel class="control-label" value="Category:" />
 												<div class="controls">
-													<h:inputText id="startingPrice" name="startingPrice" placeholder="" styleClass="input-xlarge" value="#{itemController.startingPrice}" readonly="#{itemController.readOnly}" />
-													<p class="help-block">Insert the lowest price you will accept </p>
+													<h:selectOneMenu value="#{itemController.category}" label="#{itemController.category.name}"
+																	 converter="#{categoryConverterBean}" style="width: 155px" >
+														<f:selectItems value="#{appGlobalController.categoriesList}" var="category"
+																	   itemLabel="#{category.name}" itemValue="#{category}" />
+													</h:selectOneMenu>
+													<p class="help-block">&nbsp; </p>
 												</div>
-											</c:when>>
-											<c:otherwise>
+											</div>
+										</td>
+										<td style="width: 35px">&nbsp;</td>
+										<td>
+											<div class="control-group">
+												<h:outputLabel class="control-label" value="Condition:" />
+												<div class="controls">
+													<c:choose>
+														<c:when test="#{itemController.readOnly}">
+															<h:inputText value="#{itemController.condition.label}" readonly="true" />
+														</c:when>
+														<c:otherwise>
+															<h:selectOneMenu value="#{itemController.condition}" label="#{itemController.condition.label}" converter="#{conditionConverterBean}">
+																<f:selectItems value="#{itemController.conditionValues}" var="condition" itemLabel="#{condition.label}" itemValue="#{condition}" />
+															</h:selectOneMenu>
+														</c:otherwise>
+													</c:choose>
+													<p class="help-block">&nbsp; </p>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="control-group">
+												<h:outputLabel class="control-label" value="Start Price ($):" />
+												<div class="controls">
+													<h:inputText id="startPriceNew" name="startPriceNew" placeholder="" styleClass="input-xlarge"
+																 value="#{itemController.startingPrice}" />
+													<p class="help-block">&nbsp;</p>
+												</div>
+											</div>
+										</td>
+										<td style="width: 35px"></td>
+										<td>
+											<div class="control-group">
+												<div class="control-group">
+													<h:outputLabel class="control-label" value="Auction ends in (Days):" />
+													<div class="controls">
+														<h:inputText id="daysTillEndNew" name="daysTillEndNew" placeholder="" styleClass="input-xlarge"
+																	 value="#{itemController.daysTillEnd}"  />
+														<p class="help-block">Insert the number of days till auction end </p>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</c:when>
+
+							<!-- normal view -->
+							<c:otherwise>
+								<table>
+									<tr>
+										<td>
+											<div class="control-group">
+												<h:outputLabel class="control-label" value="Category:" />
+												<div class="controls">
+													<h:inputText value="#{itemController.category.name}" readonly="true" />
+													<p class="help-block">&nbsp; </p>
+												</div>
+											</div>
+										</td>
+										<td style="width: 35px">&nbsp;</td>
+										<td>
+											<div class="control-group">
+												<h:outputLabel class="control-label" value="Condition:" />
+												<div class="controls">
+													<h:inputText value="#{itemController.condition.label}" readonly="true" />
+													<p class="help-block">&nbsp; </p>
+												</div>
+											</div>
+										</td>
+										<td style="width: 35px"></td>
+										<td>
+											<div class="control-group">
+												<h:outputLabel class="control-label" value="Start Price ($):" />
+												<div class="controls">
+													<h:inputText id="startPriceRead" name="bidPrice" placeholder="" styleClass="input-xlarge"
+																 value="#{itemController.startingPrice}" readonly="true"/>
+													<p class="help-block">&nbsp;</p>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="control-group">
+												<h:outputLabel class="control-label" value="Auction published:" />
+												<div class="controls">
+													<h:inputText id="startDate" name="startDate" placeholder="" styleClass="input-xlarge"
+																 value="#{itemController.startingDate}" readonly="true" />
+												</div>
+											</div>
+										</td>
+										<td style="width: 35px"></td>
+										<td>
+											<div class="control-group">
+												<div class="control-group">
+													<h:outputLabel class="control-label" value="Auction ends in (Days):" />
+													<div class="controls">
+														<h:inputText id="daysTillEnd" name="daysTillEnd" placeholder="" styleClass="input-xlarge"
+																	 value="#{itemController.daysTillEnd}" readonly="true" />
+													</div>
+												</div>
+											</div>
+										</td>
+										<td style="width: 35px"></td>
+										<td>
+											<div class="control-group">
 												<h:outputLabel class="control-label" value="Current BID ($):" />
 												<div class="controls">
-													<h:inputText id="bidPrice" name="bidPrice" placeholder="" styleClass="input-xlarge" value="#{itemController.currentBid}" readonly="#{itemController.readOnly}" />
-													<p class="help-block">&nbsp;</p>
+													<h:inputText id="bidPriceRead" name="bidPrice" placeholder="" styleClass="input-xlarge"
+																 value="#{itemController.currentBid}" readonly="true"/>
 												</div>
-											</c:otherwise>
-										</c:choose>
-									</div>
-								</td>
-								<td style="width: 35px"></td>
-								<td>
-									<div class="control-group">
-										<h:outputLabel class="control-label" value="Auction ends in (Days):" />
-										<div class="controls">
-											<h:inputText id="daysTillEnd" name="daysTillEnd" placeholder="" styleClass="input-xlarge" value="#{itemController.daysTillEnd}" readonly="#{itemController.readOnly}" />
-											<c:choose>
-												<c:when test="#{itemController.readOnly}">
-													<p class="help-block">&nbsp;</p>
-												</c:when>
-												<c:otherwise>
-													<p class="help-block">Insert the number of days till auction end </p>
-												</c:otherwise>
-											</c:choose>
-										</div>
-									</div>
-								</td>
-							</tr>
-						</table>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</c:otherwise>
+						</c:choose>
+
+
 						<c:if test="#{itemController.auctionFinished}">
-							<div style="position: absolute; float: right; right:20px; bottom:120px">
-								<h:graphicImage library="images" name="completed.jpg" />
+							<div style="position: absolute; float: right; right:17px; top:110px">
+								<h:graphicImage library="images" name="completed2.jpg" />
 							</div>
 						</c:if>
-						<br/> <br/>
+
+						<div id="legend">
+							<legend class="">&nbsp;</legend>
+						</div>
+
 						<div class="control-group">
 							<c:choose>
 								<c:when test="#{itemController.newItemView}">
@@ -162,16 +228,13 @@
 										<c:when test="#{itemController.loggedIn}">
 											<div class="controls">
 												<c:choose>
-													<c:when test="#{itemController.auctionFinished}">
-														<c:if test="#{itemController.allowContactBuyer}">
-															<button type="button" class="btn btn-info btn-lg">Contact buyer!</button>
-														</c:if>
+													<c:when test="#{itemController.allowContactBuyer}">
+														<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#userModel">Contact buyer</button>
 													</c:when>
 													<c:otherwise>
 														<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bidModal">Bid Now!!</button>
 													</c:otherwise>
 												</c:choose>
-
 											</div>
 										</c:when>
 										<c:otherwise>
@@ -218,6 +281,48 @@
 					</div>
 				</div>
 
+				<div id="userModel" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+						<h:form id="userModalForm" styleClass="form-group">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h3 class="modal-title">Winning User:  #{itemController.winner.username}</h3>
+								</div>
+								<div class="modal-body">
+									<div class="row" style="padding-left: 20px;">
+										<table>
+											<tr>
+												<td><h3>Name</h3></td>
+												<td width="50px">&nbsp;</td>
+												<td><h3>#{itemController.winner.name}&nbsp;$</h3></td>
+											</tr>
+											<tr>
+												<td><h3>Phone:</h3></td>
+												<td>&nbsp;</td>
+												<td><h3>#{itemController.winner.phone}</h3></td>
+											</tr>
+											<tr>
+												<td><h3>Email:</h3></td>
+												<td>&nbsp;</td>
+												<td>
+													<h3>
+														<a href="mailto:#{itemController.winner.email}">
+															#{itemController.winner.email}
+														</a>
+													</h3>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</h:form>
+					</div>
+				</div>
 
 			</div>
 

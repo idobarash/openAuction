@@ -28,13 +28,11 @@
                     <h:form>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li>
-                                <a href="/auction-app/about">About</a>
-                            </li>
+                            <li><a href="/auction-app/about">About</a></li>
+                            <li><a href="/auction-app/search">Search</a></li>
                             <c:choose>
 
                                 <c:when test="${loginController.loggedIn}" >
-                                    <li><a href="/auction-app/search">Search</a></li>
                                     <li><a href="/auction-app/items?mode=myOngoing">Ongoing auctions</a></li>
                                     <li><a href="/auction-app/items?mode=myFinished">Finished auctions</a></li>
                                     <li><a href="/auction-app/items?mode=myBids">Ongoing bids</a></li>
