@@ -94,6 +94,7 @@ public class ItemController extends BasicController {
         if (currentBid == null || currentBid == 0) {
             this.currentBid = item.getStartPrice();
         }
+        this.bidSum = currentBid + getBidStep();
 
         // Calculate days till end of sale
         if (item.getEndDate() != null) {
