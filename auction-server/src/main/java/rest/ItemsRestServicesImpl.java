@@ -66,4 +66,24 @@ public class ItemsRestServicesImpl implements ItemsRestServices {
     public FinishedAuctionDataDto getFinishedAuctionData(Integer itemId) {
         return itemsBusinessService.getFinishedAuctionItemData(itemId);
     }
+
+    @Override
+    public ItemsWrapperListDto searchForItems(String searchBy, int pageNumber, int pageSize) {
+
+        ItemsWrapperListDto result = new ItemsWrapperListDto();
+
+        if (searchBy == null || searchBy.isEmpty()) {
+            return result;
+        }
+
+        // Count search items
+        Long totalItemsCount = itemsBusinessService.countSerachedItems(searchBy);
+        result.setTotalItems(totalItemsCount);
+
+        // Load items list
+        List<Item> itemsList = itemsBusinessService.searchItems(searchBy, pageNumber, pageSize);
+        result.setItemList(itemsList);
+
+        return result;
+    }
 }

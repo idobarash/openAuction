@@ -12,6 +12,7 @@ converters/ItemConditionConverter.class
 contorllers/ItemController.class
 services/SessionUtil.class
 contorllers/UserController.class
+contorllers/SearchController.class
 services/RestUtil.class
 converters/ItemCategoryConverter.class
 contorllers/ItemsListController.class

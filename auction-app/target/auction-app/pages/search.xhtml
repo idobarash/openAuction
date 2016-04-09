@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
+<h:body>
+
+	<ui:composition template="template/common/commonLayout.xhtml" >
+
+		<ui:define name="auctionItems">
+
+
+			<div class="content" align="left">
+				<section id="search">
+					<h:form>
+						<div id="legend">
+							<legend class="">Search</legend>
+						</div>
+
+						<div class="control-group">
+							<h:outputLabel class="control-label" value="Search item:" />
+							<div class="controls">
+								<h:inputText id="searchName" name="searchName" placeholder="" styleClass="input-xlarge"
+											 value="#{searchController.searchString}" style="width:200px;" />
+							</div>
+						</div>
+						<br/><br/><br/><br/><br/>
+						<br/><br/><br/><br/>
+						<div id="legend">
+							<legend class="">&nbsp;</legend>
+						</div>
+
+						<div class="controls">
+							<h:commandButton value="Search" action="#{searchController.search}"
+																styleClass="btn btn-info btn-lg"/>
+						</div>
+					</h:form>
+				</section>
+			</div>
+
+
+		</ui:define>
+
+	</ui:composition>
+
+
+</h:body>
+
+</html>

@@ -66,4 +66,8 @@ public interface ItemDao extends GenericDao<Item> {
     List<Item> loadBiddedItemsByUser(User user, int firstResultIndex, int pageSize);
 
     Long countAllBiddedItemsByUser(Integer userId);
+
+    List<Item> loadByNameAndDescription(String searchBy, int firstResultIndex, int pageSize);
+
+    Long countSearchedItems(String searchBy);
 }

@@ -24,7 +24,7 @@ public class UserServices {
         user.setUsername(username);
         user.setPhone(phone);
         user.setName(name);
-        
+
         return user;
     }
 

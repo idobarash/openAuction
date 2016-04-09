@@ -264,4 +264,16 @@ public class ItemsBusinessService {
 
         return new FinishedAuctionDataDto(owner, maxBid.getBiddingUser());
     }
+
+    public Long countSerachedItems(String searchBy) {
+        return itemDao.countSearchedItems(searchBy);
+    }
+
+    public List<Item> searchItems(String searchBy, int pageNumber, int pageSize) {
+
+        // Calculate requested page first item index.
+        int firstResultIndex = getFirstResultIndex(pageNumber, pageSize);
+
+        return itemDao.loadByNameAndDescription(searchBy, firstResultIndex, pageSize);
+    }
 }

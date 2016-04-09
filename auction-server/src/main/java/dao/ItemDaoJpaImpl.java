@@ -21,7 +21,7 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
     public List<Item> loadUnsoldItemsByCategoryName(Integer categoryId, int firstResultIndex, Integer itemsPerPage) {
 
         Query query = entityManager.createQuery(
-                "SELECT i FROM  Item AS i WHERE i.category.id = :categoryId AND i.isSold = false" +
+                "SELECT i FROM  Item AS i WHERE i.category.id = :categoryId AND i.isAuctionFinished = false" +
                         " AND endDate > :today ORDER BY i.creationDate DESC");
 
         query.setParameter("categoryId", categoryId);
@@ -49,7 +49,7 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
     public Long countAllUnsoldItemsByCategory(Integer categoryId) {
 
         Query query = entityManager.createQuery("SELECT COUNT(i) FROM Item AS i WHERE i.category.id = :categoryId " +
-                                                    "AND i.isSold = false AND endDate > :today");
+                                                    "AND i.isAuctionFinished = false AND endDate > :today");
         query.setParameter("categoryId", categoryId);
         query.setParameter("today", new Date());
 
@@ -69,7 +69,7 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
     public List<Item> loadUnsoldItemsOfOwner(User user, int firstResultIndex, int pageSize) {
 
         Query query = entityManager.createQuery("SELECT i FROM User AS u LEFT JOIN u.items AS i " +
-                                                "WHERE i.isSold = false AND i.endDate > :today and u.id = :userId " +
+                                                "WHERE i.isAuctionFinished = false AND i.endDate > :today and u.id = :userId " +
                                                 "ORDER BY i.creationDate");
         query.setParameter("today", new Date());
         query.setParameter("userId", user.getId());
@@ -82,7 +82,7 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
     @Override
     public Long countAllUnsoldItemsOfUser(Integer userId) {
         Query query = entityManager.createQuery("SELECT COUNT(i) FROM User AS u LEFT JOIN u.items AS i " +
-                "WHERE i.isSold = false AND i.endDate > :today and u.id = :userId ");
+                "WHERE i.isAuctionFinished = false AND i.endDate > :today and u.id = :userId ");
 
         query.setParameter("today", new Date());
         query.setParameter("userId", userId);
@@ -131,6 +131,29 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
                 "WHERE u.id = :userId ORDER BY i.creationDate");
 
         query.setParameter("userId", userId);
+
+        return (Long) query.getSingleResult();
+    }
+
+    @Override
+    public List<Item> loadByNameAndDescription(String searchBy, int firstResultIndex, int pageSize) {
+        Query query = entityManager.createQuery("SELECT i FROM Item AS i WHERE i.name LIKE CONCAT('%', :searchBy, '%') " +
+                                                " OR i.description LIKE CONCAT('%', :searchBy, '%') ");
+        query.setParameter("searchBy", searchBy);
+        query.setParameter("searchBy", searchBy);
+        query.setFirstResult(firstResultIndex);
+        query.setMaxResults(pageSize);
+
+        return query.getResultList();
+    }
+
+    @Override
+    public Long countSearchedItems(String searchBy) {
+        Query query = entityManager.createQuery("SELECT COUNT(i) FROM Item AS i WHERE i.name LIKE CONCAT('%', :searchBy, '%') " +
+                " OR i.description LIKE CONCAT('%', :searchBy, '%') ");
+
+        query.setParameter("searchBy", searchBy);
+        query.setParameter("searchBy", searchBy);
 
         return (Long) query.getSingleResult();
     }

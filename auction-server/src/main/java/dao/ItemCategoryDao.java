@@ -25,4 +25,6 @@ public interface ItemCategoryDao extends GenericDao<ItemCategory> {
      * @return the category
      */
     ItemCategory readByName(String categoryName);
+
+
 }

@@ -35,7 +35,8 @@ public interface ItemsRestServices {
      */
     @GET
     @Path("/category/{categoryId}")
-    ItemsWrapperListDto getItems(@PathParam("categoryId") Integer categoryId, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+    ItemsWrapperListDto getItems(@PathParam("categoryId") Integer categoryId, @QueryParam("pageNumber") int pageNumber,
+                                 @QueryParam("pageSize") int pageSize);
 
     /**
      * Get items list data
@@ -76,7 +77,8 @@ public interface ItemsRestServices {
      */
     @POST
     @Path("/{itemId}/user/{userId}/bid/{bidSum}")
-    Boolean placeNewBid(@PathParam("itemId") Integer itemId, @PathParam("userId") Integer userId, @PathParam("bidSum") Integer bidSum);
+    Boolean placeNewBid(@PathParam("itemId") Integer itemId, @PathParam("userId") Integer userId,
+                        @PathParam("bidSum") Integer bidSum);
 
     /**
      * Retrieve a finished auction data.
@@ -88,4 +90,18 @@ public interface ItemsRestServices {
     @GET
     @Path("/{itemId}/finishedAuctionData")
     FinishedAuctionDataDto getFinishedAuctionData(@PathParam("itemId") Integer itemId);
+
+    /**
+     * Search items by string
+     *
+     * @param searchBy the string to search
+     * @param pageNumber
+     * @param pageSize
+     * @return
+     */
+    @GET
+    @Path("/search")
+    ItemsWrapperListDto searchForItems(@QueryParam("searchBy") String searchBy,
+                                       @QueryParam("pageNumber") int pageNumber,
+                                       @QueryParam("pageSize") int pageSize);
 }

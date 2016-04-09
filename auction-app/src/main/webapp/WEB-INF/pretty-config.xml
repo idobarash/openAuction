@@ -45,4 +45,9 @@
         <view-id value="/pages/item.xhtml?mode=finished" />
     </url-mapping>
 
+    <url-mapping id="search">
+        <pattern value="/search" />
+        <view-id value="/pages/search.xhtml" />
+    </url-mapping>
+
 </pretty-config>

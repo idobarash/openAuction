@@ -29,6 +29,7 @@ public class ItemService {
     private static final String POST_NEW_BID_ON_ITEM_URL =      "/items/%s/user/%d/bid/%d";
     private static final String GET_FINISHED_AUCTION_DATA_URL = "/items/%d/finishedAuctionData";
     private static final String GET_ITEM_URL =                  "/items/%s";
+    private static final String GET_SEARCH_ITEM_URL =           "/items/search?searchBy=%s&pageNumber=%d&pageSize=%d";
 
     // URLs - user filtering
     private static final String GET_USER_ONGOING_ITEMS_URL =    "/users/%d/ongoing?pageNumber=%d&pageSize=%d";
@@ -153,5 +154,9 @@ public class ItemService {
      */
     public static FinishedAuctionDataDto getFinishedAuctionData(Integer itemId) {
         return RestUtil.httpGet(String.format(GET_FINISHED_AUCTION_DATA_URL, itemId), FinishedAuctionDataDto.class);
+    }
+
+    public ItemsWrapperListDto getItemsBySearchString(String serachBy, Integer pageNumber, int itemsPerPage) {
+        return RestUtil.httpGet(String.format(GET_SEARCH_ITEM_URL, serachBy, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
     }
 }

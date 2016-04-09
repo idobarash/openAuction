@@ -63,6 +63,10 @@ public class ItemsListController extends BasicController {
         else if ("myBids".equals(mode)) {
             items = itemService.getUserBidedItems(pageNumber, ITEMS_PER_PAGE);
         }
+        else if ("search".equals(mode)) {
+            String serachBy = getRequestParameter("searchBy");
+            items = itemService.getItemsBySearchString(serachBy, pageNumber, ITEMS_PER_PAGE);
+        }
         else {
             // Extract category
             if (category == null) {
