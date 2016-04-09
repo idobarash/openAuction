@@ -2,10 +2,12 @@ package contorllers;
 
 import dto.LoginRequest;
 import dto.UserDto;
+import services.MessagesDispatcher;
 import services.NavigationUtil;
 import services.RestUtil;
 import services.SessionUtil;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -53,7 +55,7 @@ public class LoginController extends BasicController {
 
             } catch (Exception e) {
                 e.printStackTrace();
-                message = e.getMessage();
+                MessagesDispatcher.dispatchMessage(e.getMessage(), "Login Error");
             }
         }
     }

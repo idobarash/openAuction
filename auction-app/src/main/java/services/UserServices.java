@@ -52,7 +52,8 @@ public class UserServices {
 
             NavigationUtil.navigateToRoot();
         } catch (Exception e) {
-
+            e.printStackTrace();
+            MessagesDispatcher.dispatchMessage(e.getLocalizedMessage(), "Error");
         }
     }
 }

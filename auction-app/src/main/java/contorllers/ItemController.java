@@ -7,10 +7,7 @@ import entity.ItemCategory;
 import entity.User;
 import enums.ItemCondition;
 import org.primefaces.model.UploadedFile;
-import services.ImagesUtil;
-import services.ItemService;
-import services.NavigationUtil;
-import services.SessionUtil;
+import services.*;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -195,9 +192,7 @@ public class ItemController extends BasicController {
                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
            }
        } else {
-           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bid sum must be higher than " + currentBid));
-           FacesContext.getCurrentInstance().getPartialViewContext().getRenderIds()
-                   .add("globalMessage");
+           MessagesDispatcher.dispatchMessage("Bid must be higher than " + currentBid + "$", "Bidding Error");
        }
     }
 

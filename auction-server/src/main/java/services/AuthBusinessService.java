@@ -35,7 +35,9 @@ public class AuthBusinessService {
     public User loginUser(String username, String password) {
 
         User user =  userDao.readUserByUsernameAndPassword(username, password);
-        user.setItems(new ArrayList<Item>());
+        if (user != null) {
+            user.setItems(new ArrayList<Item>());
+        }
 
         return user;
     }

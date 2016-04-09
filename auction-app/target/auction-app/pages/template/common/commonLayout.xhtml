@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:ui="http://java.sun.com/jsf/facelets">
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -49,6 +50,10 @@
 	    			<ui:include src="commonFooter.xhtml" />
 	    		</ui:insert>
     		</div>
+			<!-- messages -->
+			<div class="container" >
+				<p:growl sticky="true" showDetail="true" style="position: absolute; top:100px;" />
+			</div>
     	</div>
     </h:body>
 </html>

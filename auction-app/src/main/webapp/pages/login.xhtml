@@ -4,8 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:ui="http://java.sun.com/jsf/facelets"
->
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:body>
 
 	<ui:composition template="template/common/commonLayout.xhtml" >
@@ -24,15 +23,14 @@
 							<h:inputSecret value="#{loginController.password}" placeholder="Password" /><br/>
 						</div>
 						<div>
+							<h1>&nbsp;</h1>
+						</div>
+						<div>
 							<h:commandButton value="Log in" action="#{loginController.login()}" />
 							<a href="/auction-app/login/register">Register</a>
 						</div>
 					</h:form>
-					<div class="container" >
 
-						<h:outputText value="#{loginController.message}" />
-
-					</div>
 				</section>
 			</div>
 

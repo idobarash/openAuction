@@ -9,7 +9,7 @@ import java.util.List;
  * Author: Ido Barash
  */
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "username")})
 public class User extends AbstractSoftDeletedEntity {
 
     private String username;

@@ -2,6 +2,7 @@ package services;
 
 import dao.UserDao;
 import entity.User;
+import exception.AuctionException;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -32,6 +33,12 @@ public class UsersBusinessService {
     }
 
     public User saveUser(User user) {
+
+        User persistedUserWithUsername = userDao.readUserByUsername(user.getUsername());
+        if (user != null) {
+            throw new AuctionException("User with this username already exists");
+        }
+
         user.setIsActive(true);
         userDao.create(user);
         return user;

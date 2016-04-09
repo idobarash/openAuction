@@ -44,4 +44,17 @@ public class UserDaoJpaImpl extends AbstractSoftDeletedJpaDao<User> implements U
             return null;
         }
     }
+
+    @Override
+    public User readUserByUsername(String username) {
+        try {
+            Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username")
+                    .setParameter("username", username);
+
+            return (User) query.getSingleResult();
+
+        } catch (PersistenceException exception) {
+            return null;
+        }
+    }
 }

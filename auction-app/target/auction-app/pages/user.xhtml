@@ -22,52 +22,60 @@
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Username" />
 								<div class="controls">
-									<h:inputText id="username" name="username" placeholder="" styleClass="input-xlarge" value="#{userController.username}" />
+									<h:inputText id="username" name="username" placeholder="" styleClass="input-xlarge"
+												 value="#{userController.username}" />
 									<p class="help-block">Username can contain any letters or numbers, without spaces</p>
 								</div>
 							</div>
 							<div class="control-group">
-								<h:outputLabel class="control-label" value="name" />
+								<h:outputLabel class="control-label" value="Name" />
 								<div class="controls">
-									<h:inputText id="name" name="name" placeholder="" styleClass="input-xlarge" value="#{userController.name}" />
+									<h:inputText id="name" name="name" placeholder="" styleClass="input-xlarge"
+												 value="#{userController.name}"  />
 									<p class="help-block">Please provide your name </p>
 								</div>
 							</div>
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Email" />
 								<div class="controls">
-									<h:inputText id="email" name="email" styleClass="input-xlarge" value="#{userController.email}" />
+									<h:inputText id="email" name="email" styleClass="input-xlarge"
+												 value="#{userController.email}"  />
 									<p class="help-block">Please provide your E-mail</p>
+								</div>
+							</div>
+							<div class="control-group">
+								<h:outputLabel class="control-label" value="Phone number" />
+								<div class="controls">
+									<h:inputText id="phone" name="phone" styleClass="input-xlarge"
+												 value="#{userController.phone}"  />
+									<p class="help-block">Please provide your phone number</p>
 								</div>
 							</div>
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Password" />
 								<div class="controls">
-									<h:inputText type="password" id="password" name="password" styleClass="input-xlarge" value="#{userController.password}" />
+									<h:inputText type="password" id="password" name="password" styleClass="input-xlarge"
+												 value="#{userController.password}" />
 									<p class="help-block">Password should be at least 4 characters</p>
 								</div>
 							</div>
 							<div class="control-group">
 								<h:outputLabel class="control-label" value="Password (confirm)" />
 								<div class="controls">
-									<h:inputText type="password" id="passwordConfirm" name="passwordConfirm" styleClass="input-xlarge" value="#{userController.passwordConfirm}" />
+									<h:inputText type="password" id="passwordConfirm" name="passwordConfirm"
+												 styleClass="input-xlarge" value="#{userController.passwordConfirm}"/>
 									<p class="help-block">Password should be at least 4 characters</p>
 								</div>
 							</div>
 							<div class="control-group">
-								<div class="controls"> <h:commandButton value="Register" action="${userController.regiterNewUser()}"/> </div>
+								<div class="controls">
+									<h:commandButton value="Register" action="${userController.regiterNewUser()}"/>
+								</div>
 							</div>
 						</fieldset>
 					</h:form>
-
 			</div>
-
-
 		</ui:define>
-
 	</ui:composition>
-
-
 </h:body>
-
 </html>

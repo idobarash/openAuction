@@ -27,4 +27,12 @@ public interface UserDao extends GenericDao<User> {
      * @return the owner user of the item.
      */
     User findOwnerOfItem(Integer itemId);
+
+    /**
+     * Load user by username
+     *
+     * @param username
+     * @return
+     */
+    User readUserByUsername(String username);
 }

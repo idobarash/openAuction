@@ -1,5 +1,6 @@
 package contorllers;
 
+import services.MessagesDispatcher;
 import services.UserServices;
 
 import javax.faces.bean.ManagedBean;
@@ -52,6 +53,42 @@ public class UserController extends BasicController {
      * Go to server to register a new user.
      */
     public void regiterNewUser() {
+
+        if (username == null || username.isEmpty()) {
+            MessagesDispatcher.dispatchMessage("Username is required", "Error");
+            return;
+        }
+
+        if (name == null || name.isEmpty()) {
+            MessagesDispatcher.dispatchMessage("Name is required", "Error");
+            return;
+        }
+
+        if (email == null || email.isEmpty()) {
+            MessagesDispatcher.dispatchMessage("Email is required", "Error");
+            return;
+        }
+
+        if (phone == null || phone.isEmpty()) {
+            MessagesDispatcher.dispatchMessage("Phone is required", "Error");
+            return;
+        }
+
+        if (password == null || password.isEmpty()) {
+            MessagesDispatcher.dispatchMessage("Password is required", "Error");
+            return;
+        }
+
+        if (passwordConfirm == null || passwordConfirm.isEmpty()) {
+            MessagesDispatcher.dispatchMessage("Password confirmation required", "Error");
+            return;
+        }
+
+        if (password.equals(passwordConfirm) == false) {
+            MessagesDispatcher.dispatchMessage("Password and password confirme does not match", "Error");
+            return;
+        }
+
         userServices.createUser(username, password, email, name, phone);
     }
 
