@@ -6,7 +6,6 @@ import entity.Item;
 import entity.ItemCategory;
 import entity.User;
 import enums.ItemCondition;
-import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 import services.ImagesUtil;
 import services.ItemService;
@@ -59,11 +58,7 @@ public class ItemController extends BasicController {
 
     private Integer bidSum;
 
-    private String message = "";
-
     private UploadedFile uploadedFile;
-
-    private StreamedContent imageAsStream;
 
     private boolean auctionFinished;
 
@@ -71,9 +66,13 @@ public class ItemController extends BasicController {
 
     private User winner;
 
+    /**
+     * Load Item from the server
+     */
     @PostConstruct
     public void loadItemData() {
 
+        // New item
         if (currentItemId == null) {
             currentItemId = getRequestParameter("itemId");
             if (currentItemId == null || ((String) currentItemId).isEmpty()) {
@@ -81,6 +80,7 @@ public class ItemController extends BasicController {
             }
         }
 
+        // Load from server
         Item item = itemService.loadItemFromServer((String)currentItemId);
 
         this.itemName = item.getName();
@@ -105,6 +105,8 @@ public class ItemController extends BasicController {
         }
 
 
+        // Auction finished - get winner and bid data
+        // from the server
         if (auctionFinished) {
             FinishedAuctionDataDto finishedAuctionDataDto = ItemService.getFinishedAuctionData(item.getId());
 
@@ -121,6 +123,9 @@ public class ItemController extends BasicController {
         }
     }
 
+    /**
+     * Save new item
+     */
     public void postNewItem() {
 
         Item item = new Item();
@@ -214,7 +219,16 @@ public class ItemController extends BasicController {
         return true;
     }
 
+    /**
+     * Get the stepper bid step size
+     * according to current bid sum.
+     * @return
+     */
     public Integer getBidStep() {
+        if (currentBid == null) {
+            return 0;
+        }
+
         if (currentBid < 100) {
             return 5;
         }
@@ -230,6 +244,10 @@ public class ItemController extends BasicController {
         return 250;
     }
 
+    /**
+     * Should display contact buyer button or not
+     * @return ture if should display button
+     */
     public boolean isAllowContactBuyer() {
        return ownerViewsFinishedAuction;
     }

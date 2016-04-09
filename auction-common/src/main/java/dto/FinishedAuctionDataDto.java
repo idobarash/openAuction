@@ -2,6 +2,14 @@ package dto;
 
 import entity.User;
 
+/**
+ * Wrapper class for finished auction data
+ *
+ * Contains the owner of the auction and
+ * the winner of the auction.
+ *
+ * Author: Ido Barash
+ */
 public class FinishedAuctionDataDto {
 
     private User owner;

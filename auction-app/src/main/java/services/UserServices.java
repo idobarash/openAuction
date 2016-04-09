@@ -3,11 +3,14 @@ package services;
 import entity.User;
 
 import javax.faces.bean.ApplicationScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-
+/**
+ * Service class that handles all the communication with server
+ * in regard to user data.
+ *
+ * Author: Ido Barash
+ */
 @Named
 @ApplicationScoped
 public class UserServices {
@@ -32,6 +35,15 @@ public class UserServices {
         RestUtil.httpPut(USER_CREATE, Boolean.TYPE, user);
     }
 
+    /**
+     * Create a new user
+     *
+     * @param username
+     * @param password
+     * @param email
+     * @param name
+     * @param phone
+     */
     public void createUser(String username, String password, String email, String name, String phone) {
 
         try {

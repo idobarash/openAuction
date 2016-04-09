@@ -156,6 +156,13 @@ public class ItemService {
         return RestUtil.httpGet(String.format(GET_FINISHED_AUCTION_DATA_URL, itemId), FinishedAuctionDataDto.class);
     }
 
+    /**
+     * Get items from the server by a given search string.
+     * @param serachBy the search string
+     * @param pageNumber the current page
+     * @param itemsPerPage items per page
+     * @return items loaded according to the search string
+     */
     public ItemsWrapperListDto getItemsBySearchString(String serachBy, Integer pageNumber, int itemsPerPage) {
         return RestUtil.httpGet(String.format(GET_SEARCH_ITEM_URL, serachBy, pageNumber, itemsPerPage), ItemsWrapperListDto.class);
     }

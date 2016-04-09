@@ -64,7 +64,9 @@ public interface UsersRestService {
      */
     @GET
     @Path("{userId}/ongoing")
-    ItemsWrapperListDto getUserOngoingAuctions(@PathParam("userId") Integer userId, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+    ItemsWrapperListDto getUserOngoingAuctions(@PathParam("userId") Integer userId,
+                                               @QueryParam("pageNumber") int pageNumber,
+                                               @QueryParam("pageSize") int pageSize);
 
     /**
      * Retrieve a list of the ongoing auctions of a specific user of which the
@@ -78,7 +80,9 @@ public interface UsersRestService {
      */
     @GET
     @Path("{userId}/bids")
-    ItemsWrapperListDto getUserBiddedItems(@PathParam("userId") Integer userId, @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+    ItemsWrapperListDto getUserBiddedItems(@PathParam("userId") Integer userId,
+                                           @QueryParam("pageNumber") int pageNumber,
+                                           @QueryParam("pageSize") int pageSize);
 
     /**
      * Retrieve a list of the finished user auctions.
@@ -91,5 +95,7 @@ public interface UsersRestService {
      */
     @GET
     @Path("{userId}/finished")
-    ItemsWrapperListDto getUserFinishedAuctions(@PathParam("userId") Integer userId,  @QueryParam("pageNumber") int pageNumber, @QueryParam("pageSize") int pageSize);
+    ItemsWrapperListDto getUserFinishedAuctions(@PathParam("userId") Integer userId,
+                                                @QueryParam("pageNumber") int pageNumber,
+                                                @QueryParam("pageSize") int pageSize);
 }

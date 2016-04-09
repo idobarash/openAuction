@@ -56,18 +56,62 @@ public interface ItemDao extends GenericDao<Item> {
      */
     List<Item> loadUnsoldItemsOfOwner(User user, int firstResultIndex, int pageSize);
 
-
+    /**
+     * Counts all unsold items
+     * @return Long value
+     */
     Long countAllUnsoldItemsOfUser(Integer userId);
 
+    /**
+     * Load all finished items of a specific user
+     *
+     * @param user the onwer
+     * @param firstResultIndex the first result index
+     * @param pageSize the pageSize
+     * @return
+     */
     List<Item> loadFinishedItemsOfOwner(User user, int firstResultIndex, int pageSize);
 
+    /**
+     * Counts all finished items of user
+     *
+     * @return Long value
+     */
     Long countAllFinishedItemsOfUser(Integer userId);
 
+    /**
+     * Load all items that a specific user had bidded on
+     *
+     * @param user the onwer
+     * @param firstResultIndex the first result index
+     * @param pageSize the pageSize
+     * @return
+     */
     List<Item> loadBiddedItemsByUser(User user, int firstResultIndex, int pageSize);
 
+    /**
+     * Counts all items that user had participated in auction
+     * with a bid.
+     *
+     * @return Long value
+     */
     Long countAllBiddedItemsByUser(Integer userId);
 
+    /**
+     * Load items by a serch string that might occur in
+     * the name or description.
+     *
+     * @param searchBy the search string
+     * @param firstResultIndex the first result index
+     * @param pageSize the pageSize
+     * @return
+     */
     List<Item> loadByNameAndDescription(String searchBy, int firstResultIndex, int pageSize);
 
+    /**
+     * Counts all items according to search string
+     *
+     * @return Long value
+     */
     Long countSearchedItems(String searchBy);
 }

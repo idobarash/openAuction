@@ -54,6 +54,8 @@ public class ItemsListController extends BasicController {
         if (mode == null) {
             mode = getRequestParameter("mode");
         }
+
+        // Load according to mode
         if ("myOngoing".equals(mode)) {
             items = itemService.getItemsForUser(true, pageNumber, ITEMS_PER_PAGE);
         }
@@ -84,6 +86,7 @@ public class ItemsListController extends BasicController {
             }
         }
 
+        // Pagination ?
         if (items != null && items.getTotalItems() != null && items.getTotalItems() > ITEMS_PER_PAGE) {
             paginationRequired = true;
         }
@@ -105,7 +108,6 @@ public class ItemsListController extends BasicController {
             return false;
         }
 
-
         if (mode != null && "".equals(mode) == false) {
             return false;
         }
@@ -113,11 +115,17 @@ public class ItemsListController extends BasicController {
         return category == null || "".equals(category);
     }
 
+    /**
+     * Move to next page
+     */
     public void nextPage() {
         pageNumber += 1;
         NavigationUtil.navigetToItemsPage(mode, category, pageNumber);
     }
 
+    /**
+     * Move to previous page
+     */
     public void previousPage() {
 
         pageNumber = pageNumber - 1;
@@ -127,6 +135,10 @@ public class ItemsListController extends BasicController {
         NavigationUtil.navigetToItemsPage(mode, category, pageNumber);
     }
 
+    /**
+     * Display pagination icons
+     * @return
+     */
     public boolean isPaginationRequired() {
         return paginationRequired;
     }

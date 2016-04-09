@@ -1,12 +1,14 @@
 package services;
 
-import com.sun.org.apache.bcel.internal.generic.ILOAD;
-
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * Utitlity class to navigate to known URLS with parameters.
+ *
+ * Author: Ido Barash
+ */
 public class NavigationUtil {
 
     public static final String APP_ROOT_PATH = "/auction-app";
@@ -22,14 +24,30 @@ public class NavigationUtil {
         }
     }
 
+    /**
+     * Navigate to root.
+     */
     public static void navigateToRoot() {
         navigateTo(APP_ROOT_PATH);
     }
 
+    /**
+     * Navigate to items page with a pagination page.
+     * @param mode
+     * @param category
+     * @param toPage
+     */
     public static void navigetToItemsPage(String mode, String category, Integer toPage) {
         navigetToItemsPage(mode, category, toPage, null);
     }
 
+    /**
+     * Navigate to items with extra parameters.
+     * @param mode
+     * @param category
+     * @param toPage
+     * @param moreParams
+     */
     public static void navigetToItemsPage(String mode, String category, Integer toPage, Map<String,String> moreParams) {
 
         String parameters = "";

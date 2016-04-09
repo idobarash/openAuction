@@ -54,31 +54,25 @@
 								<a href="/auction-app/item?itemId=#{item.id}">
 									<h:graphicImage value="/pics/item?itemId=#{item.id}" width="320" height="150"
 													style="border-bottom: solid 1px #d4d4d4"/>
+									<c:if test="#{item.auctionFinished}">
+										<div style="position: absolute; float: inherit; top:30px;">
+											<h:graphicImage library="images" name="completed3.jpg" />
+										</div>
+									</c:if>
 								</a>
-								<c:choose>
-									<c:when test="#{item.auctionFinished}" >
-										<div class="caption">
-											<a href="/auction-app/item/finished?itemId=#{item.id}">
-												<h:graphicImage library="images" name="completed.jpg" />
-											</a>
-										</div>
-									</c:when>
-									<c:otherwise>
-										<div class="caption">
-											<c:choose>
-												<c:when test="#{item.currentBid gt 0}">
-													<h4 class="pull-right">$#{item.currentBid}</h4>
-												</c:when>
-												<c:otherwise>
-													<h4 class="pull-right">$#{item.startPrice}</h4>
-												</c:otherwise>
-											</c:choose>
-											<h4><a href="/auction-app/item?itemId=#{item.id}">#{item.name}</a>
-											</h4>
-											<p>#{item.description}.</p>
-										</div>
-									</c:otherwise>
-								</c:choose>
+
+								<div class="caption">
+									<c:choose>
+										<c:when test="#{item.currentBid gt 0}">
+											<h4 class="pull-right">$#{item.currentBid}</h4>
+										</c:when>
+										<c:otherwise>
+											<h4 class="pull-right">$#{item.startPrice}</h4>
+										</c:otherwise>
+									</c:choose>
+									<h4><a href="/auction-app/item?itemId=#{item.id}">#{item.name}</a></h4>
+									<p>#{item.description}.</p>
+								</div>
 
 								<!-- Ratings - stars -->
 

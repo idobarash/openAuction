@@ -18,6 +18,9 @@ public class SearchController extends BasicController {
 
     private String searchString;
 
+    /**
+     * Do the search
+     */
     public void search() {
         Map<String, String> parametes = new HashMap<>();
         parametes.put("searchBy", searchString);

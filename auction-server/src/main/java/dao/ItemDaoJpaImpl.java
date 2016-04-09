@@ -115,7 +115,7 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
 
     @Override
     public List<Item> loadBiddedItemsByUser(User user, int firstResultIndex, int pageSize) {
-        Query query = entityManager.createQuery("SELECT i FROM Bidding AS b JOIN b.biddingUser AS u JOIN b.item as i " +
+        Query query = entityManager.createQuery("SELECT DISTINCT i FROM Bidding AS b JOIN b.biddingUser AS u JOIN b.item as i " +
                                                 "WHERE u.id = :userId ORDER BY i.creationDate");
         query.setParameter("userId", user.getId());
         query.setFirstResult(firstResultIndex);
@@ -127,7 +127,7 @@ public class ItemDaoJpaImpl extends AbstractJpaDao<Item> implements ItemDao {
     @Override
     public Long countAllBiddedItemsByUser(Integer userId) {
 
-        Query query = entityManager.createQuery("SELECT count(i) FROM Bidding AS b JOIN b.biddingUser AS u JOIN b.item as i " +
+        Query query = entityManager.createQuery("SELECT DISTINCT count(i) FROM Bidding AS b JOIN b.biddingUser AS u JOIN b.item as i " +
                 "WHERE u.id = :userId ORDER BY i.creationDate");
 
         query.setParameter("userId", userId);

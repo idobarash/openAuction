@@ -140,7 +140,7 @@ public class ItemsBusinessService {
         // Load item and validate sums
         Item item = itemDao.read(itemId, Item.class);
         if (item.getCurrentBid() > bidSum) {
-            throw new AuctionException("You were already ouybidded!!!");
+            throw new AuctionException("You were already outbidded!!!");
         }
 
         // Load user
@@ -206,6 +206,11 @@ public class ItemsBusinessService {
         return finishedItems;
     }
 
+    /**
+     * Count finished items aucitons for user.
+     * @param userId
+     * @return
+     */
     public Long countFinishedAuctionsForUser(Integer userId) {
         return itemDao.countAllFinishedItemsOfUser(userId);
     }
@@ -223,6 +228,11 @@ public class ItemsBusinessService {
         return itemDao.loadBiddedItemsByUser(user, firstResultIndex, pageSize);
     }
 
+    /**
+     * Count all the items that a user had bidded on.
+     * @param userId
+     * @return
+     */
     public Long countItemsBiddedByUser(Integer userId) {
         return itemDao.countAllBiddedItemsByUser(userId);
     }
@@ -242,6 +252,12 @@ public class ItemsBusinessService {
         return firstResultIndex;
     }
 
+    /**
+     * Assemble finished auction item data.
+     * Get the owner user and the winning user.
+     * @param itemId the finished auction item
+     * @return FinishedAuctionDataDto
+     */
     public FinishedAuctionDataDto getFinishedAuctionItemData(Integer itemId) {
 
         // Validate
@@ -265,10 +281,24 @@ public class ItemsBusinessService {
         return new FinishedAuctionDataDto(owner, maxBid.getBiddingUser());
     }
 
+    /**
+     * Count all items that fits a search string.
+     * @param searchBy
+     * @return
+     */
     public Long countSerachedItems(String searchBy) {
         return itemDao.countSearchedItems(searchBy);
     }
 
+    /**
+     * Load items with pagination according to a given search
+     * string.
+     *
+     * @param searchBy
+     * @param pageNumber
+     * @param pageSize
+     * @return
+     */
     public List<Item> searchItems(String searchBy, int pageNumber, int pageSize) {
 
         // Calculate requested page first item index.
