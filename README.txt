@@ -31,3 +31,14 @@ Prerequisites
  	on the JEE Applicaiton server
 
 
+Compilation and packaging
+-------------------------
+If you wish to make changes you must have maven installed.
+After changing the source code, Run from auction-parent root folder: mvn clean package
+
+
+
+@ Ido Barash
+idobarash@gmail.com
+
+
