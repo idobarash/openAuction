@@ -7,7 +7,7 @@ This app contains one maven wrapper project which wraps 3 regualr maven projects
 Prerequisites
 -------------
  - Java 1.7
- - Java EE server (preferring JBoss)
+ - Java EE application server (preferring JBoss) 
  - Relational DB  (preferring MySql)
    With schema called - "auction"
 
@@ -23,6 +23,11 @@ Prerequisites
  						This will tell the server where to store images.
  						Default: /data/openu/auction/items (Linux).	
  						If you run on windows this is crucial.
- 3)
+
+ 3) Deploy the WAR File located in: auction-parent/auction-server/target 
+ 	on the JEE Applicaiton server
+
+ 4) Deploy the WAR File located in: auction-parent/auction-app/target 
+ 	on the JEE Applicaiton server
 
 

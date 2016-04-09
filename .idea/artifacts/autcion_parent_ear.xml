@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="autcion-parent:ear">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="autcion-parent-1.0-SNAPSHOT.ear">
+      <element id="artifact" artifact-name="autcion-parent:ear exploded" />
+    </root>
+  </artifact>
+</component>
