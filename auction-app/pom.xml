@@ -16,10 +16,12 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.faces</groupId>
             <artifactId>jsf-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.openu.auction</groupId>
