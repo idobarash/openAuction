@@ -14,8 +14,10 @@ import services.NavigationUtil;
 import services.SessionUtil;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -185,8 +187,12 @@ public class ItemController extends BasicController {
                loadItemData();
            } catch (Exception e) {
                e.printStackTrace();
-               message = e.getMessage();
+               FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
            }
+       } else {
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bid sum must be higher than " + currentBid));
+           FacesContext.getCurrentInstance().getPartialViewContext().getRenderIds()
+                   .add("globalMessage");
        }
     }
 
